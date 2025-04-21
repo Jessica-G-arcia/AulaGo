@@ -1,5 +1,18 @@
-<div class="container-fluid">
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+
+<div class="d-flex flex-column vh-100">
   <app-menu-superior></app-menu-superior>
-  <app-menu-lateral></app-menu-lateral>
-  <router-outlet />
+
+  <div class="d-flex flex-grow-1">
+    <app-menu-lateral></app-menu-lateral>
+
+    <div class="flex-grow-1 p-3 overflow-auto">
+      <router-outlet />
+    </div>
+
+  </div>
 </div>

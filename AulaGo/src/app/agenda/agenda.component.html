@@ -1,1 +1,74 @@
-<p>agenda works!</p>
+<div class="row">
+    <div class="col-md-3">
+      <h4 class="mb-4">Agenda - Fernanda Dias</h4>
+  
+      <div class="mt-4 mb-2">
+        <h5>Aulas de Hoje</h5>
+      </div>
+    </div>
+  
+    <div class="col-md-9 mt-5">
+      <div class="calendario-esquerdo border p-3 rounded">
+  
+        <!-- Cabeçalho com mês e navegação -->
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <button class="btn btn-light btn-sm" (click)="voltarMes()">&lt;</button>
+          <h5 class="m-0">{{ mesAtualNome }} {{ anoAtual }}</h5>
+          <button class="btn btn-light btn-sm" (click)="avancarMes()">&gt;</button>
+        </div>
+  
+        <!-- Botões de visualização -->
+        <div class="btn-group mb-3" role="group">
+          <button class="btn btn-outline-primary btn-sm" [class.active]="visualizacao === 'dia'" (click)="mudarVisualizacao('dia')">Dia</button>
+          <button class="btn btn-outline-primary btn-sm" [class.active]="visualizacao === 'semana'" (click)="mudarVisualizacao('semana')">Semana</button>
+          <button class="btn btn-outline-primary btn-sm" [class.active]="visualizacao === 'mes'" (click)="mudarVisualizacao('mes')">Mês</button>
+        </div>
+  
+        <!-- VISUALIZAÇÃO MENSAL -->
+        <div *ngIf="visualizacao === 'mes'">
+          <table class="table table-bordered text-center">
+            <thead class="table-light">
+              <tr>
+                <th>DOM</th>
+                <th>SEG</th>
+                <th>TER</th>
+                <th>QUA</th>
+                <th>QUI</th>
+                <th>SEX</th>
+                <th>SAB</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let semana of calendario">
+                <td *ngFor="let dia of semana">
+                  <button
+                    class="btn btn-sm w-100"
+                    [ngClass]="{
+                      'invisible': !dia,
+                      'active': dia === diaSelecionado
+                    }"
+                    (click)="selecionarDia(dia)"
+                    [disabled]="!dia"
+                  >
+                    {{ dia }}
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- VISUALIZAÇÃO SEMANAL -->
+        <div *ngIf="visualizacao === 'semana'">
+          <p class="text-muted">Visualização semanal (em construção)</p>
+        </div>
+  
+        <!-- VISUALIZAÇÃO DIÁRIA -->
+        <div *ngIf="visualizacao === 'dia'">
+          <p class="text-muted">Visualização diária (em construção)</p>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  
