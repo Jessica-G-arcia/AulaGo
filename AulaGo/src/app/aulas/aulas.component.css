@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.aulas-container {
+  padding: 20px;
+}
+
+.text {
+  font-family: 'montserrat', sans-serif;
+}
+
+.text-secundary {
+  font-family: 'montserrat', sans-serif;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background-color: #8ECAE6;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'montserrat', sans-serif;
+}
+
+.tab.active {
+  background-color: #8ECAE6;
+  font-family: 'montserrat', sans-serif;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* duas colunas */
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  margin-bottom: 10px;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: white;
+  width: 100%;   
+  font-family: 'montserrat', sans-serif;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 10px;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.stars {
+  color: gold;
+  font-size: 18px;
+  margin: 0;
+}
+
+.date {
+  font-size: 14px;
+  color: #333;
+}
