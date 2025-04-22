@@ -2,42 +2,47 @@
 
 .aulas-container {
   padding: 20px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.text {
+.aulas-topo {
+  display: flex;
+  align-items: flex-start; /* alinha tudo no topo */
+  gap: 40px;
   font-family: 'montserrat', sans-serif;
 }
 
-.text-secundary {
-  font-family: 'montserrat', sans-serif;
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 100px; 
+  max-width: 150px;
 }
 
 .tabs {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .tab {
   background-color: #8ECAE6;
   border: none;
-  padding: 10px 40px;
+  padding: 10px 30px;
   border-radius: 20px;
   cursor: pointer;
-  font-family: 'montserrat', sans-serif;
-}
-
-.tab.active {
-  background-color: #8ECAE6;
   font-family: 'montserrat', sans-serif;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* duas colunas */
-  gap: 20px;
-  width: 100%;
   max-width: 800px;
+  gap: 10px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -48,7 +53,6 @@
   border: 1px solid black;
   border-radius: 15px;
   background-color: white;
-  width: 100%;   
   font-family: 'montserrat', sans-serif;
 }
 
@@ -74,12 +78,14 @@
 }
 
 .stars {
-  color: gold;
+  color: #FFB703;
   font-size: 18px;
+  line-height: 10px;
   margin: 0;
 }
 
 .date {
   font-size: 14px;
   color: #333;
+  line-height: 5px;
 }

@@ -1,29 +1,34 @@
 <div class="aulas-container">
-    <p class="text">Aulas: </p>
-
-    <div class="tabs">
-        <button class="tab active">Concluídas</button>
-    </div>
-    <div class="tabs">
-        <button class="tab">Agendadas</button>
-    </div>
-
-    <p class="text">Concluídas </p>
-    
-    <div class="card-grid">
-        <div class="card" *ngFor="let aula of aulasConcluidas">
-            <div class="card-content">
-                <div class="card-info">
-                    <p>Professor: {{ aula.professor }}</p>
-                    <p>{{ aula.local }}</p>
-                    <p>{{ aula.horario }} - Online</p>
-                    <p>{{ aula.idioma }}</p>
-                </div>
-                <div class="card-right">
-                    <p class="stars">★★★★★</p>
-                    <p class="date">{{ aula.data }}</p>
-                </div>
-            </div>
+    <div class="aulas-topo">
+      <div class="tabs-container">
+        <p class="text">Aulas:</p>
+        <div class="tabs">
+          <button class="tab active">Concluídas</button>
         </div>
+        <div class="tabs">
+            <button class="tab">Agendadas</button>
+        </div>
+      </div>
+  
+      <div class="cards-container">
+        <p class="text">Concluídas</p>
+        <div class="card-grid">
+          <div class="card" *ngFor="let aula of aulasConcluidas">
+            <div class="card-content">
+              <div class="card-info">
+                <p>Professor: {{ aula.professor }}</p>
+                <p>{{ aula.local }}</p>
+                <p>{{ aula.horario }} - Online</p>
+                <p>{{ aula.idioma }}</p>
+              </div>
+              <div class="card-right">
+                <p class="stars">★★★★★</p>
+                <p class="date">{{ aula.data }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  
