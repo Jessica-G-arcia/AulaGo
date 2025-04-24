@@ -1,5 +1,16 @@
 <div class="container-fluid">
-  <app-menu-superior></app-menu-superior>
-  <app-menu-lateral></app-menu-lateral>
-  <router-outlet />
+  <div class="d-flex flex-column vh-100">
+    <app-menu-superior></app-menu-superior>
+
+
+    <div class="d-flex flex-grow-1">
+      <app-menu-lateral></app-menu-lateral>
+
+
+      <div class="flex-grow-1 p-3 overflow-auto">
+        <router-outlet />
+      </div>
+
+    </div>
+  </div>
 </div>
