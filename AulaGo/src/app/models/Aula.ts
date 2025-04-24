@@ -3,6 +3,6 @@ export interface Aula {
     dataInicio: Date,
     dataFim: Date,
     aluno: String,
-    modalidade: String,
+    modalidade: 'Presencial' | 'Online',
     idioma: String
 }
