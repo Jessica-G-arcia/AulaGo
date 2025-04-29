@@ -10,7 +10,7 @@ import { PerfilAlunoComponent } from './perfil-aluno/perfil-aluno.component';
 import { PerfilProfessorComponent } from './perfil-professor/perfil-professor.component';
 import { AulasComponent } from './aulas/aulas.component';
 import { AgendaComponent } from './agenda/agenda.component';
-import { HomeProfessorComponent } from './home-professor/home-professor.component';
+import { ProfessorHomeComponent } from './professor-home/professor-home.component';
 import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
 
 export const routes: Routes = [
@@ -27,7 +27,7 @@ export const routes: Routes = [
     {path: 'pagamento', component: PagamentoComponent},
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
-    {path: 'home-professor', component: HomeProfessorComponent},
+    {path: 'home-professor', component: ProfessorHomeComponent},
     // {path: '**', component: }, 
 
 
