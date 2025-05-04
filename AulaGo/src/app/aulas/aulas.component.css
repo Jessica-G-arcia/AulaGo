@@ -9,17 +9,19 @@
 
 .aulas-topo {
   display: flex;
-  align-items: flex-start; /* alinha tudo no topo */
-  gap: 40px;
   font-family: 'montserrat', sans-serif;
+}
+
+.main-content {
+  flex: 1; /* Ocupa o resto do espaço disponível */
+  display: flex;
+  flex-direction: column;
 }
 
 .tabs-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-width: 100px; 
-  max-width: 150px;
 }
 
 .tabs {
@@ -31,27 +33,42 @@
 .tab {
   background-color: #8ECAE6;
   border: none;
-  padding: 10px 30px;
+  padding: 10px 50px;
   border-radius: 20px;
   cursor: pointer;
   font-family: 'montserrat', sans-serif;
 }
 
+.title{
+  padding-left: 20px;
+}
+
+.title-section {
+  margin-bottom: 10px;
+  margin: 0;
+  padding-left: 30px;
+}
+
+
+.cards-container {
+  width: 100%;
+  margin-left: 30px;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* duas colunas */
-  max-width: 800px;
-  gap: 10px;
-  width: 100%;
-  margin: 0 auto;
+  max-width: 920px;
+  gap: 15px;
 }
 
 .card {
-  margin-bottom: 10px;
+  max-height: 120px;
+  margin-top: 10px;
   justify-content: space-between;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid black;
-  border-radius: 15px;
+  border-radius: 8px;
   background-color: white;
   font-family: 'montserrat', sans-serif;
 }

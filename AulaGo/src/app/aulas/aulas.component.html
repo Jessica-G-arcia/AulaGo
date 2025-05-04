@@ -1,24 +1,56 @@
 <div class="aulas-container">
-    <div class="aulas-topo">
+  <div class="aulas-topo">
       <div class="tabs-container">
-        <p class="text">Aulas:</p>
+        <p class="title">Aulas:</p>
         <div class="tabs">
-          <button class="tab active">Concluídas</button>
+          <button 
+            class="tab" 
+            [ngClass]="{'active': isAbaAtiva('concluidas')}" 
+            (click)="mudarAba('concluidas')">
+            Concluídas
+          </button>
         </div>
         <div class="tabs">
-            <button class="tab">Agendadas</button>
+          <button 
+            class="tab" 
+            [ngClass]="{'active': isAbaAtiva('agendadas')}" 
+            (click)="mudarAba('agendadas')">
+            Agendadas
+          </button>
         </div>
       </div>
-  
+    
+    <div class="main-content">
+      <div class="title-section">
+        <p>{{ abaAtiva === 'concluidas' ? 'Concluídas' : 'Agendadas' }}</p>
+      </div>
       <div class="cards-container">
-        <p class="text">Concluídas</p>
-        <div class="card-grid">
+        <!-- aulas concluídas -->
+        <div class="card-grid" *ngIf="abaAtiva === 'concluidas'">
           <div class="card" *ngFor="let aula of aulasConcluidas">
             <div class="card-content">
               <div class="card-info">
                 <p>Professor: {{ aula.professor }}</p>
                 <p>{{ aula.local }}</p>
-                <p>{{ aula.horario }} - Online</p>
+                <p>{{ aula.horario }} - {{ aula.modalidade }}</p>
+                <p>{{ aula.idioma }}</p>
+              </div>
+              <div class="card-right">
+                <p class="stars">★★★★★</p>
+                <p class="date">{{ aula.data }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- aulas agendadas -->
+        <div class="card-grid" *ngIf="abaAtiva === 'agendadas'">
+          <div class="card" *ngFor="let aula of aulasAgendadas">
+            <div class="card-content">
+              <div class="card-info">
+                <p>Professor: {{ aula.professor }}</p>
+                <p>{{ aula.local }}</p>
+                <p>{{ aula.horario }} - {{ aula.modalidade }}</p>
                 <p>{{ aula.idioma }}</p>
               </div>
               <div class="card-right">
@@ -31,4 +63,4 @@
       </div>
     </div>
   </div>
-  
+</div>
