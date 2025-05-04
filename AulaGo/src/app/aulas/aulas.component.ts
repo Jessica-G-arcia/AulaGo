@@ -20,7 +20,8 @@ export class AulasComponent {
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
       data: '29/03/2025',
-      modalidade: 'Online'
+      modalidade: 'Online',
+      avaliacao: 4
     },
     {
       professor: 'Alana Vaz',
@@ -28,7 +29,8 @@ export class AulasComponent {
       horario: '6:00 ás 7:00',
       idioma: 'Inglês',
       data: '24/03/2025',
-      modalidade: 'Presencial'
+      modalidade: 'Presencial',
+      avaliacao: 5
     },
     {
       professor: 'Katia Leone',
@@ -36,7 +38,8 @@ export class AulasComponent {
       horario: '13:00 ás 14:00',
       idioma: 'Inglês',
       data: '27/03/2025',
-      modalidade: 'Presencial'
+      modalidade: 'Presencial',
+      avaliacao: 4
     },
     {
       professor: 'Gisele Silva',
@@ -44,7 +47,8 @@ export class AulasComponent {
       horario: '7:00 ás 8:00',
       idioma: 'Espanhol',
       data: '27/03/2025',
-      modalidade: 'Online'
+      modalidade: 'Online',
+      avaliacao: 5
     },
     {
       professor: 'Marcos Paulo',
@@ -52,7 +56,8 @@ export class AulasComponent {
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
       data: '05/04/2025',
-      modalidade: 'Presencial'
+      modalidade: 'Presencial',
+      avaliacao: 2
     },
     {
       professor: 'Felipe Ferraz',
@@ -60,7 +65,8 @@ export class AulasComponent {
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
       data: '10/05/2025',
-      modalidade: 'Online'
+      modalidade: 'Online',
+      avaliacao: 4
     },
   ];
 
@@ -140,5 +146,16 @@ export class AulasComponent {
   // método para verificar se uma aba esta ativa
   isAbaAtiva(aba: 'concluidas' | 'agendadas'): boolean {
     return this.abaAtiva === aba;
+  }
+  // método para gerar um array de estrelas com base na avaliação
+  getEstrelas(avaliacao: number): number[] {
+    return Array(5).fill(0).map((_, i) => i < (avaliacao || 0) ? 1 : 0);
+  }
+
+  // método que permite o usuário avaliar uma aula (concluídas)
+  avaliarAula(aula: any, nota: number): void {
+    if (this.abaAtiva === 'concluidas') {
+      aula.avaliacao = nota;
+    }
   }
 }
