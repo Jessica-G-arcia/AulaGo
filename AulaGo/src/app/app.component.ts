@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component} from '@angular/core';
+import { RouterOutlet, NavigationEnd, Router} from '@angular/router';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
+
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,5 @@ import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 })
 export class AppComponent {
   title = 'AulaGo';
+  
 }
