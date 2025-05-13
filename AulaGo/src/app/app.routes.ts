@@ -12,11 +12,13 @@ import { AulasComponent } from './aulas/aulas.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ProfessorHomeComponent } from './professor-home/professor-home.component';
 import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
+import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
     {path: 'aulas', component: AulasComponent},
+    {path: 'aulas-professor', component: AluasProfessorComponent},
     {path: 'agenda', component: AgendaComponent},
     {path: 'explorar', component: ExplorarComponent},
     {path: 'cadastro', component: CadastroComponent},
