@@ -1,0 +1,410 @@
+/* Importação de Fonte (Exemplo: Roboto do Google Fonts) */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); */
+
+/* Estilos Globais e Reset Básico */
+:host {
+    display: block;
+    font-family: 'Roboto', sans-serif; /* Ou sua fonte preferida */
+    background-color: #ffffff; /* Fundo branco para a tela principal */
+    color: #333;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Principal e Conteúdo */
+  .explorar-container {
+    /* Mantendo fluido por enquanto, conforme último pedido */
+    padding: 0 1.5rem;
+    margin: 1.5rem auto;
+    position: relative; /* Necessário para o overlay funcionar bem */
+    overflow-x: hidden; /* Impede scroll horizontal causado pela sidebar */
+  }
+  
+  .main-content-area {
+    width: 100%;
+    transition: margin-right 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* Opcional: transição se for empurrar conteúdo */
+  }
+  
+  .content-body {
+    padding: 0; /* Padding agora está no explorar-container */
+    width: 100%;
+  }
+  
+  /* Tipografia */
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #6c757d;
+  }
+  
+  /* Header: Busca e Filtros (Mantido da versão anterior) */
+  .search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    flex-grow: 1;
+    min-width: 250px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+  }
+  
+  .search-input-wrapper .icon-search {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-right: 0.75rem;
+  }
+  
+  .search-input-wrapper input[type="text"] {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #495057;
+    width: 100%;
+  }
+  .search-input-wrapper input[type="text"]::placeholder {
+    color: #adb5bd;
+  }
+  
+  .filter-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .filter-button:hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  }
+  
+  .filter-button .icon-filter {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  /* Título do Resultado (Mantido) */
+  .search-title h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.8rem;
+    text-align: left; /* Título dos resultados geralmente alinhado à esquerda */
+  }
+  
+  /* Grid de Resultados (Mantido) */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.8rem;
+  }
+  
+  /* Card do Aluno (Mantido) */
+  .student-card {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .student-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f1f3f5;
+    padding-bottom: 1rem;
+  }
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+  .name-age { flex-grow: 1; }
+  .name-age h3 { font-size: 1.15rem; font-weight: 700; color: #212529; margin: 0; }
+  .rating { flex-shrink: 0; font-size: 1.1rem; }
+  .rating .star { color: #e0e0e0; margin-left: 2px; }
+  .rating .star.filled { color: #ffc107; }
+  .card-details { font-size: 0.9rem; color: #6c757d; flex-grow: 1; margin-bottom: 1.5rem; }
+  .card-details p { margin-bottom: 0.5rem; line-height: 1.5; }
+  .card-details p strong { color: #495057; font-weight: 600; margin-right: 0.3em; }
+  .card-footer { text-align: right; }
+  .conferir-button { background-color: #ff9800; color: white; border: none; border-radius: 20px; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
+  .conferir-button:hover { background-color: #fb8c00; }
+  .conferir-button:active { transform: scale(0.98); }
+  .no-results { text-align: center; padding: 3rem 1rem; color: #6c757d; font-style: italic; }
+  
+  
+  /* ======================================================== */
+  /* === ESTILOS REFINADOS PARA O FILTRO SIDEBAR === */
+  /* ======================================================== */
+  
+  .filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 37, 41, 0.5); /* Fundo escuro mais sutil */
+    z-index: 1040; /* Bootstrap modal backdrop z-index é 1040 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s linear, visibility 0.25s linear;
+  }
+  
+  .filters-visible .filter-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .filter-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 340px; /* Largura ligeiramente maior */
+    max-width: 95%;
+    height: 100%;
+    background-color: #ffffff; /* Fundo branco */
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15); /* Sombra mais definida */
+    z-index: 1045; /* Acima do overlay */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filters-visible .filter-sidebar {
+    transform: translateX(0);
+  }
+  
+  .filter-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Empurra itens para as pontas */
+    padding: 0.8rem 1.2rem; /* Padding ajustado */
+    border-bottom: 1px solid #dee2e6; /* Borda padrão */
+    flex-shrink: 0;
+    min-height: 56px; /* Altura mínima similar a headers */
+  }
+  
+  .filter-sidebar-header h3 {
+    margin: 0;
+    font-size: 1.1rem; /* Tamanho do título "Filtros" */
+    font-weight: 600;
+    color: #343a40;
+    /* Removido margin auto e border/padding herdado */
+    border-bottom: none;
+    padding-bottom: 0;
+    text-align: center; /* Centraliza se sobrar espaço */
+    flex-grow: 1; /* Ocupa espaço para centralizar melhor */
+    margin-left: 2.5rem; /* Compensa o espaço do botão de fechar */
+  }
+  
+  .filter-sidebar-header .icon-filter {
+    font-size: 1.1rem;
+    color: #6c757d;
+  }
+  
+  .close-filter-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem; /* Chevron um pouco maior */
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s ease;
+    width: 30px; /* Largura fixa para alinhar título */
+    text-align: left;
+  }
+  .close-filter-button:hover {
+    color: #000;
+  }
+  
+  .filter-sidebar-content {
+    padding: 1.5rem 1.5rem 1rem 1.5rem; /* Padding interno do conteúdo */
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
+  .filter-group {
+    margin-bottom: 1.6rem; /* Espaço entre grupos de filtros */
+  }
+  .filter-group:last-child {
+    margin-bottom: 0.5rem; /* Menos espaço no último grupo antes do footer */
+  }
+  
+  .filter-group h4 {
+    font-size: 0.95rem; /* Título do grupo menor */
+    font-weight: 700; /* Mais forte */
+    color: #495057;
+    margin-bottom: 1rem; /* Mais espaço abaixo do título do grupo */
+    text-transform: uppercase; /* Caixa alta como na imagem */
+    letter-spacing: 0.5px; /* Espaçamento leve */
+  }
+  
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* Espaço vertical entre checkboxes */
+  }
+  
+  /* Layout para Label à esquerda, Checkbox à direita */
+  .filter-option {
+    display: flex;
+    justify-content: space-between; /* <<< Chave para alinhar checkbox à direita */
+    align-items: center;
+    cursor: pointer;
+    padding: 0.2rem 0; /* Pequeno padding vertical */
+  }
+  
+  .filter-option label {
+    font-size: 0.95rem;
+    color: #343a40;
+    cursor: pointer;
+    user-select: none;
+    padding-right: 1rem; /* Espaço entre label e checkbox */
+  }
+  
+  .filter-option input[type="checkbox"] {
+    width: 18px; /* Tamanho do checkbox */
+    height: 18px;
+    accent-color: #0d6efd; /* Azul bootstrap como exemplo, ajuste se necessário */
+    cursor: pointer;
+    flex-shrink: 0; /* Impede que o checkbox encolha */
+    margin: 0; /* Remove margem padrão */
+  }
+  
+  /* Estilo das estrelas de avaliação */
+  .rating-filter {
+    display: flex;
+    gap: 6px; /* Espaço entre estrelas */
+    font-size: 1.6rem; /* Estrelas maiores */
+  }
+  .rating-filter .star {
+    color: #ced4da; /* Cinza claro para estrela vazia */
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.1s ease;
+  }
+  .rating-filter .star:hover {
+    transform: scale(1.1);
+  }
+  .rating-filter .star.filled {
+    color: #ffc107; /* Amarelo padrão */
+  }
+  
+  
+  .filter-sidebar-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #dee2e6;
+    background-color: #fff; /* Fundo branco */
+    flex-shrink: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* Sombra sutil acima */
+  }
+  
+  .apply-filters-button {
+    width: 100%;
+    padding: 0.75rem; /* Padding do botão aplicar */
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Raio de borda consistente */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+  }
+  
+  .apply-filters-button:hover {
+    background-color: #fb8c00;
+  }
+  
+  
+  /* Responsividade do Filtro (mantida e ajustada) */
+  @media (max-width: 768px) {
+      /* Estilos gerais responsivos mantidos */
+      .explorar-container { padding: 0 1rem; margin: 1rem auto; }
+      .results-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+      .search-title h2 { font-size: 1.3rem; }
+      .student-card { padding: 1.2rem; }
+  
+      /* Ajuste do filtro */
+      .filter-sidebar { width: 300px; } /* Reduz um pouco */
+  }
+  
+  @media (max-width: 480px) {
+      /* Estilos gerais responsivos mantidos */
+      .search-header { flex-direction: column; align-items: stretch; }
+      .filter-button { justify-content: center; }
+      .results-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .profile-pic { width: 50px; height: 50px; }
+      .name-age h3 { font-size: 1.05rem; }
+      .card-details { font-size: 0.85rem; }
+      .conferir-button { padding: 0.5rem 1.2rem; width: 100%; margin-top: 0.5rem; }
+      .card-footer { text-align: center; }
+  
+      /* Ajuste do filtro */
+      .filter-sidebar { width: 90%; max-width: 300px; } /* Ocupa mais tela, mas limitado */
+      .filter-sidebar-header h3 { font-size: 1rem; margin-left: 2rem; }
+      .filter-option label { font-size: 0.9rem; padding-right: 0.5rem;}
+      .filter-option input[type="checkbox"] { width: 16px; height: 16px;}
+      .rating-filter { font-size: 1.4rem; }
+      .apply-filters-button { padding: 0.7rem; }
+  }
