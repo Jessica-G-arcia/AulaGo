@@ -13,7 +13,7 @@
 }
 
 .main-content {
-  flex: 1; /* Ocupa o resto do espaço disponível */
+  flex: 1; /* ocupa o resto do espaço disponível */
   display: flex;
   flex-direction: column;
 }
@@ -57,7 +57,7 @@
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* duas colunas */
+  grid-template-columns: repeat(2, 1fr); /* grid para duas colunas */
   max-width: 920px;
   gap: 15px;
 }
@@ -113,7 +113,7 @@
 
 .star-empty {
   color: white;
-  -webkit-text-stroke: 1.5px #FFB703; /* Contorno amarelo para navegadores webkit */
+  -webkit-text-stroke: 1.5px #FFB703; /* contorno amarelo para navegadores webkit */
   text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
 }
 

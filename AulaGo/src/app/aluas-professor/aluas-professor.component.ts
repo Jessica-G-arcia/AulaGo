@@ -2,20 +2,19 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-aulas',
-  standalone: true,
+  selector: 'app-aluas-professor',
   imports: [CommonModule],
-  templateUrl: './aulas.component.html',
-  styleUrl: './aulas.component.css'
+  templateUrl: './aluas-professor.component.html',
+  styleUrl: './aluas-professor.component.css'
 })
-export class AulasComponent {
+export class AluasProfessorComponent {
   // prop. para controlar qual tipo de aulas estão sendo exibidas
   abaAtiva: 'concluidas' | 'agendadas' = 'concluidas';
 
   // aulas concluídas 
   aulasConcluidas = [
     {
-      professor: 'João Pedro',
+      aluno: 'João Pedro',
       local: 'Sorocaba - SP',
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
@@ -24,7 +23,7 @@ export class AulasComponent {
       avaliacao: 4
     },
     {
-      professor: 'Alana Vaz',
+      aluno: 'Alana Vaz',
       local: 'Sorocaba - SP',
       horario: '6:00 ás 7:00',
       idioma: 'Inglês',
@@ -33,7 +32,7 @@ export class AulasComponent {
       avaliacao: 5
     },
     {
-      professor: 'Katia Leone',
+      aluno: 'Katia Leone',
       local: 'Sorocaba - SP',
       horario: '13:00 ás 14:00',
       idioma: 'Inglês',
@@ -42,7 +41,7 @@ export class AulasComponent {
       avaliacao: 4
     },
     {
-      professor: 'Gisele Silva',
+      aluno: 'Gisele Silva',
       local: 'Sorocaba - SP',
       horario: '7:00 ás 8:00',
       idioma: 'Espanhol',
@@ -51,7 +50,7 @@ export class AulasComponent {
       avaliacao: 5
     },
     {
-      professor: 'Marcos Paulo',
+      aluno: 'Marcos Paulo',
       local: 'Sorocaba - SP',
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
@@ -60,7 +59,7 @@ export class AulasComponent {
       avaliacao: 2
     },
     {
-      professor: 'Felipe Ferraz',
+      aluno: 'Felipe Ferraz',
       local: 'Sorocaba - SP',
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
@@ -73,7 +72,7 @@ export class AulasComponent {
   // novo array para aulas agendadas
   aulasAgendadas = [
     {
-      professor: 'Fernanda Dias',
+      aluno: 'Fernanda Dias',
       local: 'Sorocaba - SP',
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
@@ -81,7 +80,7 @@ export class AulasComponent {
       modalidade: 'Online'
     },
     {
-      professor: 'João Pedro',
+      aluno: 'João Pedro',
       local: 'Sorocaba - SP',
       horario: '8:00 ás 9:00',
       idioma: 'Inglês',
@@ -89,7 +88,7 @@ export class AulasComponent {
       modalidade: 'Online'
     },
     {
-      professor: 'Katia Leone',
+      aluno: 'Katia Leone',
       local: 'Sorocaba - SP',
       horario: '10:00 ás 11:00',
       idioma: 'Inglês',
@@ -97,7 +96,7 @@ export class AulasComponent {
       modalidade: 'Online'
     },
     {
-      professor: 'Gabriel Dias',
+      aluno: 'Gabriel Dias',
       local: 'Sorocaba - SP',
       horario: '14:00 ás 15:00',
       idioma: 'Inglês',
@@ -105,7 +104,7 @@ export class AulasComponent {
       modalidade: 'Online'
     },
     {
-      professor: 'Marcos Paulo',
+      aluno: 'Marcos Paulo',
       local: 'Sorocaba - SP',
       horario: '9:00 ás 10:00',
       idioma: 'Inglês',
@@ -113,7 +112,7 @@ export class AulasComponent {
       modalidade: 'Online'
     },
     {
-      professor: 'Felipe Ferraz',
+      aluno: 'Felipe Ferraz',
       local: 'Sorocaba - SP',
       horario: '13:00 ás 14:00',
       idioma: 'Inglês',
@@ -121,7 +120,7 @@ export class AulasComponent {
       modalidade: 'Online'
     },
     {
-      professor: 'Alana Vaz',
+      aluno: 'Alana Vaz',
       local: 'Sorocaba - SP',
       horario: '6:00 ás 7:00',
       idioma: 'Inglês',
@@ -129,7 +128,7 @@ export class AulasComponent {
       modalidade: 'Online'
     },
     {
-      professor: 'Igor Rodrigo',
+      aluno: 'Igor Rodrigo',
       local: 'Sorocaba - SP',
       horario: '7:00 ás 8:00',
       idioma: 'Inglês',

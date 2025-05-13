@@ -1,1 +1,68 @@
-<p>aulas works!</p>
+<div class="aulas-container">
+  <div class="aulas-topo">
+    <div class="tabs-container">
+      <p class="title">Aulas:</p>
+      <div class="tabs">
+        <button class="tab" [ngClass]="{'active': isAbaAtiva('concluidas')}" (click)="mudarAba('concluidas')">
+          Concluídas
+        </button>
+      </div>
+      <div class="tabs">
+        <button class="tab" [ngClass]="{'active': isAbaAtiva('agendadas')}" (click)="mudarAba('agendadas')">
+          Agendadas
+        </button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="title-section">
+        <p>{{ abaAtiva === 'concluidas' ? 'Concluídas' : 'Agendadas' }}</p>
+      </div>
+      <div class="cards-container">
+        <!-- aulas concluídas -->
+        <div class="card-grid" *ngIf="abaAtiva === 'concluidas'">
+          <div class="card" *ngFor="let aula of aulasConcluidas">
+            <div class="card-content">
+              <div class="card-info">
+                <p>Professor: {{ aula.professor }}</p>
+                <p>{{ aula.local }}</p>
+                <p>{{ aula.horario }} - {{ aula.modalidade }}</p>
+                <p>{{ aula.idioma }}</p>
+              </div>
+              <div class="card-right">
+                <div class="stars-container">
+                  <span *ngFor="let estrela of getEstrelas(aula.avaliacao); let i = index" class="star"
+                    [ngClass]="{'star-filled': estrela === 1, 'star-empty': estrela === 0}"
+                    (click)="avaliarAula(aula, i+1)">
+                    ★
+                  </span>
+                </div>
+                <p class="date">{{ aula.data }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- aulas agendadas -->
+        <div class="card-grid" *ngIf="abaAtiva === 'agendadas'">
+          <div class="card" *ngFor="let aula of aulasAgendadas">
+            <div class="card-content">
+              <div class="card-info">
+                <p>Professor: {{ aula.professor }}</p>
+                <p>{{ aula.local }}</p>
+                <p>{{ aula.horario }} - {{ aula.modalidade }}</p>
+                <p>{{ aula.idioma }}</p>
+              </div>
+              <div class="card-right">
+                <div class="star-container">
+                  <span *ngFor="let i of [1,2,3,4,5]" class="star star-empty">★</span>
+                </div>
+                <p class="date">{{ aula.data }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
