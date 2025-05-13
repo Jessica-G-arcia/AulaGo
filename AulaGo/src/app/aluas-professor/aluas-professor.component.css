@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.aulas-container {
+  padding: 20px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aulas-topo {
+  display: flex;
+  font-family: 'montserrat', sans-serif;
+}
+
+.main-content {
+  flex: 1; /* ocupa o resto do espaço disponível */
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tab {
+  background-color: #8ECAE6;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'montserrat', sans-serif;
+}
+
+.title{
+  padding-left: 20px;
+}
+
+.title-section {
+  margin-bottom: 10px;
+  margin: 0;
+  padding-left: 30px;
+}
+
+
+.cards-container {
+  width: 100%;
+  margin-left: 30px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* grid para duas colunas */
+  max-width: 920px;
+  gap: 15px;
+}
+
+.card {
+  max-height: 120px;
+  margin-top: 10px;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: white;
+  font-family: 'montserrat', sans-serif;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 10px;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.stars-container {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.star {
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 2px;
+}
+
+.star-filled {
+  color: #FFB703;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+}
+
+.star-empty {
+  color: white;
+  -webkit-text-stroke: 1.5px #FFB703; /* contorno amarelo para navegadores webkit */
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* .star:hover {
+  transform: scale(1.2);
+} */
+
+.stars {
+  display: none;
+}
+
+.date {
+  font-size: 14px;
+  color: #333;
+  line-height: 5px;
+}

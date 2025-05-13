@@ -11,11 +11,13 @@ import { PerfilAlunoComponent } from './perfil-aluno/perfil-aluno.component';
 import { PerfilProfessorComponent } from './perfil-professor/perfil-professor.component';
 import { AulasComponent } from './aulas/aulas.component';
 import { AgendaComponent } from './agenda/agenda.component';
+import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
     {path: 'aulas', component: AulasComponent},
+    {path: 'aulas-professor', component: AluasProfessorComponent},
     {path: 'agenda', component: AgendaComponent},
     {path: 'explorar', component: ExplorarComponent},
     {path: 'cadastro', component: CadastroComponent},
