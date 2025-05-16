@@ -1,18 +1,16 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
-  selector: 'app-continuar-cadastro',
-  imports: [ReactiveFormsModule, CommonModule, RouterModule],
-  templateUrl: './continuar-cadastro.component.html',
-  styleUrl: './continuar-cadastro.component.css'
+  selector: 'app-professor-continuar-cadastro',
+  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule],
+  templateUrl: './professor-continuar-cadastro.component.html',
+  styleUrl: './professor-continuar-cadastro.component.css'
 })
-export class ContinuarCadastroComponent implements OnInit {
-
+export class ProfessorContinuarCadastroComponent implements OnInit{
   form!: FormGroup;
 
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -82,6 +80,8 @@ export class ContinuarCadastroComponent implements OnInit {
       bio: new FormControl('', [Validators.required]),
       disponibilidade: new FormControl('', [Validators.required]),
       periodo: new FormControl('', [Validators.required]),
+      valor: new FormControl('', [Validators.required]),
+      valoronline: new FormControl('', [Validators.required]),
     })
   }
 
@@ -113,3 +113,6 @@ export class ContinuarCadastroComponent implements OnInit {
   
 
 }
+
+
+

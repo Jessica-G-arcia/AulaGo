@@ -1,24 +1,23 @@
-<div class="container w-75 align-items-center bg-light p-4">
-    <!-- <div class="bd-example border-1 rounded-3 shadow-sm p-3 mb-5 bg-body-tertiary"> -->
+<div class="container align-items-center bg-light p-4">
     <h3 class="text-center">CADASTRO</h3>
-    <p class="text-start">Preencha os campos abaixo para realizar o cadastro.</p>
+    <p class="text-start=">Preencha os campos abaixo para realizar o cadastro.</p>
     <form [formGroup]="form" class="row g-3 needs-validation" novalidate="">
         <div class="row g-2 mx-lg-5">
 
-            <div class="col-md-6 needs-validation was-validated">
+            <div class="col-md-6 needs-validation">
                 <label for="cpf" class="form-label">Nome Completo</label>
                 <input type="text" class="form-control" id="nome" formControlName="nome"
                     placeholder="Digite seu nome completo" required>
                 <div *ngIf="form.get('nome')?.invalid && (form.get('nome')?.dirty || form.get('nome')?.touched)"
                     class="text-danger">
 
-                    <div *ngIf="form.get('cpf')?.errors?.['required']">
+                    <div *ngIf="form.get('nome')?.errors?.['required']">
                         Por favor, digite um nome válido.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 needs-validation was-validated">
+            <div class="col-md-4 needs-validation">
                 <label for="cpf" class="form-label">CPF</label>
                 <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="000.000.000-00"
                     mask="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
@@ -32,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 needs-validation was-validated">
+            <div class="col-md-3 needs-validation">
                 <label for="telefone" class="form-label">Telefone</label>
                 <input type="text" class="form-control" id="telefone" formControlName="telefone" placeholder="(  )"
                     mask="(00) 00000-0000" required>
@@ -44,52 +43,56 @@
                 </div>
             </div>
 
-            <div class="col-sm-1">
-                <label for="dia" class="form-label">Dia</label>
-                <select type="text" class="form-control" id="dia" formControlName="dia" required>
-                    <option value="">dia</option>
-                    <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
-                </select>
-                <div *ngIf="form.get('dia')?.invalid && (form.get('dia')?.dirty || form.get('dia')?.touched)"
-                    class="text-danger">
-                    <div *ngIf="form.get('dia')?.errors?.['required']">
-                        Por favor, selecione o dia.
+            <div class="col-md-5">
+                <label class="form-label">Data de Nascimento</label>
+                <div class="row g-2">
+                    <div class="col-sm-3">
+                        <select type="text" style="color: #c9cbcd;" class="form-select" id="dia" formControlName="dia" required>
+                            <option value="" style="color: #c9cbcd;">Dia</option>
+                            <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
+                        </select>
+                        <div *ngIf="form.get('dia')?.invalid && (form.get('dia')?.dirty || form.get('dia')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="form.get('dia')?.errors?.['required']">
+                                Selecione o dia.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <select type="text" style="color: #c9cbcd;" class="form-select" id="mes" formControlName="mes" required>
+                            <option value="" style="color: #c9cbcd;">Mês</option>
+                            <option *ngFor="let m of meses" [value]="m.valor">{{ m.nome }}</option>
+                        </select>
+                        <div *ngIf="form.get('mes')?.invalid && (form.get('mes')?.dirty || form.get('mes')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="form.get('mes')?.errors?.['required']">
+                                Selecione o mês.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <select type="text" style="color: #c9cbcd;" class="form-select" id="ano" formControlName="ano" required>
+                            <option value="" style="color: #c9cbcd;">Ano</option>
+                            <option *ngFor="let a of anos" [value]="a">{{ a }}</option>
+                        </select>
+                        <div *ngIf="form.get('ano')?.invalid && (form.get('ano')?.dirty || form.get('ano')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="form.get('ano')?.errors?.['required']">
+                                Selecione o ano.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            
 
             <div class="col-sm-2">
-                <label for="mes" class="form-label">Mês</label>
-                <select type="text" class="form-control" id="mes" formControlName="mes" required>
-                    <option value="">mês</option>
-                    <option *ngFor="let m of meses" [value]="m.valor">{{ m.nome }}</option>
-                </select>
-                <div *ngIf="form.get('mes')?.invalid && (form.get('mes')?.dirty || form.get('mes')?.touched)"
-                    class="text-danger">
-                    <div *ngIf="form.get('mes')?.errors?.['required']">
-                        Por favor, selecione o mês.
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-1">
-                <label for="ano" class="form-label">Ano</label>
-                <select type="text" class="form-control" id="ano" formControlName="ano" required>
-                    <option value="">ano</option>
-                    <option *ngFor="let a of anos" [value]="a">{{ a }}</option>
-                </select>
-                <div *ngIf="form.get('ano')?.invalid && (form.get('ano')?.dirty || form.get('ano')?.touched)"
-                    class="text-danger">
-                    <div *ngIf="form.get('ano')?.errors?.['required']">
-                        Por favor, selecione o ano.
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
                 <label for="genero" class="form-label">Gênero</label>
-                <select type="text" class="form-control" id="genero" formControlName="genero" required>
-                    <option value="">Selecione o gênero</option>
+                <select type="text" style="color: #c9cbcd;" class="form-select" id="genero" formControlName="genero" required>
+                    <option value="" style="color: #c9cbcd;">Selecione</option>
                     <option *ngFor="let g of generos" [value]="g">{{ g.nome }}</option>
                 </select>
                 <div *ngIf="form.get('genero')?.invalid && (form.get('genero')?.dirty || form.get('genero')?.touched)"
@@ -101,7 +104,7 @@
             </div>
 
             <div class="row"></div>
-            <div class="col-sm-2 needs-validation was-validated">
+            <div class="col-sm-2 needs-validation">
                 <label for="cep" class="form-label">CEP</label>
                 <input type="text" class="form-control" id="cep" formControlName="cep" placeholder="00000-00"
                     mask="00000-000" pattern="\d{5}-\d{3}" required>
@@ -112,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2 needs-validation was-validated">
+            <div class="col-sm-2 needs-validation">
                 <label for="cidade" class="form-label">Cidade</label>
                 <input type="text" class="form-control" id="cidade" formControlName="cidade"
                     placeholder="Digite a cidade" required>
@@ -126,8 +129,8 @@
 
             <div class="col-sm-2">
                 <label for="estado" class="form-label">Estado</label>
-                <select type="text" class="form-control" id="estado" formControlName="estado" required>
-                    <option value="">Estado</option>
+                <select type="text" style="color: #c9cbcd;" class="form-select" id="estado" formControlName="estado" required>
+                    <option value="" style="color: #c9cbcd;">Selecione</option>
                     <option *ngFor="let e of estados" [value]="e.valor">{{ e.nome }}</option>
                 </select>
                 <div *ngIf="form.get('estado')?.invalid && (form.get('estado')?.dirty || form.get('estado')?.touched)"
@@ -139,7 +142,7 @@
             </div>
 
             <div class="row"></div>
-            <div class="col-sm-4 needs-validation was-validated">
+            <div class="col-sm-4 needs-validation">
                 <label for="endereco" class="form-label">Endereço</label>
                 <input type="text" class="form-control" id="endereco" formControlName="endereco"
                     placeholder="Digite o endereço" required>
@@ -151,7 +154,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-1 needs-validation was-validated">
+            <div class="col-sm-1 needs-validation">
                 <label for="numero" class="form-label">Número</label>
                 <input type="text" class="form-control" id="numero" formControlName="numero"
                     placeholder="Digite o número" required>
@@ -163,7 +166,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-2 needs-validation was-validated">
+            <div class="col-sm-2 needs-validation">
                 <label for="bairro" class="form-label">Bairro</label>
                 <input type="text" class="form-control" id="bairro" formControlName="bairro"
                     placeholder="Digite o bairro" required>
@@ -180,7 +183,8 @@
                 <input type="text" class="form-control" id="complemento" formControlName="complemento"
                     placeholder="Digite o complemento">
             </div>
-            <div class="col-sm-5 needs-validation was-validated">
+
+            <div class="col-sm-5 needs-validation">
                 <label for="email" class="form-label">E-mail</label>
                 <input type="email" class="form-control" id="email" formControlName="email"
                     placeholder="Digite o e-mail" required>
@@ -189,10 +193,16 @@
                     <div *ngIf="form.get('email')?.errors?.['required']">
                         Por favor, digite o e-mail.
                     </div>
+                    <div *ngIf="form.get('email')?.errors?.['pattern']">
+                        O e-mail não está no formato correto.
+                    </div>
                 </div>
             </div>
+
+
+
             <div class="row"></div>
-            <div class="col-sm-4 needs-validation was-validated">
+            <div class="col-sm-4 needs-validation">
                 <div class="mb-3">
                     <label for="senha" class="form-label">Senha</label>
                     <input type="password" class="form-control" id="senha" formControlName="senha"
@@ -208,23 +218,21 @@
                     </div>
                 </div>
             </div>
-                <div class="col-sm-5 needs-validation was-validated">
-                    <div class="mb-3">
-                        <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="confirmarSenha" formControlName="confirmarSenha"
-                            placeholder="Confirme a senha" required>
-                        <div *ngIf="form.get('confirmarSenha')?.invalid && (form.get('confirmarSenha')?.dirty || form.get('confirmarSenha')?.touched)"
-                            class="text-danger">
-                            <div *ngIf="form.get('confirmarSenha')?.errors?.['required']">
-                                Por favor, confirme a senha.
-                            </div>
-                            <div *ngIf="form.get('confirmarSenha')?.errors?.['minlength']">
-                                A senha deve ter pelo menos 8 caracteres.
-                            </div>
+            <div class="col-sm-5 needs-validation">
+                <div class="mb-3">
+                    <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="confirmarSenha" formControlName="confirmarSenha"
+                        placeholder="Confirme a senha" required>
+                    <div *ngIf="form.get('confirmarSenha')?.invalid && (form.get('confirmarSenha')?.dirty || form.get('confirmarSenha')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="form.get('confirmarSenha')?.errors?.['required']">
+                            Por favor, confirme a senha.
                         </div>
+
                     </div>
                 </div>
-            
+            </div>
+
             <div *ngIf="form.errors?.['senhasNaoConferem'] && (form.get('senha')?.touched && form.get('confirmarSenha')?.touched)"
                 class="text-danger mb-3">
                 As senhas não coincidem.
@@ -232,39 +240,26 @@
         </div>
 
         <div class="form-check mb-3 mt-4">
-            <input class="form-check-input" type="checkbox" id="termosPolitica" formControlName="aceitouTermos" required>
+            <input class="form-check-input" type="checkbox" id="termosPolitica" formControlName="aceitouTermos"
+                required>
             <label class="form-check-label" for="termosPolitica">
-              Li e concordo com os <a href="#" data-bs-toggle="modal" data-bs-target="#termosModal">Termos de Uso e Política de Privacidade</a>
+                Li e concordo com os <a [routerLink]="'/termos-politica'" data-bs-toggle="modal"
+                    data-bs-target="#termosModal">Termos de Uso e
+                    Política de Privacidade</a>
             </label>
-            <div *ngIf="form.get('aceitouTermos')?.invalid && (form.get('aceitouTermos')?.dirty || form.get('aceitouTermos')?.touched)" class="text-danger">
-              <div *ngIf="form.get('aceitouTermos')?.errors?.['required']">
-                Você precisa aceitar os termos para prosseguir.
-              </div>
+            <div *ngIf="form.get('aceitouTermos')?.invalid && (form.get('aceitouTermos')?.dirty || form.get('aceitouTermos')?.touched)"
+                class="text-danger">
+                <div *ngIf="form.get('aceitouTermos')?.errors?.['required']">
+                    Você precisa aceitar os termos para prosseguir.
+                </div>
             </div>
-          </div>
-          
-         
-          <!-- <div class="modal fade" id="termosModal" tabindex="-1" aria-labelledby="termosModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="termosModalLabel">Termos de Uso e Política de Privacidade</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                  <h4>1. Introdução</h4>
-                  <p>Bem-vindo(a) aos nossos serviços. Este documento estabelece os termos e condições para o uso de nosso sistema, bem como nossa política de privacidade para o tratamento de seus dados pessoais. Ao utilizar este serviço, você concorda com todas as condições descritas abaixo.</p>
-                  
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
-              </div>
-            </div>
-          </div> -->
+        </div>
+
+
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary w-50 rounded-pill"> Cadastrar </button>
+            <button type="submit" (click)="cadastrar()" class="btn btn-primary w-50 rounded-pill"> Cadastrar
+            </button>
         </div>
     </form>
 </div>

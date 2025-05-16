@@ -4,10 +4,11 @@ import { AbstractControl, ReactiveFormsModule, ValidationErrors, Validators } fr
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
-  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective],
+  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
@@ -98,7 +99,7 @@ export class CadastroComponent implements OnInit {
       numero: new FormControl('', Validators.required),
       bairro: new FormControl('', Validators.required),
       complemento: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
       senha: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmarSenha: new FormControl('', [Validators.required, Validators.minLength(8)]),
       aceitouTermos: new FormControl(false, Validators.requiredTrue)
@@ -113,4 +114,5 @@ export class CadastroComponent implements OnInit {
     }
     console.log('Usuário Cadastrado', this.form.value);
   }
+
 }
