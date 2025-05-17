@@ -29,7 +29,7 @@ export class PerfilProfessorComponent {
     {
       nome: 'Mariana Lopes',
       foto: '/aluno1.png',
-      comentario: 'A Fernanda é uma professora incrível! As aulas são leves, bem explicadas e me ajudam muito a evoluir no inglês.',
+      comentario: 'A Fernanda é uma professora incrível! As aulas são leves, bem explicadas e me ajudam muito a evoluir no inglês e ganhar mais segurança para falar o idioma.',
       estrelas: 5
     },
     {
@@ -41,7 +41,7 @@ export class PerfilProfessorComponent {
     {
       nome: 'Matheus Oliveira',
       foto: '/aluno3.png',
-      comentario: 'As aulas com a Fernanda têm me ajudado muito no meu trabalho. Estou me comunicando melhor em inglês em reuniões e ganhando mais segurança para lidar com clientes internacionais.',
+      comentario: 'As aulas com a Fernanda têm me ajudado muito. Agora me comunico melhor em inglês em reuniões e ganhei mais segurança para lidar com clientes internacionais.',
       estrelas: 5
     }
   ];
