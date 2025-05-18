@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AulaGo - Conectando Professores e Alunos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+
+        html {
+            scroll-behavior: smooth;
+        }
+        .montserrat {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 20;
+            font-style: normal;
+        }
+
+        /* Estilo para o menu colapsado */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: white !important;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: #212529 !important;
+                /* Texto preto */
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .navbar-dark .navbar-nav .nav-link:last-child {
+                border-bottom: none;
+            }
+
+            .navbar-toggler {
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+        }
+
+        /* Mantém o texto branco em telas grandes */
+        @media (min-width: 992px) {
+            .navbar-dark .navbar-nav .nav-link {
+                color: white !important;
+            }
+        }
+
+        .hero-section {
+            background-image: url('../LP/images/fundo_hero.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .professor-btn {
+            --bs-shadow: 0 10px 0 #D87300;
+            box-shadow: var(--bs-shadow), var(--bs-box-shadow);
+        }
+
+        .professor-btn:active {
+            --bs-shadow: 0 2px 0 #D87300;
+            transform: translateY(2px);
+        }
+
+        .aluno-btn {
+            --bs-shadow: 0 10px 0 #1A7B95;
+            box-shadow: var(--bs-shadow), var(--bs-box-shadow);
+        }
+
+        .aluno-btn:active {
+            --bs-shadow: 0 2px 0 #1A7B95;
+            transform: translateY(2px);
+        }
+
+        .feature-section {
+            background-image: url(../LP/images/fundo\ aulago.png);
+        }
+
+        .feature-card {
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .steps-section {
+            background-image: url(../LP/images/fundo\ jornada.png);
+        }
+
+        .benefits-section {
+            background-image: url(../LP/images/fundo\ aulago.png);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #FB8501;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="montserrat">
+    <!-- Header -->
+    <header class="position-absolute w-100 py-3" style="z-index: 100;">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="../LP/images/Logo-AulaGo.png" alt="AulaGo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#features">Sobre</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#steps">Como Funciona</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#benefits">Benefícios</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section d-flex align-items-center" style="padding-top: 80px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <h1 class="display-4 fw-bold mb-4">Conectamos Professores e Alunos com Praticidade, Qualidade e
+                        Segurança</h1>
+                </div>
+                <div class="d-flex gap-4 mt-3">
+                    <a href="http://localhost:4200" target="_blank"><button class="btn btn-primary professor-btn shadow"
+                        style="border-radius: 20px; background-color: #FB8501; border: #FB8501;">Quero me tornar
+                        Professor</button></a>
+                    <a href="http://localhost:4200" target="_blank"><button class="btn btn-primary aluno-btn shadow"
+                        style="border-radius: 20px; background-color: #219EBC; border: #219EBC;">Quero me tornar
+                        Aluno</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="feature-section py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">Aprendizado Transformador e Conexões Poderosas</h2>
+                    <p class="lead">A AulaGo oferece uma solução prática e intuitiva, conectando professores que buscam
+                        ampliar sua renda e organizar a sua agenda, e alunos que desejam aprender com qualidade e
+                        flexibilidade.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 feature-card shadow">
+                        <div class="card-body p-4">
+                            <h3 class="card-title text-center mb-4" style="color: #219EBC;">Para Professores</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0">Plataforma segura e intuitiva</li>
+                                <li class="list-group-item border-0">Gestão eficiente da agenda e das aulas</li>
+                                <li class="list-group-item border-0">Maior visibilidade para alcançar novos alunos</li>
+                                <li class="list-group-item border-0">Pagamentos garantidos e automatizados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 feature-card shadow">
+                        <div class="card-body p-4">
+                            <h3 class="card-title text-center mb-4" style="color: #FB8501;">Para Alunos</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0">Encontre professores qualificados com facilidade
+                                </li>
+                                <li class="list-group-item border-0">Aulas adaptadas às suas necessidades e horários
+                                </li>
+                                <li class="list-group-item border-0">Segurança e qualidade garantidas em cada interação
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Steps Section -->
+    <section id="steps" class="py-5 bg-light steps-section">
+        <div class="container py-4">
+            <div class="row justify-content-center mb-5 text-white">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">Como funcionamos?</h2>
+                    <p class="lead">Após realizar o seu cadastro, você tem acesso a:</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card h-100 shadow">
+                        <!-- Cabeçalho do Card -->
+                        <div class="card-header bg-white border-0 text-center pt-4">
+                            <span class="badge rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" 
+                                  style="background-color: #219EBC; width: 50px; height: 50px; font-size: 1.75rem;">
+                                1
+                            </span>
+                            <h4 class="card-title mb-2">Busca Personalizada</h4>
+                        </div>
+                        
+                        <!-- Corpo do Card com Imagem -->
+                        <div class="card-body text-center p-0">
+                            <div class="p-4">
+                                <img src="./images/search.png" alt="Ilustração" class="img-fluid mb-3 rounded" style="width: 100px; margin: 0;">
+                                <p class="card-text text-muted small">Encontre o que você precisa em poucos cliques
+                                    <ul class="small text-start">
+                                        <li>Nível do idioma</li>
+                                        <li>Modalidade das aulas</li>
+                                        <li>Metodologia</li>
+                                        <li>Nota de Avaliação</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100 shadow">
+                        <!-- Cabeçalho do Card -->
+                        <div class="card-header bg-white border-0 text-center pt-4">
+                            <span class="badge rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" 
+                                  style="background-color: #219EBC;  width: 50px; height: 50px; font-size: 1.75rem;">
+                                2
+                            </span>
+                            <h4 class="card-title mb-2">Contato direto</h4>
+                            
+                        </div>
+                        
+                        <!-- Corpo do Card com Imagem -->
+                        <div class="card-body text-center p-0">
+                            <div class="p-4">
+                                <img src="./images/chat.png" alt="Ilustração" class="img-fluid mb-3 rounded" style="width: 100px; margin: 0;">
+                                <p class="card-text text-muted small">Interação através do chat dentro da plataforma
+                                    <ul class="small text-start text-decoration-none">
+                                        <li>Converse antes da aula</li>
+                                        <li>Esclareça dúvidas</li>
+                                        <li>Defina local e horário</li>
+                                        <li>Alinhe seus objetivos</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100 shadow">
+                        <!-- Cabeçalho do Card -->
+                        <div class="card-header bg-white border-0 text-center pt-4">
+                            <span class="badge rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" 
+                                  style="background-color: #219EBC; width: 50px; height: 50px; font-size: 1.75rem;">
+                                3
+                            </span>
+                            <h4 class="card-title mb-2">Todas as Aulas</h4>
+                            
+                        </div>
+                        
+                        <!-- Corpo do Card com Imagem -->
+                        <div class="card-body text-center p-0">
+                            <div class="p-4">
+                                <img src="./images/event.png" alt="Ilustração" class="img-fluid mb-3 rounded" style="width: 100px; margin: 0;">
+                                <p class="card-text text-muted small">Organize as suas aulas dentro da AulaGo
+                                    <ul class="small text-start text-decoration-none">
+                                        <li>Aulas concluídas</li>
+                                        <li>Aulas agendadas</li>
+                                        <li>Informações sobre as aulas</li>
+                                        <li>Avaliação da aula</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100 shadow">
+                        <!-- Cabeçalho do Card -->
+                        <div class="card-header bg-white border-0 text-center pt-4">
+                            <span class="badge rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" 
+                                  style="background-color: #219EBC; width: 50px; height: 50px; font-size: 1.75rem;">
+                                4
+                            </span>
+                            <h4 class="card-title mb-2">Pagamento Direto</h4>
+                        </div>
+                        
+                        <!-- Corpo do Card com Imagem -->
+                        <div class="card-body text-center p-0">
+                            <div class="p-4">
+                                <img src="./images/pay.png" alt="Ilustração" class="img-fluid mb-3 rounded" style="width: 100px; margin: 0;">
+                                <p class="card-text text-muted small">Pagamento integrado dentro da plataforma
+                                    <ul class="small text-start text-decoration-none">
+                                        <li>Escolha o professor</li>
+                                        <li>Defina o local e horário</li>
+                                        <li>Realize o pagamento</li>
+                                        <li>Receba a confirmação do professor</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+               
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-5 benefits-section">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Benefícios da AulaGo</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 feature-card shadow">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-center mb-4">Para você</h5>
+                            <h3 class="card-title text-center mb-4" style="color: #FB8501;"><strong>Professor</strong></h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0"><strong>Visibilidade: </strong>Alunos chegam até você</li>
+                                <li class="list-group-item border-0"><strong>Alunos: </strong>Encontre alunos de forma rápida</li>
+                                <li class="list-group-item border-0"><strong>Aumento de renda: </strong>Quanto mais alunos, mais você ganhar!</li>
+                                <li class="list-group-item border-0"><strong>Gestão das Aulas: </strong>Organize-se com a Agenda AulaGo</li>
+                                <li class="list-group-item border-0"><strong>Resultados: </strong>Acompanhe o seu desempenho no Dashboard Acadêmico-Financeiro da plataforma</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4">
+                    <div class="card h-100 feature-card shadow" style="background-color: #219EBC;">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-center mb-4" style="color: white">Para você</h5>
+                            <h3 class="card-title text-center mb-4" style="color: white"><strong>Aluno</strong></h3>
+                            <ul class="list-group list-group-flush" style="background-color: #219EBC;">
+                                <li class="list-group-item border-0" style="background-color: #219EBC; color: white;"><strong>Professores: </strong> Encontre o professor ideal para você</li>
+                                </li>
+                                <li class="list-group-item border-0" style="background-color: #219EBC; color: white;"><strong>Personalização: </strong>Aulas adaptadas aos seus objetivos</li>
+                                </li>
+                                <li class="list-group-item border-0" style="background-color: #219EBC; color: white;"><strong>Pagamento: </strong>Segurança e praticidade na hora de pagar</li>
+                                </li>
+                                <li class="list-group-item border-0" style="background-color: #219EBC; color: white;"><strong>Contato direto: </strong>Conheça os professores através do chat</li>
+                                </li>
+                                <li class="list-group-item border-0" style="background-color: #219EBC; color: white;"><strong>flexibilidade: </strong>Aulas <i>on-line,</i> presenciais ou híbridas</li>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                
+                    <div class="col-md-4">
+                        <div class="card h-100 feature-card shadow">
+                            <div class="card-body p-4">
+                                <h5 class="card-title text-center mb-4">Para</h5>
+                                <h3 class="card-title text-center mb-4" style="color: #FB8501;"><strong>Todos</strong></h3>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item border-0"><strong>Segurança: </strong>Contato e Pagamento dentro da plataforma</li>
+                                    <li class="list-group-item border-0"><strong>Impacto Positivo: </strong>Aprendizado para todos</li>
+                                    <li class="list-group-item border-0"><strong>Democratização: </strong>Educação para todos!</li>
+                                    <li class="list-group-item border-0"><strong>Incentivo: </strong>Conhecimento nunca é perdido!</li>
+                                    <li class="list-group-item border-0"><strong>Brindes: </strong>Itens exclusivos AulaGo para os Professores e Alunos engajados</li>
+                                    
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5" style="background-color: #FB8501;">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4 text-white">FAQ</h2>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">
+                                    Há custo para o cadastro?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Não, o cadastro é gratuito.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">
+                                    Como é feita a avaliação dos alunos e professores?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Dentro da plataforma, através de pontuação após a aula.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">
+                                    Sou professor, também posso ser aluno?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sim, basta alterar o seu tipo de usuário dentro da plataforma.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour">
+                                    Sou aluno, quais são as formas de pagamento das aulas?
+                                </button>
+                            </h3>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Cartão de Crédito, PIX ou Boleto.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+<section id="register" class="py-5 text-black">
+    <div class="container py-5 text-center">
+        <h2 class="fw-bold mb-4">Pronto para começar?</h2>
+        <p class="lead mb-5">Junte-se à nossa plataforma e transforme sua experiência de ensino e aprendizado.</p>
+        <a href="http://localhost:4200" target="_blank"><button
+                class="btn btn-lg px-5 py-3 fw-bold" style="background-color: #FB8501; color: white;">Cadastre-se Agora</button></a>
+        
+        <!-- Botão para voltar ao topo -->
+        <div class="mt-5">
+            <a href="#" class="text-decoration-none">↑ Voltar ao topo</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 AulaGo - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
