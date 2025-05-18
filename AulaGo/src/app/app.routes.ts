@@ -13,6 +13,8 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { HomeProfessorComponent } from './home-professor/home-professor.component';
 import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
 import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
+import { MenuSuperiorAlunoComponent } from './menu-superior-aluno/menu-superior-aluno.component';
+import { MenuLateralAlunoComponent } from './menu-lateral-aluno/menu-lateral-aluno.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -30,6 +32,8 @@ export const routes: Routes = [
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'home-professor', component: HomeProfessorComponent},
+    {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
+    {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
     // {path: '**', component: }, 
 
 
