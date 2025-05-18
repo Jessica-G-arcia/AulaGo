@@ -71,7 +71,7 @@ export class LoginComponent {
   // Métodos para login específico
   entrarComoProfessor() {
     if (this.loginForm.valid && this.validarCredenciais()) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home-professor']);
     } else {
       this.mostrarErro('Senha inválida');
     }
@@ -79,7 +79,7 @@ export class LoginComponent {
 
   entrarComoAluno() {
     if (this.loginForm.valid && this.validarCredenciais()) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home-aluno']);
     } else {
       this.mostrarErro('Senha inválida');
     }
