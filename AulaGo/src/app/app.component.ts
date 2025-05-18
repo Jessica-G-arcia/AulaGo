@@ -5,6 +5,7 @@ import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, MenuLateralComponent, MenuSuperiorComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
