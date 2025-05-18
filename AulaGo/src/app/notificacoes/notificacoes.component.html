@@ -1,1 +1,48 @@
-<p>notificacoes works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="container">
+    <div class="header">
+        <div class="header">
+            <button class="back-button" routerLink="/home-professor" routerLinkActive="active">
+                <i class="material-icons">arrow_back</i>
+            </button>
+        </div>
+
+        <div class="title">Notificações</div>
+
+        <!-- Filtros -->
+        <div class="filtros-container">
+            <span class="filtros-label">Filtros:</span>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="naoLidasCheck" [(ngModel)]="filtros.naoLidas">
+                <label class="form-check-label" for="naoLidasCheck">Não lidas</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="lidasCheck" [(ngModel)]="filtros.lidas">
+                <label class="form-check-label" for="lidasCheck">Lidas</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="recentesCheck" [(ngModel)]="filtros.recentes"
+                    checked>
+                <label class="form-check-label" for="recentesCheck">Recentes</label>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Notificações -->
+    <div class="notifications-container">
+        <div class="notification-card" *ngFor="let notificacao of filtrarNotificacoes()">
+            <div class="notification-content">
+                <div class="notification-date">{{ notificacao.data }}</div>
+                <div class="notification-hora">{{ notificacao.hora }}</div>
+                <div class="notification-status">{{ notificacao.status }}</div>
+                <div class="notification-title">{{ notificacao.titulo }}</div>
+                <div class="notification-message">{{ notificacao.mensagem }}</div>
+
+                <!-- Marcador de não lida -->
+                <div *ngIf="!notificacao.lida && notificacao.status !== 'Agora'" class="nao-lida-marker"></div>
+            </div>
+        </div>
+    </div>
+</div>

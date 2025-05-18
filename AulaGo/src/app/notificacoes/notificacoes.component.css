@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.container {
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: 'montserrat', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* Botão de voltar para home */
+.back-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* título da página */
+.title {
+  position: absolute;
+  margin-top: 120px;
+  font-size: 24px;
+  font-weight: normal;
+  margin-left: 245px;
+}
+
+
+/* Filtos */
+.filtros-container {
+  position: absolute;
+  right: 130px;
+  top: 200px;
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.filtros-label {
+  display: block;
+  font-weight: normal;
+  margin-bottom: 5px;
+  font-size: 19px;
+}
+
+.form-check {
+  margin-bottom: 5px;
+}
+
+.form-check-input {
+  margin-right: 5px;
+  border: 1px solid black;
+}
+
+/* Notificações */
+.notifications-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  margin-top: 10px;
+  max-width: 750px;
+  margin-left: 220px;
+}
+
+.notification-card {
+  position: relative;
+  border-left: 4px solid #08A1C8 !important;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  max-height: 250px;
+}
+
+.notification-card:hover {
+  background-color: #f8f9fa;
+}
+
+.notification-card.read {
+  border-left-color: #ccc;
+  opacity: 0.8;
+}
+
+.notification-title {
+  font-weight: 500;
+  margin-bottom: 5px;
+  padding-right: 100px;
+  margin-top: -30px;
+}
+
+.notification-message {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.notification-date {
+  margin-right: 10px !important;
+  color: #777;
+  text-align: end;
+  font-size: 12px;
+
+}
+
+.notification-hora {
+  margin-right: 10px !important;
+  color: #777;
+  text-align: end;
+  font-size: 12px;
+}
+
+.notification-status {
+  margin-right: 10px !important;
+  color: #777;
+  text-align: end;
+  font-size: 12px;
+}
+
+.nao-lida-marker {
+  width: 12px;
+  height: 12px;
+  background-color: #08A1C8;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
