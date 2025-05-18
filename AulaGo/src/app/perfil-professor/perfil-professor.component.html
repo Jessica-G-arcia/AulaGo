@@ -1,83 +1,100 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<div class="container">
+<div>
+    <div class="d-flex flex-column vh-100">
+        <app-menu-superior></app-menu-superior>
 
-    <div class="header">
-        <button class="back-button" routerLink="/home-professor" routerLinkActive="active">
-            <i class="material-icons">arrow_back</i>
-        </button>
-        <button class="edit-profile-button">Editar Perfil</button>
-    </div>
 
-    <!-- seção principal do perfil -->
-    <div class="profile-section">
-        <div class="profile-header">
-            <div class="profile-image">
-                <img src="/img-professora.png" alt="Foto do professor">
-            </div>
-            <div class="profile-info">
-                <h1 class="profile-name">{{professor.nome}}</h1>
-                <p class="profile-title">{{professor.titulo}}</p>
-                <p class="profile-status">Entrou pela primeira vez a {{professor.tempoRegistro}}.</p>
+        <div class="d-flex flex-grow-1">
+            <app-menu-lateral></app-menu-lateral>
 
-                <div class="profile-rating">
-                    <div class="stars">★★★★★</div>
-                    <div class="rating-count">{{professor.avaliacoes}}</div>
-                </div>
-            </div>
-        </div>
+            <div class="container">
 
-        <div class="profile-content">
-            <!-- coluna esquerda para os cards -->
-            <div class="left-column">
-                <!-- tipo de idioma e modalidade -->
-                <div class="type-card">
-                    <div class="type-info">
-                        <p class="type-item">{{professor.idiomaAula}}</p>
-                        <p class="type-item">{{professor.modalidade}}</p>
-                    </div>
+                <div class="header">
+                    <button class="back-button" routerLink="/home-professor" routerLinkActive="active">
+                        <i class="material-icons">arrow_back</i>
+                    </button>
+                    <button class="edit-profile-button">Editar Perfil</button>
                 </div>
 
-                <!-- valores -->
-                <div class="pricing-card">
-                    <div class="pricing-info">
-                        <p class="price-item">Aula presencial: {{professor.valorPresencial | currency:'BRL'}}</p>
-                        <p class="price-item">Aula Online: {{professor.valorOnline | currency:'BRL'}}</p>
-                    </div>
-                </div>
+                <!-- seção principal do perfil -->
+                <div class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            <img src="/img-professora.png" alt="Foto do professor">
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="profile-name">{{professor.nome}}</h1>
+                            <p class="profile-title">{{professor.titulo}}</p>
+                            <p class="profile-status">Entrou pela primeira vez a {{professor.tempoRegistro}}.</p>
 
-                <!-- Metodologia -->
-                <div class="methodology-card">
-                    <p>Minhas aulas são pensadas para se adaptarem ao perfil de cada aluno. Antes de tudo, gosto de
-                        entender quais são os objetivos, se é para viagens, trabalho, estudos ou simplesmente para
-                        desenvolver mais segurança ao falar.</p>
-
-                    <p>A partir disso, monto um plano personalizado, focando nas principais habilidades: conversação,
-                        compreensão, vocabulário e gramática.</p>
-
-                    <p>Utilizo materiais variados, como textos, vídeos, músicas e exercícios práticos, sempre buscando
-                        trazer situações reais do dia a dia para dentro da aula.</p>
-                </div>
-            </div>
-            <!-- coluna direita para os cards -->
-            <div class="right-column">
-                <!-- bio do professor -->
-                <div class="bio-card">
-                    <p>{{professor.descricao}}</p>
-                </div>
-
-                <!-- avaliações -->
-                <div class="reviews-card">
-                    <div class="review-item" *ngFor="let avaliacao of avaliacoes">
-                        <div class="review-header">
-                            <div class="review-user-image">
-                                <img [src]="avaliacao.foto" [alt]="avaliacao.nome">
+                            <div class="profile-rating">
+                                <div class="stars">★★★★★</div>
+                                <div class="rating-count">{{professor.avaliacoes}}</div>
                             </div>
-                            <div class="review-user-info">
-                                <h3 class="review-user-name">{{avaliacao.nome}}</h3>
-                                <div class="review-stars" [innerHTML]="gerarEstrelas(avaliacao.estrelas)"></div>
-                                <div class="review-content">
-                                    <p>{{avaliacao.comentario}}</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-content">
+                        <!-- coluna esquerda para os cards -->
+                        <div class="left-column">
+                            <!-- tipo de idioma e modalidade -->
+                            <div class="type-card">
+                                <div class="type-info">
+                                    <p class="type-item">{{professor.idiomaAula}}</p>
+                                    <p class="type-item">{{professor.modalidade}}</p>
+                                </div>
+                            </div>
+
+                            <!-- valores -->
+                            <div class="pricing-card">
+                                <div class="pricing-info">
+                                    <p class="price-item">Aula presencial: {{professor.valorPresencial |
+                                        currency:'BRL'}}</p>
+                                    <p class="price-item">Aula Online: {{professor.valorOnline | currency:'BRL'}}</p>
+                                </div>
+                            </div>
+
+                            <!-- Metodologia -->
+                            <div class="methodology-card">
+                                <p>Minhas aulas são pensadas para se adaptarem ao perfil de cada aluno. Antes de tudo,
+                                    gosto de
+                                    entender quais são os objetivos, se é para viagens, trabalho, estudos ou
+                                    simplesmente para
+                                    desenvolver mais segurança ao falar.</p>
+
+                                <p>A partir disso, monto um plano personalizado, focando nas principais habilidades:
+                                    conversação,
+                                    compreensão, vocabulário e gramática.</p>
+
+                                <p>Utilizo materiais variados, como textos, vídeos, músicas e exercícios práticos,
+                                    sempre buscando
+                                    trazer situações reais do dia a dia para dentro da aula.</p>
+                            </div>
+                        </div>
+                        <!-- coluna direita para os cards -->
+                        <div class="right-column">
+                            <!-- bio do professor -->
+                            <div class="bio-card">
+                                <p>{{professor.descricao}}</p>
+                            </div>
+
+                            <!-- avaliações -->
+                            <div class="reviews-card">
+                                <div class="review-item" *ngFor="let avaliacao of avaliacoes">
+                                    <div class="review-header">
+                                        <div class="review-user-image">
+                                            <img [src]="avaliacao.foto" [alt]="avaliacao.nome">
+                                        </div>
+                                        <div class="review-user-info">
+                                            <h3 class="review-user-name">{{avaliacao.nome}}</h3>
+                                            <div class="review-stars" [innerHTML]="gerarEstrelas(avaliacao.estrelas)">
+                                            </div>
+                                            <div class="review-content">
+                                                <p>{{avaliacao.comentario}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
+import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 @Component({
   selector: 'app-perfil-professor',
-  imports: [CommonModule, RouterLink,RouterLinkActive],
+  imports: [CommonModule, RouterLink,RouterLinkActive, MenuSuperiorComponent, MenuLateralComponent],
   templateUrl: './perfil-professor.component.html',
   styleUrl: './perfil-professor.component.css'
 })

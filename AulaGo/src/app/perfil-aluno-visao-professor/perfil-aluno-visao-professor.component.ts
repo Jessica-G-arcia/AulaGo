@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -6,22 +5,21 @@ import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component'
 import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 
 @Component({
-  selector: 'app-perfil-aluno',
+  selector: 'app-perfil-aluno-visao-professor',
   imports: [CommonModule, RouterLink,RouterLinkActive, MenuSuperiorComponent, MenuLateralComponent],
-  templateUrl: './perfil-aluno.component.html',
-  styleUrl: './perfil-aluno.component.css'
+  templateUrl: './perfil-aluno-visao-professor.component.html',
+  styleUrl: './perfil-aluno-visao-professor.component.css'
 })
-export class PerfilAlunoComponent {
-
+export class PerfilAlunoVisaoProfessorComponent {
   aluno = {
     nome: 'Matheus Oliveira',
     tempoRegistro: '10 meses',
     aulasConcludas: 'Aulas concluídas: 100',
-    aulasPendentes: 'Aulas pendentes: 3',
     idioma: 'Inglês',
     modalidade: 'Presencial',
     nivel: 'Intermediário',
     descricao: 'Olá! Me chamo Matheus, tenho 27 anos e trabalho como analista de dados em uma grande empresa em Sorocaba. Estou em busca de aulas particulares de inglês que sejam focadas nas minhas dificuldades e objetivos. Quero melhorar meu vocabulário e aprimorar minhas habilidades no idioma, tanto para meu crescimento profissional quanto pessoal.',
+    tituloAvaliacoes: 'Avaliações de Matheus'
   };
 
   // Adicionar dados de avaliações dos alunos

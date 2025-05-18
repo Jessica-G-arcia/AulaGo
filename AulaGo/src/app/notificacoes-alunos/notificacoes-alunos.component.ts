@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
 import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
 
 interface Notificacao {
   id: number;
@@ -16,13 +17,12 @@ interface Notificacao {
 }
 
 @Component({
-  selector: 'app-notificacoes',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterLinkActive, RouterLink, MenuSuperiorComponent,MenuLateralComponent],
-  templateUrl: './notificacoes.component.html',
-  styleUrl: './notificacoes.component.css'
+  selector: 'app-notificacoes-alunos',
+  imports: [CommonModule, FormsModule, RouterLinkActive, RouterLink, MenuSuperiorComponent, MenuLateralComponent ],
+  templateUrl: './notificacoes-alunos.component.html',
+  styleUrl: './notificacoes-alunos.component.css'
 })
-export class NotificacoesComponent implements OnInit {
+export class NotificacoesAlunosComponent implements OnInit {
   notificacoes: Notificacao[] = [];
   filtros = {
     naoLidas: false,
@@ -35,34 +35,42 @@ export class NotificacoesComponent implements OnInit {
     this.notificacoes = [
       {
         id: 1,
-        titulo: 'Pagamento recebido!',
-        mensagem: 'O valor da aula agendada por Maria já foi depositado em sua conta com sucesso: R$150,00.',
-        data: '25/03/2025',
+        titulo: 'Lembrete de aula!',
+        mensagem: 'Sua aula com a professora Fernanda está chegando! Prepare seu material e bora aprender mais um pouco!',
+        data: '19/05/2025',
         status: 'Agora',
         lida: false,
       },
       {
         id: 2,
         titulo: 'Nova aula agendada',
-        mensagem: 'Ana Paula agendou uma nova aula online com você para o dia 17/05/2025 às 15:30.',
-        data: '24/05/2025',
-        hora: '14:00',
+        mensagem: 'Sua aula de inglês com a professora Fernanda foi agendada para o dia 17/05/2025.',
+        data: '16/05/2025',
+        hora: '09:00',
         lida: true
       },
       {
         id: 3,
-        titulo: 'Nova avaliação receida',
-        mensagem: 'João acabou de avaliar sua última aula. Confira o feedback e veja como você está impactando seus alunos!',
+        titulo: 'Pagamento efetuado!',
+        mensagem: 'O pagamento no valor de R$150,00 foi processado com sucesso.',
         data: '25/03/2025',
-        hora: '08:00',
-        lida: true
+        hora: '10:30',
+        lida: false
       },
       {
         id: 4,
-        titulo: 'Nova avaliação receida',
-        mensagem: 'Eduardo acabou de avaliar sua última aula.Confira o feedback e veja como você está impactando seus alunos!',
-        data: '25/03/2025',
-        hora: '10:30',
+        titulo: 'Nova aula agendada!',
+        mensagem: 'Sua aula de inglês com a professora Fernanda foi agendada para o dia 12/04/2025.',
+        data: '10/04/2025',
+        hora: '12:00',
+        lida: false
+      },
+      {
+        id: 5,
+        titulo: 'Nova avaliação recebida!',
+        mensagem: 'A professora Fernanda acabou de avaliar sua última aula do dia 12/05/2025. Confira o feedback!',
+        data: '10/05/2025',
+        hora: '11:00',
         lida: false
       }
     ];

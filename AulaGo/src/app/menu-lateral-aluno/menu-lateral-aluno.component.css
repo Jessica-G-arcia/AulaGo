@@ -14,17 +14,3 @@ a {
   box-shadow: none;
   color: inherit; /* mantém a cor do texto */
 }
-
-.nav-link:hover {
-  color:  #219EBC  !important;
-  transition: all 0.3s ease;
-}
-
-.nav-pills .nav-link.active, 
-.nav-pills .show > .nav-link {
-  background-color: transparent !important;
-  color: black;
-}
-
-
-

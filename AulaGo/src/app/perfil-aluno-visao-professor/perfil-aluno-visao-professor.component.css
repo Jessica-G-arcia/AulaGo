@@ -25,7 +25,14 @@
     cursor: pointer;
 }
 
-.edit-profile-button {
+.profile-content {
+    max-width: 1400px;
+    margin-bottom: 50px;
+    margin-left: 70px;
+    position: relative; 
+}
+
+.contact-button {
     background-color: #82c4db;
     color: black;
     border: none;
@@ -33,14 +40,8 @@
     padding: 10px 40px;
     font-size: 14px;
     cursor: pointer;
-    margin-right: 90px;
-}
-
-.profile-content {
-    max-width: 1400px;
-    margin-bottom: 50px;
-    margin-left: 70px;
-    position: relative; 
+    margin-left: 920px;
+    margin-bottom: 100px;
 }
 
 .profile-header {
@@ -115,14 +116,6 @@
     margin-top: 15px;
 }
 
-.profile-title2 {
-    font-size: 18px;
-    color: #555;
-    margin: 0 0 5px 0;
-    margin-left: 10px;
-    margin-top: -5px;
-}
-
 .profile-status {
     font-size: 12px;
     color: #555;
@@ -145,16 +138,16 @@
     max-width: 1050px;
     max-height: 200px;
     margin-left: 0; 
-    margin-top: 80px;
+    margin-top: -30px;
 }
 
 /* avaliações */
 .reviews-card {
     background-color: #fff;
-    padding: 25px 25px 25px 25px;
+    padding: 25px;
     border: 1px solid black;
     max-width: 1050px;
-    max-height: 500px;
+    max-height: 600px;
     margin-left: 0; 
     margin-top: -40px;
     overflow-y: auto;
