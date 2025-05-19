@@ -1,5 +1,5 @@
 <div class="container bg-light p-3">
-    <form [formGroup]="form" class="row g-5 needs-validation" novalidate="">
+    <form [formGroup]="form" class="row g-5 needs-validation" (ngSubmit)="salvar()" novalidate="">
 
 
         <div class="col-lg-2 d-flex flex-column align-items-center justify-content-start">
@@ -38,7 +38,7 @@
                     <select type="text" style="color: #c9cbcd;" class="form-select" id="genero" formControlName="genero"
                         required>
                         <option value="" style="color: #c9cbcd;">Selecione</option>
-                        <option *ngFor="let g of generos" [value]="g">{{ g.nome }}</option>
+                        <option *ngFor="let g of generos" [value]="g.valor">{{ g.nome }}</option>
                     </select>
                     <div *ngIf="form.get('genero')?.invalid && (form.get('genero')?.dirty || form.get('genero')?.touched)"
                         class="text-danger">
@@ -106,66 +106,35 @@
                     <div *ngIf="form.get('modalidade')?.invalid && (form.get('modalidade')?.dirty || form.get('modalidade')?.touched)"
                         class="text-danger">
                         <div *ngIf="form.get('modalidade')?.errors?.['required']">
-                            Por favor, selecione o gênero.
+                            Por favor, selecione a modalidade.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-10 mt-4">
+            <div formArrayName="idiomas" class="mb-3 mt-2">
                 <label for="idioma" class="form-label d-block">Idiomas</label>
-                <div class="form-check form-check-inline">
-
-                    <input class="form-check-input" type="checkbox" id="idioma" value="option1">
-                    <label class="form-check-label" for="idioma">Português</label>
+                <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
+                    <input type="checkbox" class="form-check-input" [formControlName]="i" [id]="'idioma' + i" />
+                    <label class="form-check-label ms-2" [for]="'idioma' + i">{{ idioma }}</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="idioma" value="option2">
-                    <label class="form-check-label" for="idioma">Inglês</label>
+                <div *ngIf="form.get('idiomas')?.invalid && (form.get('idiomas')?.dirty || form.get('idiomas')?.touched)"
+                    class="text-danger">
+                    Selecione pelo menos um idioma.
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="idioma" value="option2" disabled>
-                    <label class="form-check-label" for="idioma">Italiano</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="idioma" value="option2" disabled>
-                    <label class="form-check-label" for="idioma">Francês</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="idioma" value="option2" disabled>
-                    <label class="form-check-label" for="idioma">Espanhol</label>
-                </div>
-
             </div>
+
 
             <div class="row g-3 mt-1">
-                <div class="col-sm-4">
-                    <label for="nivel" class="form-label">Metodologia</label>
-                    <select type="text" style="color: #c9cbcd;" class="form-select" id="nivel" formControlName="nivel"
-                        required>
-                        <option value="" style="color: #c9cbcd;">Selecione</option>
-                        <option *ngFor="let n of niveis" [value]="n">{{ n.nome }}</option>
-                    </select>
-                    <div *ngIf="form.get('nivel')?.invalid && (form.get('nivel')?.dirty || form.get('nivel')?.touched)"
-                        class="text-danger">
-                        <div *ngIf="form.get('nivel')?.errors?.['required']">
-                            Por favor, selecione o gênero.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
+
+                <div class="col-sm-2">
                     <label for="periodo" class="form-label">Período</label>
                     <select type="text" style="color: #c9cbcd;" class="form-select" id="periodo"
                         formControlName="periodo" required>
                         <option value="" style="color: #c9cbcd;">Selecione</option>
                         <option *ngFor="let p of periodo" [value]="p">{{ p.nome }}</option>
                     </select>
-                    <!-- <div *ngIf="form.get('periodo')?.invalid && (form.get('periodo')?.dirty || form.get('periodo')?.touched)"
-                    class="text-danger">
-                    <div *ngIf="form.get('periodo')?.errors?.['required']">
-                        Por favor, selecione o gênero.
-                    </div>
-                </div> -->
+
                 </div>
 
 
@@ -185,51 +154,98 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <label for="nivel" class="form-label">Raio de Atendimento</label>
-                    <select type="text" style="color: #c9cbcd;" class="form-select" id="nivel" formControlName="nivel"
+                    <label for="raio" class="form-label">Raio de Atendimento</label>
+                    <select type="text" style="color: #c9cbcd;" class="form-select" id="raio" formControlName="raio"
                         required>
                         <option value="" style="color: #c9cbcd;">Selecione</option>
-                        <option *ngFor="let n of niveis" [value]="n">{{ n.nome }}</option>
+                        <option *ngFor="let r of raio" [value]="r.valor">{{ r.nome }}</option>
                     </select>
-                    <div *ngIf="form.get('nivel')?.invalid && (form.get('nivel')?.dirty || form.get('nivel')?.touched)"
+                    <div *ngIf="form.get('raio')?.invalid && (form.get('raio')?.dirty || form.get('raio')?.touched)"
                         class="text-danger">
-                        <div *ngIf="form.get('nivel')?.errors?.['required']">
-                            Por favor, selecione o gênero.
+                        <div *ngIf="form.get('raio')?.errors?.['required']">
+                            Por favor, selecione o raio.
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-8">
-                    <label class="form-label">Valor por Aula</label>
-                    <div class="d-flex gap-1">
-                        <div class="input-group mb-3 rounded-pill">
-                            <span class="input-group-text" id="valoronline">Online</span>
-                            <input type="text" class="form-control" formControlName="valoronline" mask="separator.2" thousandSeparator="."
-                                decimalMarker="," prefix="R$ " />
-                                <div *ngIf="form.get('valoronline')?.invalid && (form.get('valoronline')?.dirty || form.get('valoronline')?.touched)"
-                                class="text-danger">
-                                <div *ngIf="form.get('valoronline')?.errors?.['required']">
-                                    Por favor, insira o valor.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="valor">Presencial</span>
-                            <input type="text" class="form-control" formControlName="valor" mask="separator.2" thousandSeparator="."
-                                decimalMarker="," prefix="R$ " />
-                            <div *ngIf="form.get('valor')?.invalid && (form.get('valor')?.dirty || form.get('valor')?.touched)"
-                                class="text-danger">
-                                <div *ngIf="form.get('valor')?.errors?.['required']">
-                                    Por favor, insira o valor.
-                                </div>
-                            </div>
+                <div class="col-sm-10 mt-4">
+                    <label for="especialidade" class="form-label d-block">Especialidade</label>
+                    <div class="form-check form-check-inline">
 
-                        </div>
-
+                        <input class="form-check-input" type="checkbox" id="especialidade" value="especialidade">
+                        <label class="form-check-label" for="idioma">Conversação</label>
                     </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="especialidade" value="especialidade">
+                        <label class="form-check-label" for="idioma">Gramática</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="especialidade" value="option2">
+                        <label class="form-check-label" for="idioma">Foco em negócios</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="especialidade" value="option2">
+                        <label class="form-check-label" for="idioma">Foco em viagens</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="especialidade" value="option2">
+                        <label class="form-check-label" for="especialidade">Escrita</label>
+                    </div>
+                </div>
+                <div class="col-md-12">
+
+                    <div class="col-md-8">
+                        <label class="form-label">Valor por Aula</label>
+
+                        <!-- Checkbox: Online e Presencial lado a lado -->
+                        <div class="d-flex gap-4 align-items-center mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" id="ckExibirOnline" [(ngModel)]="exibirOnline"
+                                    [ngModelOptions]="{standalone: true}" class="form-check-input" />
+                                <label for="ckExibirOnline" class="form-check-label align-items-center ms-2">Insira
+                                    valor Online</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" id="ckExibirPresencial" [(ngModel)]="exibirPresencial"
+                                    [ngModelOptions]="{standalone: true}" class="form-check-input" />
+                                <label for="ckExibirPresencial" class="form-check-label ms-2">Insira valor
+                                    Presencial</label>
+                            </div>
+                        </div>
+
+                        <!-- Campo de valor online -->
+                        <div class="d-flex gap-1 form-check-inline">
+
+                            <div *ngIf="exibirOnline" class="input-group mb-3 rounded-pill">
+                                <span class="input-group-text" id="valoronline">Online</span>
+                                <input type="text" class="form-control" formControlName="valoronline" mask="separator.2"
+                                    thousandSeparator="." decimalMarker="," prefix="R$ " />
+                                <div *ngIf="form.get('valoronline')?.invalid && (form.get('valoronline')?.dirty || form.get('valoronline')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="form.get('valoronline')?.errors?.['required']">
+                                        Por favor, insira o valor.
+                                    </div>
+                                </div>
+                            </div>
 
 
+                            <!-- Campo de valor presencial -->
 
+                            <div *ngIf="exibirPresencial" class="input-group mb-3 rounded-pill">
+                                <span class="input-group-text" id="valor">Presencial</span>
+                                <input type="text" class="form-control" formControlName="valor" mask="separator.2"
+                                    thousandSeparator="." decimalMarker="," prefix="R$ " />
+                                <div *ngIf="form.get('valor')?.invalid && (form.get('valor')?.dirty || form.get('valor')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="form.get('valor')?.errors?.['required']">
+                                        Por favor, insira o valor.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -246,7 +262,68 @@
             </div>
 
         </div>
-
+        <div class="dropdown">
+            <button  class="btn btn-primary" (click)="isDropdownOpen = !isDropdownOpen">
+              Dados Bancários
+            </button>
+          
+            <form [formGroup]="bankForm" (ngSubmit)="onSubmit()" class="dropdown-menu show p-4" style="width: 320px;" *ngIf="isDropdownOpen">
+              <div class="mb-3">
+                <label class="form-label" for="nome">Nome completo</label>
+                <input id="nome" type="text" class="form-control" formControlName="nome" placeholder="Seu nome completo">
+                <div *ngIf="bankForm.get('nome')?.invalid && bankForm.get('nome')?.touched" class="text-danger mt-1">
+                  <small>Nome é obrigatório.</small>
+                </div>
+              </div>
+          
+              <div class="mb-3">
+                <label class="form-label" for="cif">CIF</label>
+                <input id="cif" type="text" class="form-control" formControlName="cif" placeholder="Ex: 12345678">
+                <div *ngIf="bankForm.get('cif')?.invalid && bankForm.get('cif')?.touched" class="text-danger mt-1">
+                  <small>CIF é obrigatório.</small>
+                </div>
+              </div>
+          
+              <div class="mb-3">
+                <label class="form-label" for="banco">Banco</label>
+                <input id="banco" type="text" class="form-control" formControlName="banco" placeholder="Nome do banco">
+                <div *ngIf="bankForm.get('banco')?.invalid && bankForm.get('banco')?.touched" class="text-danger mt-1">
+                  <small>Banco é obrigatório.</small>
+                </div>
+              </div>
+          
+              <div class="mb-3">
+                <label class="form-label" for="agencia">Agência</label>
+                <input id="agencia" type="text" class="form-control" formControlName="agencia" placeholder="Número da agência">
+                <div *ngIf="bankForm.get('agencia')?.invalid && bankForm.get('agencia')?.touched" class="text-danger mt-1">
+                  <small>Agência é obrigatória.</small>
+                </div>
+              </div>
+          
+              <div class="mb-3">
+                <label class="form-label" for="tipoConta">Tipo de Conta</label>
+                <select id="tipoConta" class="form-select" formControlName="tipoConta">
+                  <option value="">Selecione</option>
+                  <option value="corrente">Corrente</option>
+                  <option value="poupanca">Poupança</option>
+                </select>
+                <div *ngIf="bankForm.get('tipoConta')?.invalid && bankForm.get('tipoConta')?.touched" class="text-danger mt-1">
+                  <small>Tipo de conta é obrigatório.</small>
+                </div>
+              </div>
+          
+              <div class="mb-3">
+                <label class="form-label" for="pix">Chave Pix</label>
+                <input id="pix" type="text" class="form-control" formControlName="pix" placeholder="Celular, CPF, e-mail...">
+                <div *ngIf="bankForm.get('pix')?.invalid && bankForm.get('pix')?.touched" class="text-danger mt-1">
+                  <small>Chave Pix é obrigatória.</small>
+                </div>
+              </div>
+          
+              <button type="submit" class="btn btn-success w-100">Salvar</button>
+            </form>
+          </div>
+                    
 
         <div class="text-center mt-5">
             <button type="submit" (click)="salvar()" class="btn btn-primary w-50 rounded-pill"> salvar

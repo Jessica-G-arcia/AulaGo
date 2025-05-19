@@ -110,6 +110,7 @@ export class CadastroComponent implements OnInit {
   cadastrar() {
     if (this.form.invalid) {
       console.log('Formulário inválido');
+      this.form.markAllAsTouched();
       return;
     }
     console.log('Usuário Cadastrado', this.form.value);

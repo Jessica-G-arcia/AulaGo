@@ -1,19 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-professor-continuar-cadastro',
-  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule],
+  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule, FormsModule, ReactiveFormsModule],
   templateUrl: './professor-continuar-cadastro.component.html',
   styleUrl: './professor-continuar-cadastro.component.css'
 })
-export class ProfessorContinuarCadastroComponent implements OnInit{
+export class ProfessorContinuarCadastroComponent implements OnInit {
   form!: FormGroup;
+  bankForm!: FormGroup;
+
+  idiomasList = ['Português', 'Inglês', 'Italiano', 'Francês', 'Espanhol'];
+
 
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
+
+  exibirPresencial: boolean = true;
+  exibirOnline: boolean = true;
 
   meses = [
     { valor: 1, nome: 'Janeiro' },
@@ -30,6 +37,8 @@ export class ProfessorContinuarCadastroComponent implements OnInit{
     { valor: 12, nome: 'Dezembro' }
   ];
 
+  isDropdownOpen = false;
+
   anos = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i);
 
   generos = [
@@ -44,12 +53,20 @@ export class ProfessorContinuarCadastroComponent implements OnInit{
     { valor: 'hibrido', nome: 'Híbrido' }
   ]
 
+  raio = [
+    { valor: '5', nome: '5 km' },
+    { valor: '10', nome: '10 km' },
+    { valor: '15', nome: '15 km' },
+    { valor: '20', nome: '20 km' },
+    { valor: '25', nome: '25 km' },
+    { valor: '30', nome: '30 km' },
+    { valor: '35', nome: '35 km' },
+    { valor: '40', nome: '40 km' },
+    { valor: '45', nome: '45 km' },
+    { valor: '50', nome: '50 km' },
+  ]
   
-  niveis = [
-    { valor: 'iniciante', nome: 'Iniciante' },
-    { valor: 'intermediario', nome: 'Intermediário' },
-    { valor: 'avancado', nome: 'Avançado' }
-  ];
+
 
   disponibilidade = [
     { valor: 'segunda', nome: 'Segunda-feira' },
@@ -66,30 +83,95 @@ export class ProfessorContinuarCadastroComponent implements OnInit{
     { valor: 'noite', nome: 'Noite' }
   ]
 
+  minSelectedCheckboxes(min = 1) {
+    return (formArray: AbstractControl) => {
+      const totalSelected = (formArray.value as boolean[]).filter(v => v).length;
+      return totalSelected >= min ? null : { required: true };
+    };
+  }
+  
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
+
+    this.bankForm = this.fb.group({
+      nome: ['', Validators.required],
+      cif: ['', Validators.required],
+      banco: ['', Validators.required],
+      agencia: ['', Validators.required],
+      tipoConta: ['', Validators.required],
+      pix: ['', Validators.required]
+    });
+
+    //controles dos checkboxes
+    const idiomasControls = this.idiomasList.map(() => new FormControl(false));
+  
+    //Array de validacao
+    const formArray = new FormArray(idiomasControls, this.minSelectedCheckboxes(1));
+  
+    // desabilitando italiano, frances e espanhol
+    formArray.at(2).disable();
+    formArray.at(3).disable();
+    formArray.at(4).disable();
+  
     this.form = new FormGroup({
       nome: new FormControl('', [Validators.required]),
       genero: new FormControl('', [Validators.required]),
       dia: new FormControl('', [Validators.required]),
       mes: new FormControl('', [Validators.required]),
       ano: new FormControl('', [Validators.required]),
-      idioma: new FormControl('', [Validators.required]),
+      idiomas: formArray,
       modalidade: new FormControl('', [Validators.required]),
-      nivel: new FormControl('', [Validators.required]),
+      especialidade: new FormControl('', [Validators.required]),
       bio: new FormControl('', [Validators.required]),
       disponibilidade: new FormControl('', [Validators.required]),
       periodo: new FormControl('', [Validators.required]),
       valor: new FormControl('', [Validators.required]),
       valoronline: new FormControl('', [Validators.required]),
-    })
+      raio: new FormControl('', [Validators.required]),
+      aceitouTermos: new FormControl(false, Validators.requiredTrue)
+    });
+  }
+  
+  onSubmit(): void {
+    if (this.bankForm.valid) {
+      console.log('Dados bancários enviados:', this.bankForm.value);
+      this.isDropdownOpen = false;
+      // Aqui você pode enviar os dados para o backend, salvar localmente etc.
+    } else {
+      this.bankForm.markAllAsTouched();
+    }
+  }
+  onExibirOnlineChange(): void {
+    const control = this.form.get('valoronline');
+    if (this.exibirOnline) {
+      control?.setValidators([Validators.required]);
+    } else {
+      control?.clearValidators();
+    }
+    control?.updateValueAndValidity();
+  }
+
+  onExibirPresencialChange(): void {
+    const control = this.form.get('valor');
+    if (this.exibirPresencial) {
+      control?.setValidators([Validators.required]);
+    } else {
+      control?.clearValidators();
+    }
+    control?.updateValueAndValidity();
   }
 
   salvar() {
-    // Lógica para continuar o cadastro
-    console.log('Salvar');
+    if (this.form.valid) {
+      
+      console.log('Dados do Formulário:', this.form.value);}
+    // } else {
+    //   console.log('Formulário inválido');
+    //   this.form.markAllAsTouched();
+    // }
   }
-
+  
   voltar() {
     // Lógica para voltar
     console.log('Voltar');
@@ -110,9 +192,4 @@ export class ProfessorContinuarCadastroComponent implements OnInit{
       reader.readAsDataURL(file);
     }
   }
-  
-
 }
-
-
-
