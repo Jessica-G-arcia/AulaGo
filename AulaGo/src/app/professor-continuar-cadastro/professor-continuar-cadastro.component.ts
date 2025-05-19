@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxMaskDirective } from 'ngx-mask';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-professor-continuar-cadastro',
@@ -19,8 +20,9 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
 
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
 
-  exibirPresencial: boolean = true;
-  exibirOnline: boolean = true;
+  exibirPresencial: boolean = false;
+  exibirOnline: boolean = false;
+  exibirHibrido: boolean = false;
 
   meses = [
     { valor: 1, nome: 'Janeiro' },
@@ -90,13 +92,13 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
     };
   }
   
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
 
     this.bankForm = this.fb.group({
       nome: ['', Validators.required],
-      cif: ['', Validators.required],
+      cpf: ['', Validators.required],
       banco: ['', Validators.required],
       agencia: ['', Validators.required],
       tipoConta: ['', Validators.required],
@@ -122,53 +124,46 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
       ano: new FormControl('', [Validators.required]),
       idiomas: formArray,
       modalidade: new FormControl('', [Validators.required]),
-      especialidade: new FormControl('', [Validators.required]),
-      bio: new FormControl('', [Validators.required]),
-      disponibilidade: new FormControl('', [Validators.required]),
-      periodo: new FormControl('', [Validators.required]),
+      especialidade: new FormControl('', []),
+      bio: new FormControl('', []),
+      disponibilidade: new FormControl('', []),
+      periodo: new FormControl ('', []),
       valor: new FormControl('', [Validators.required]),
       valoronline: new FormControl('', [Validators.required]),
       raio: new FormControl('', [Validators.required]),
-      aceitouTermos: new FormControl(false, Validators.requiredTrue)
     });
   }
-  
-  onSubmit(): void {
+  dadosAdicionados: boolean = false;
+
+  adicionar(): void {
     if (this.bankForm.valid) {
-      console.log('Dados bancários enviados:', this.bankForm.value);
+      console.log('Dados bancários adicionados:', this.bankForm.value);
       this.isDropdownOpen = false;
+      this.dadosAdicionados = true;
+      
       // Aqui você pode enviar os dados para o backend, salvar localmente etc.
     } else {
       this.bankForm.markAllAsTouched();
     }
   }
-  onExibirOnlineChange(): void {
-    const control = this.form.get('valoronline');
-    if (this.exibirOnline) {
-      control?.setValidators([Validators.required]);
-    } else {
-      control?.clearValidators();
-    }
-    control?.updateValueAndValidity();
-  }
+  
 
-  onExibirPresencialChange(): void {
-    const control = this.form.get('valor');
-    if (this.exibirPresencial) {
-      control?.setValidators([Validators.required]);
-    } else {
-      control?.clearValidators();
-    }
-    control?.updateValueAndValidity();
-  }
 
-  salvar() {
-    if (this.form.valid) {
-      
-      console.log('Dados do Formulário:', this.form.value);}
-    // } else {
-    //   console.log('Formulário inválido');
-    //   this.form.markAllAsTouched();
+  salvar(): void {
+    if (this.form.valid && this.dadosAdicionados) {
+      console.log('Formulário enviado:', this.form.value);
+      this.router.navigate(['/login']);
+    } else {
+      this.form.markAllAsTouched();
+    }
+
+
+    // if (this.email === 'admin@exemplo.com' && this.senha === '1234') {
+    //   this.router.navigate(['/perfil', this.email]);
+
+    //   localStorage.setItem('email', this.email);
+    //   this.router.navigate(['/login'])
+    //   alert('Email ou senha inválidos');
     // }
   }
   
