@@ -10,9 +10,11 @@ import { PerfilAlunoComponent } from './perfil-aluno/perfil-aluno.component';
 import { PerfilProfessorComponent } from './perfil-professor/perfil-professor.component';
 import { AulasComponent } from './aulas/aulas.component';
 import { AgendaComponent } from './agenda/agenda.component';
-import { HomeProfessorComponent } from './home-professor/home-professor.component';
+import { ProfessorHomeComponent } from './professor-home/professor-home.component';
 import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
 import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
+import { TermosPoliticaComponent } from './termos-politica/termos-politica.component';
+import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -24,12 +26,14 @@ export const routes: Routes = [
     {path: 'cadastro', component: CadastroComponent},
     {path: 'chat', component: ChatComponent},
     {path: 'continuar-cadastro', component:ContinuarCadastroComponent},
+    { path: 'professor-continuar-cadastro', component: ProfessorContinuarCadastroComponent},
     {path: 'home-aluno', component: HomeAlunoComponent},
     {path: 'notificacoes', component: NotificacoesComponent},
     {path: 'pagamento', component: PagamentoComponent},
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
-    {path: 'home-professor', component: HomeProfessorComponent},
+    {path: 'home-professor', component: ProfessorHomeComponent},
+    { path: 'termos-politica', component: TermosPoliticaComponent}
     // {path: '**', component: }, 
 
 
