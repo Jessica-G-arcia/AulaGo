@@ -130,3 +130,10 @@
   color: #333;
   line-height: 5px;
 }
+
+.title-dash {
+  font-size: 24px;
+  margin-top: 100px;
+  font-family: 'montserrat', sans-serif;
+  padding-left: 30px;
+}

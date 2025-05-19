@@ -17,6 +17,7 @@ import { NotificacoesAlunosComponent } from './notificacoes-alunos/notificacoes-
 import { MenuSuperiorAlunoComponent } from './menu-superior-aluno/menu-superior-aluno.component';
 import { MenuLateralAlunoComponent } from './menu-lateral-aluno/menu-lateral-aluno.component';
 import { PerfilAlunoVisaoProfessorComponent } from './perfil-aluno-visao-professor/perfil-aluno-visao-professor.component';
+import { PerfilProfessorVisaoAlunoComponent } from './perfil-professor-visao-aluno/perfil-professor-visao-aluno.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -35,6 +36,7 @@ export const routes: Routes = [
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-aluno-visao-professor', component: PerfilAlunoVisaoProfessorComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
+    {path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
