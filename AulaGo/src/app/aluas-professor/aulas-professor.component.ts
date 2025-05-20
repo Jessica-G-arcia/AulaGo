@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
+import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 
 @Component({
   selector: 'app-aluas-professor',
-  imports: [CommonModule],
+  imports: [CommonModule, MenuSuperiorComponent, MenuLateralComponent],
   templateUrl: './aluas-professor.component.html',
   styleUrl: './aluas-professor.component.css'
 })
@@ -16,7 +18,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'João Pedro',
       local: 'Sorocaba - SP',
-      horario: '8:00 ás 9:00',
+      horario: '8:00 às 9:00',
       idioma: 'Inglês',
       data: '29/03/2025',
       modalidade: 'Online',
@@ -25,7 +27,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Alana Vaz',
       local: 'Sorocaba - SP',
-      horario: '6:00 ás 7:00',
+      horario: '6:00 às 7:00',
       idioma: 'Inglês',
       data: '24/03/2025',
       modalidade: 'Presencial',
@@ -34,7 +36,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Katia Leone',
       local: 'Sorocaba - SP',
-      horario: '13:00 ás 14:00',
+      horario: '13:00 às 14:00',
       idioma: 'Inglês',
       data: '27/03/2025',
       modalidade: 'Presencial',
@@ -43,7 +45,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Gisele Silva',
       local: 'Sorocaba - SP',
-      horario: '7:00 ás 8:00',
+      horario: '7:00 às 8:00',
       idioma: 'Espanhol',
       data: '27/03/2025',
       modalidade: 'Online',
@@ -52,7 +54,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Marcos Paulo',
       local: 'Sorocaba - SP',
-      horario: '8:00 ás 9:00',
+      horario: '8:00 às 9:00',
       idioma: 'Inglês',
       data: '05/04/2025',
       modalidade: 'Presencial',
@@ -61,7 +63,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Felipe Ferraz',
       local: 'Sorocaba - SP',
-      horario: '8:00 ás 9:00',
+      horario: '8:00 às 9:00',
       idioma: 'Inglês',
       data: '10/05/2025',
       modalidade: 'Online',
@@ -72,25 +74,25 @@ export class AluasProfessorComponent {
   // novo array para aulas agendadas
   aulasAgendadas = [
     {
-      aluno: 'Fernanda Dias',
+      aluno: 'Carlos Silva',
       local: 'Sorocaba - SP',
-      horario: '8:00 ás 9:00',
+      horario: '14:00 às 15:00',
       idioma: 'Inglês',
-      data: '17/07/2025',
-      modalidade: 'Online'
+      data: '13/05/2025',
+      modalidade: 'Presencial'
     },
     {
-      aluno: 'João Pedro',
+      aluno: 'Ana Paula',
       local: 'Sorocaba - SP',
-      horario: '8:00 ás 9:00',
+      horario: '15:30 às 16:30',
       idioma: 'Inglês',
-      data: '18/07/2025',
+      data: '13/05/2025',
       modalidade: 'Online'
     },
     {
       aluno: 'Katia Leone',
       local: 'Sorocaba - SP',
-      horario: '10:00 ás 11:00',
+      horario: '10:00 às 11:00',
       idioma: 'Inglês',
       data: '20/07/2025',
       modalidade: 'Online'
@@ -98,7 +100,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Gabriel Dias',
       local: 'Sorocaba - SP',
-      horario: '14:00 ás 15:00',
+      horario: '14:00 às 15:00',
       idioma: 'Inglês',
       data: '22/07/2025',
       modalidade: 'Online'
@@ -106,7 +108,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Marcos Paulo',
       local: 'Sorocaba - SP',
-      horario: '9:00 ás 10:00',
+      horario: '9:00 às 10:00',
       idioma: 'Inglês',
       data: '25/07/2025',
       modalidade: 'Online'
@@ -114,7 +116,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Felipe Ferraz',
       local: 'Sorocaba - SP',
-      horario: '13:00 ás 14:00',
+      horario: '13:00 às 14:00',
       idioma: 'Inglês',
       data: '26/07/2025',
       modalidade: 'Online'
@@ -122,7 +124,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Alana Vaz',
       local: 'Sorocaba - SP',
-      horario: '6:00 ás 7:00',
+      horario: '6:00 às 7:00',
       idioma: 'Inglês',
       data: '28/07/2025',
       modalidade: 'Online'
@@ -130,7 +132,7 @@ export class AluasProfessorComponent {
     {
       aluno: 'Igor Rodrigo',
       local: 'Sorocaba - SP',
-      horario: '7:00 ás 8:00',
+      horario: '7:00 às 8:00',
       idioma: 'Inglês',
       data: '30/07/2025',
       modalidade: 'Online'

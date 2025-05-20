@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
+import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 
 @Component({
   selector: 'app-aulas',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MenuSuperiorComponent, MenuLateralComponent],
   templateUrl: './aulas.component.html',
   styleUrl: './aulas.component.css'
 })

@@ -1,0 +1,67 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div>
+    <div class="d-flex flex-column vh-100">
+        <app-menu-superior></app-menu-superior>
+
+
+        <div class="d-flex flex-grow-1">
+            <app-menu-lateral></app-menu-lateral>
+
+
+            <div class="container">
+
+                <div class="header">
+                    <button class="back-button" routerLink="/home-professor" routerLinkActive="active">
+                        <i class="material-icons">arrow_back</i>
+                    </button>
+                </div>
+
+                <!-- seção principal do perfil -->
+                <div class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            <img src="/matheus.png" alt="Foto do professor">
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="profile-name">{{aluno.nome}}</h1>
+                            <p class="profile-idioma">Idioma: <img src="/usa-flag.png" alt="Bandeira dos EUA"
+                                    class="flag-icon">
+                                {{aluno.idioma}}</p>
+                            <p class="profile-nivel">Nível: {{aluno.nivel}}</p>
+                            <p class="profile-modalidade">Modalidade: {{aluno.modalidade}}</p>
+                            <p class="profile-status">Entrou pela primeira vez a {{aluno.tempoRegistro}}.</p>
+                            <p class="profile-title">{{aluno.aulasConcludas}}</p>
+                        </div>
+                    </div>
+
+                    <button class="contact-button">Solicitar Contato</button>
+                    <div class="profile-content">
+                        <!-- bio do professor -->
+                        <div class="bio-card">
+                            <p>{{aluno.descricao}}</p>
+                        </div>
+                    </div>
+                    <!-- avaliações -->
+                    <div class="reviews-card">
+                        <h2>{{aluno.tituloAvaliacoes}}</h2>
+                        <div class="review-item" *ngFor="let avaliacao of avaliacoes">
+                            <div class="review-header">
+                                <div class="review-user-image">
+                                    <img [src]="avaliacao.foto" [alt]="avaliacao.nome">
+                                </div>
+                                <div class="review-user-info">
+                                    <h3 class="review-user-name">{{avaliacao.nome}}</h3>
+                                    <div class="review-stars" [innerHTML]="gerarEstrelas(avaliacao.estrelas)"></div>
+                                    <div class="review-content">
+                                        <p>{{avaliacao.comentario}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
