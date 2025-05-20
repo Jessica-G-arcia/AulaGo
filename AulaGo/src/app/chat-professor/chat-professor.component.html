@@ -1,0 +1,92 @@
+<div>
+    <!-- <div class="col-md-12"> -->
+
+    <div class="d-flex flex-column vh-100">
+        <app-menu-superior></app-menu-superior>
+
+
+        <div class="d-flex flex-grow-1">
+            <app-menu-lateral></app-menu-lateral>
+
+
+            <div class="flex-grow-1 p-3 overflow-auto">
+                <div class="chat-container">
+                    <div class="sidebar">
+                        <div class="sidebar-header">
+                            <b>Recentes</b>
+                            <div></div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('Matheus Oliveira')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="aluno3.png" alt="Matheus Oliveira">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Matheus Oliveira</div>
+                                    <div class="contact-email">Matheus_oliveira&#64;gmail.com</div>
+                                </div>
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="recent-date">Hoje</div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('Mariana Lopes')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="aluno1.png" alt="Mariana Lopes">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Mariana Lopes</div>
+                                    <div class="contact-email">Mariana.lopes&#64;gmail.com</div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            <div class="recent-date">17/06/2025</div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('João Martins')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="aluno_joao.png" alt="João Martins">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">João Martins</div>
+                                    <div class="contact-email">Joao.martins&#64;gmail.com</div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            <div class="recent-date">10/06/2025</div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('Gabriela Nunes')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="aluna_gabriela.png" alt="Gabriela Nunes">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Gabriela Nunes</div>
+                                    <div class="contact-email">Gabriela.nunes&#64;gmail.com</div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            <div class="recent-date">10/06/2025</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-area">
+                        <div class="aulago-logo">
+                            <img src="Logo-AulaGo.png" alt="AulaGo Logo" />
+                        </div>
+                        <div class="start-conversation">Inicie uma conversa com seu Aluno</div>
+
+                        <app-chat-professor-aberto *ngIf="conversaSelecionada" [nome]="conversaSelecionada"
+                            (fechar)="fecharConversa()" class="chat-aberto">
+                        </app-chat-professor-aberto>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

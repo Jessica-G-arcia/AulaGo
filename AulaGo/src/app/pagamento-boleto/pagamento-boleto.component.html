@@ -1,0 +1,40 @@
+<div class="card boleto-card shadow-sm p-4 position-relative">
+  <button type="button" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close" (click)="fechar()"></button>
+  
+  <h4 class="mb-4 text-center">Pagamento via Boleto</h4>
+  
+  <div class="boleto-container">
+    <!-- Valor a pagar -->
+    <div class="valor-info text-center mb-3">
+      <div class="valor-pagar">Valor R$ 100,00</div>
+    </div>
+    
+    <!-- Instrução -->
+    <div class="instrucao text-center mb-3">
+      Copie o código ou escaneie o código de barras
+    </div>
+    
+    <!-- Código de Barras -->
+    <div class="codigo-barras-container mb-3">
+      <input class="codigo-barras-input" type="text" readonly value="12345678910 09876543212 09876547373646363 88438437434819">
+    </div>
+    
+    <!-- Botão copiar -->
+    <div class="copiar-container text-center">
+      <button class="copiar-btn" (click)="copiarCodigo()">Copiar Código</button>
+      <p id="mensagem-copiado" class="mensagem-copiado" style="display:none;">Código copiado!</p>
+    </div>
+    
+    <!-- Imagem do código de barras -->
+    <div class="barcode-image-container">
+      <img src="codigo_de_barras.png" alt="Código de barras" class="barcode-image" />
+    </div>
+    
+    <!-- Botão gerar boleto -->
+    <div class="gerar-boleto-container">
+      <button class="gerar-btn" (click)="gerarBoleto()">Gerar Boleto</button>
+      <p *ngIf="gerando" class="mensagem-gerando">Gerando boleto...</p>
+      <p *ngIf="sucesso" class="mensagem-sucesso">Boleto gerado com sucesso, verifique seu email.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+.boleto-card {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.boleto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.valor-info {
+  width: 100%;
+}
+
+.valor-pagar {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.instrucao {
+  font-size: 14px;
+  color: #555;
+}
+
+.codigo-barras-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.codigo-barras-input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-family: monospace;
+  color: #333;
+}
+
+.copiar-container {
+  margin: 15px 0 -30px 0; /* Espaço maior antes da imagem do código de barras */
+  width: 100%;
+  text-align: center;
+}
+
+.copiar-btn {
+  background-color: #219EBC; /* Azul claro */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.copiar-btn:hover {
+  background-color: #023247;
+}
+
+.mensagem-copiado {
+  font-size: 12px;
+  color: #00b2a9;
+  margin-top: 5px;
+}
+
+.barcode-image-container {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 -60px 0; /* Ajustado para subir a imagem */
+}
+
+.barcode-image {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.gerar-boleto-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.gerar-btn {
+  background-color: #219EBC;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.gerar-btn:hover {
+  background-color: #023247;
+}
+
+.mensagem-gerando, 
+.mensagem-sucesso {
+  font-size: 13px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.mensagem-gerando {
+  color: #666;
+}
+
+.mensagem-sucesso {
+  color: green;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .codigo-barras-input {
+    font-size: 12px;
+  }
+  
+  .barcode-image {
+    width: 100%;
+  }
+}

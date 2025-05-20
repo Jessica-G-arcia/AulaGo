@@ -1,1 +1,110 @@
-<p>pagamento works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+<div class>
+
+  <div class="d-flex flex-column vh-100">
+    <app-menu-superior-aluno></app-menu-superior-aluno>
+
+
+    <div class="d-flex flex-grow-1">
+      <app-menu-lateral-aluno></app-menu-lateral-aluno>
+
+
+      <div class="flex-grow-1 overflow-auto">
+        <div class="header">
+          <button class="back-button" routerLink="perfil-professor-visao-aluno" routerLinkActive="active">
+            <i class="material-icons">arrow_back</i>
+          </button>
+        </div>
+
+        <div class="container mt-3">
+
+          <h2 class="mb-3">Pagamento</h2>
+
+          <div class="container mt-3">
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="emailInput" placeholder="seu@email.com">
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="classDay" class="form-label">Escolha o dia da Aula:</label>
+                <input type="text" class="form-control" id="classDay" placeholder="Ex: Segunda-feira">
+              </div>
+              <div class="col-md-6">
+                <label for="classTime" class="form-label">Informe o Horário da Aula</label>
+                <input type="text" class="form-control" id="classTime" placeholder="Ex: 10:00">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="classDuration" class="form-label">Duração da Aula:</label>
+                <input type="text" class="form-control" id="classDuration" placeholder="Ex: 1h">
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-5">
+              <label for="coupon" class="form-label">Digite seu cupom:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="coupon" placeholder="Seu cupom">
+                <button class="btn btn-success" type="button">Aplicar cupom</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Coluna de botões -->
+            <div class="col-md-4">
+              <h3 class="mb-3">Formas de Pagamento:</h3>
+              <div class="d-grid gap-2">
+                <button (click)="selecionarPagamento('cartao')"
+                  class="btn btn-outline-secondary py-2 d-flex align-items-center">
+                  <i class="bi bi-credit-card-2-front me-2"></i>
+                  Cartão de Crédito
+                </button>
+                <button (click)="selecionarPagamento('pix')"
+                  class="btn btn-outline-secondary py-2 d-flex align-items-center">
+                  <i class="bi bi-cash-coin me-2"></i>
+                  Pix
+                </button>
+                <button (click)="selecionarPagamento('boleto')"
+                  class="btn btn-outline-secondary py-2 d-flex align-items-center mb-4">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                  Boleto
+                </button>
+              </div>
+            </div>
+
+            <!-- Coluna do conteúdo do filho -->
+            <div class="col-md-8">
+              <ng-container *ngIf="pagamentoSelecionado === 'cartao'">
+                <div class="mb-5">
+                <app-pagamento-cartao (fecharFormulario)="pagamentoSelecionado = ''"></app-pagamento-cartao>
+              </div>
+              </ng-container>
+
+              <ng-container *ngIf="pagamentoSelecionado === 'pix'">
+                <div class="mb-5">
+                <app-pagamento-pix (fecharFormulario)="pagamentoSelecionado = ''"></app-pagamento-pix>
+              </div>
+              </ng-container>
+
+              <ng-container *ngIf="pagamentoSelecionado === 'boleto'">
+                <div class="mb-5">
+                <app-pagamento-boleto (fecharFormulario)="pagamentoSelecionado = ''"></app-pagamento-boleto>
+              </div>
+              </ng-container>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

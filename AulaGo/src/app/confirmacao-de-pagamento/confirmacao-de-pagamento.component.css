@@ -1,0 +1,69 @@
+.confirmation-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 60px; /* aumentei o padding */
+  max-width: 800px; /* aumentei a largura máxima */
+  width: 90%; /* ocupa mais espaço em telas pequenas */
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* sombra mais evidente */
+  border-radius: 15px; /* cantos mais suaves */
+}
+
+.confirmation-title {
+  color: #4CAF50;
+  font-size: 36px; /* maior */
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.confirmation-icon {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 30px;
+}
+
+.confirmation-message {
+  font-size: 24px; /* maior texto */
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* permite quebrar linha se precisar */
+}
+
+.button {
+  background-color: #80c1e6;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px; /* maior botão */
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #5caad6;
+}
+
+.checkmark {
+  stroke: #000;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.circle {
+  stroke: #000;
+  stroke-width: 3;
+  fill: none;
+}
