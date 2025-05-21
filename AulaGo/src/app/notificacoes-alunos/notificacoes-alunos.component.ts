@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
-import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MenuSuperiorAlunoComponent } from '../menu-superior-aluno/menu-superior-aluno.component';
+import { MenuLateralAlunoComponent } from '../menu-lateral-aluno/menu-lateral-aluno.component';
 
 
 interface Notificacao {
@@ -18,7 +18,7 @@ interface Notificacao {
 
 @Component({
   selector: 'app-notificacoes-alunos',
-  imports: [CommonModule, FormsModule, RouterLinkActive, RouterLink, MenuSuperiorComponent, MenuLateralComponent ],
+  imports: [CommonModule, FormsModule, RouterLinkActive, RouterLink, MenuSuperiorAlunoComponent, MenuLateralAlunoComponent ],
   templateUrl: './notificacoes-alunos.component.html',
   styleUrl: './notificacoes-alunos.component.css'
 })
