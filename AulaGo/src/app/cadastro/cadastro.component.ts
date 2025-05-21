@@ -4,11 +4,11 @@ import { AbstractControl, ReactiveFormsModule, ValidationErrors, Validators } fr
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
-  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule,],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
@@ -70,21 +70,9 @@ export class CadastroComponent implements OnInit {
     { valor: 'TO', nome: 'Tocantins' }
   ];
 
-  senhasIguaisValidator(group: AbstractControl): ValidationErrors | null {
-    const senha = group.get('senha');
-    const confirmarSenha = group.get('confirmarSenha');
-
-    if (senha && confirmarSenha && senha.value !== confirmarSenha.value) {
-      return { senhasNaoConferem: true };
-    }
-
-    return null;
-  }
-
-
   ngOnInit(): void {
     this.form = new FormGroup({
-      id: new FormControl(0, Validators.required),
+      id: new FormControl(0, []),
       nome: new FormControl('', Validators.required),
       cpf: new FormControl('', Validators.required),
       telefone: new FormControl('', Validators.required),
@@ -98,15 +86,15 @@ export class CadastroComponent implements OnInit {
       endereco: new FormControl('', Validators.required),
       numero: new FormControl('', Validators.required),
       bairro: new FormControl('', Validators.required),
-      complemento: new FormControl('', Validators.required),
+      complemento: new FormControl('', []),
       email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
       senha: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmarSenha: new FormControl('', [Validators.required, Validators.minLength(8)]),
       aceitouTermos: new FormControl(false, Validators.requiredTrue)
-    }, { validators: this.senhasIguaisValidator.bind(this) }
+    }
     );
   }
-
+constructor(private router: Router) { }
   cadastrar() {
     if (this.form.invalid) {
       console.log('Formulário inválido');
@@ -114,6 +102,7 @@ export class CadastroComponent implements OnInit {
       return;
     }
     console.log('Usuário Cadastrado', this.form.value);
+    this.router.navigate(['/login']);
   }
 
 }

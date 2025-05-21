@@ -112,31 +112,17 @@
                 </div>
             </div>
             
-                <div class="col-sm-10 mt-4">
-                    <label for="idioma" class="form-label d-block">Idiomas</label>
-                    <div class="form-check form-check-inline">
-
-                        <input class="form-check-input" type="checkbox" id="idioma" value="option1">
-                        <label class="form-check-label" for="idioma">Português</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="idioma" value="option2">
-                        <label class="form-check-label" for="idioma">Inglês</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="idioma" value="option2" disabled>
-                        <label class="form-check-label" for="idioma">Italiano</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="idioma" value="option2" disabled>
-                        <label class="form-check-label" for="idioma">Francês</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="idioma" value="option2" disabled>
-                        <label class="form-check-label" for="idioma">Espanhol</label>
-                    </div>
-                    
+            <div formArrayName="idiomas" class="mb-3 mt-2">
+                <label for="idioma" class="form-label d-block">Idiomas</label>
+                <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
+                    <input type="checkbox" class="form-check-input" [formControlName]="i" [id]="'idioma' + i" />
+                    <label class="form-check-label ms-2" [for]="'idioma' + i">{{ idioma }}</label>
                 </div>
+                <div *ngIf="form.get('idiomas')?.invalid && (form.get('idiomas')?.dirty || form.get('idiomas')?.touched)"
+                    class="text-danger">
+                    Selecione pelo menos um idioma.
+                </div>
+            </div>
             
             <div class="row g-3 mt-1">
                 <div class="col-sm-4">
@@ -196,12 +182,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-
         <div class="text-center mt-5">
-            <button type="submit" (click)="salvar()" class="btn btn-primary w-50 rounded-pill"> salvar
+            <button type="button" (click)="salvar()" class="btn btn-primary w-50 rounded-pill"> salvar
             </button>
         </div>
     </form>

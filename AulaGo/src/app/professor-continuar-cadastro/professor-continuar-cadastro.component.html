@@ -1,21 +1,15 @@
-<div class="container bg-light p-3">
-    <form [formGroup]="form" class="row g-5 needs-validation" (ngSubmit)="salvar()" novalidate="">
-
-
+<div class="container p-5">
+    <form [formGroup]="form" class="row g-5 needs-validation" novalidate="">
         <div class="col-lg-2 d-flex flex-column align-items-center justify-content-start">
             <img [src]="imagemPreview || 'https://i.pinimg.com/736x/37/57/5a/37575a213755cad83bd408908623ba22.jpg'"
                 class="rounded-circle" width="140" height="140" alt="Foto do usuário">
-
             <input type="file" #inputFile hidden (change)="onFileSelected($event)" accept="image/*">
-
             <div class="mt-3">
                 <button type="button" class="btn btn-primary rounded-pill" (click)="inputFile.click()">
                     Alterar
                 </button>
             </div>
         </div>
-
-
 
         <div class="col-lg-10">
             <div class="row g-3">
@@ -26,7 +20,6 @@
                         placeholder="Digite seu nome completo" required>
                     <div *ngIf="form.get('nome')?.invalid && (form.get('nome')?.dirty || form.get('nome')?.touched)"
                         class="text-danger">
-
                         <div *ngIf="form.get('nome')?.errors?.['required']">
                             Por favor, digite um nome válido.
                         </div>
@@ -35,9 +28,9 @@
 
                 <div class="col-sm-4">
                     <label for="genero" class="form-label">Gênero</label>
-                    <select type="text" style="color: #c9cbcd;" class="form-select" id="genero" formControlName="genero"
+                    <select type="text"  class="form-select" id="genero" formControlName="genero"
                         required>
-                        <option value="" style="color: #c9cbcd;">Selecione</option>
+                        <option value="" >Selecione</option>
                         <option *ngFor="let g of generos" [value]="g.valor">{{ g.nome }}</option>
                     </select>
                     <div *ngIf="form.get('genero')?.invalid && (form.get('genero')?.dirty || form.get('genero')?.touched)"
@@ -54,9 +47,9 @@
                     <label class="form-label">Data de Nascimento</label>
                     <div class="row">
                         <div class="col-sm-4">
-                            <select type="text" style="color: #c9cbcd;" class="form-select" id="dia"
+                            <select type="text"  class="form-select" id="dia"
                                 formControlName="dia" required>
-                                <option value="" style="color: #c9cbcd;">Dia</option>
+                                <option value="" >Dia</option>
                                 <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
                             </select>
                             <div *ngIf="form.get('dia')?.invalid && (form.get('dia')?.dirty || form.get('dia')?.touched)"
@@ -68,9 +61,9 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <select type="text" style="color: #c9cbcd;" class="form-select" id="mes"
+                            <select type="text"  class="form-select" id="mes"
                                 formControlName="mes" required>
-                                <option value="" style="color: #c9cbcd;">Mês</option>
+                                <option value="" >Mês</option>
                                 <option *ngFor="let m of meses" [value]="m.valor">{{ m.nome }}</option>
                             </select>
                             <div *ngIf="form.get('mes')?.invalid && (form.get('mes')?.dirty || form.get('mes')?.touched)"
@@ -82,9 +75,9 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <select type="text" style="color: #c9cbcd;" class="form-select" id="ano"
+                            <select type="text"  class="form-select" id="ano"
                                 formControlName="ano" required>
-                                <option value="" style="color: #c9cbcd;">Ano</option>
+                                <option value="" >Ano</option>
                                 <option *ngFor="let a of anos" [value]="a">{{ a }}</option>
                             </select>
                             <div *ngIf="form.get('ano')?.invalid && (form.get('ano')?.dirty || form.get('ano')?.touched)"
@@ -96,8 +89,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="dropdown col-sm-4 mt-5 d-flex flex-column align-items-end">
-                    <button class="btn" [ngClass]="{'btn-primary': !dadosAdicionados, 'btn-success': dadosAdicionados}"
+                    <button class="btn" style="background-color: #023047;" [ngClass]="{'btn-primary': !dadosAdicionados, 'btn-success': dadosAdicionados}"
                         (click)="isDropdownOpen = !isDropdownOpen">
                         <span *ngIf="!dadosAdicionados">+ Adicionar dados bancários</span>
                         <span *ngIf="dadosAdicionados"><i class="bi bi-check-circle"></i> Dados bancários
@@ -109,25 +103,6 @@
 
                         <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
                             (click)="isDropdownOpen = false" aria-label="Close"></button>
-                        <div class="mb-3">
-                            <label class="form-label" for="nome">Nome completo</label>
-                            <input id="nome" type="text" class="form-control" formControlName="nome"
-                                placeholder="Seu nome completo">
-                            <div *ngIf="bankForm.get('nome')?.invalid && bankForm.get('nome')?.touched"
-                                class="text-danger mt-1">
-                                <small>Nome é obrigatório.</small>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label" for="cpf">CPF</label>
-                            <input id="cpf" type="text" class="form-control" formControlName="cpf"
-                                placeholder="Ex: 12345678">
-                            <div *ngIf="bankForm.get('cpf')?.invalid && bankForm.get('cpf')?.touched"
-                                class="text-danger mt-1">
-                                <small>CPF é obrigatório.</small>
-                            </div>
-                        </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="banco">Banco</label>
@@ -171,186 +146,153 @@
                                 <small>Chave Pix é obrigatória.</small>
                             </div>
                         </div>
-
                         <button type="submit" class="btn btn-success w-100">Adicionar</button>
                     </form>
-                    <div *ngIf="form.get('bankForm')?.invalid && (form.get('bankForm')?.dirty || form.get('bankForm')?.touched)"
-                        class="text-danger">
-                        <div *ngIf="form.get('bankForm')?.errors?.['required']">
-                            Por favor, selecione o dia da semana.
-                        </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <label for="">Escolha a modalidade</label>
+                <div class="d-flex p-2 gap-2 mb-2">
+                    <button class="btn btn-sm rounded-pill"
+                        [ngClass]="{'btn-outline-custom': selectedModalidade === 'presencial', 'btn-custom': selectedModalidade !== 'presencial'}"
+                        [style.background-color]="!isCollapsed ? '#8ECAE6' : ''"
+                        [style.color]="!isCollapsed ? '#219EBC' : ''"
+                        [style.border-color]="!isCollapsed ? '#023047' : '#219EBC'"
+                        (click)="selectedModalidade = 'presencial'" aria-expanded="selectedModalidade === 'presencial'">
+                        Presencial
+                    </button>
+                    <button class="btn rounded-pill btn-sm"
+                        [ngClass]="{'btn-primary': selectedModalidade === 'online', 'btn-outline-primary': selectedModalidade !== 'online'}"
+                        (click)="selectedModalidade = 'online'" aria-expanded="selectedModalidade === 'online'">
+                        Online
+                    </button>
+                    <button class="btn rounded-pill btn-sm"
+                        [ngClass]="{'btn-primary': selectedModalidade === 'hibrido', 'btn-outline-primary': selectedModalidade !== 'hibrido'}"
+                        (click)="selectedModalidade = 'hibrido'" aria-expanded="selectedModalidade === 'hibrido'">
+                        Híbrido
+                    </button>
+                </div>
+
+                <!-- Presencial -->
+                <div [ngbCollapse]="selectedModalidade !== 'presencial'" class="mt-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control col-md-4" id="valor" formControlName="valor"
+                            placeholder="Digite o valor da aula presencial">
+                    </div>
+                    <div>
+                        <select type="text" class="form-select mt-2" id="raio" formControlName="raio">
+                            <option value="">Selecione o raio de atendimento</option>
+                            <option *ngFor="let r of raio" [value]="r">{{ r.nome }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Online -->
+                <div [ngbCollapse]="selectedModalidade !== 'online'" class="mt-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control col-md-4" id="valorOnline" formControlName="valorOnline"
+                            placeholder="Digite o valor da aula online">
+                    </div>
+                </div>
+
+                <!-- Híbrido -->
+                <div [ngbCollapse]="selectedModalidade !== 'hibrido'" class="mt-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control col-md-4" id="valorOnline" formControlName="valorOnline"
+                            placeholder="Digite o valor da aula online">
+                    </div>
+                    <input type="text" class="form-control col-md-4 mt-2" id="valor" formControlName="valor"
+                        placeholder="Digite o valor da aula presencial">
+
+                    <div>
+                        <select type="text" class="form-select mt-2" id="raio" formControlName="raio">
+                            <option value="">Selecione o raio de atendimento</option>
+                            <option *ngFor="let r of raio" [value]="r">{{ r.nome }}</option>
+                        </select>
+
                     </div>
                 </div>
             </div>
-        
-        
-        <div class="row mt-3">
-            <div class="col-md-10">
-                <label class="form-label">Modalidade</label>
-                <div class="d-flex gap-4 align-items-center mb-3">
-                    <div class="checkbox">
-                        <input type="checkbox" name="modalidade" id="ckExibirOnline" [(ngModel)]="exibirOnline"
-                            [ngModelOptions]="{standalone: true}" class="form-check-input" />
-                        <label for="ckExibirOnline" class="form-check-label align-items-center ms-2">Online</label>
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="presencial" id="ckExibirPresencial" [(ngModel)]="exibirPresencial"
-                            [ngModelOptions]="{standalone: true}" class="form-check-input" />
-                        <label for="ckExibirPresencial"
-                            class="form-check-label align-items-center ms-2">Presencial</label>
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="hibrido" id="ckExibirHibrido" [(ngModel)]="exibirHibrido"
-                            [ngModelOptions]="{standalone: true}" class="form-check-input" />
-                        <label for="ckExibirHibrido" class="form-check-label align-items-center ms-2">Híbrido</label>
-                    </div>
+
+
+            <div formArrayName="idiomas" class="mb-3 mt-2">
+                <label for="idioma" class="form-label d-block">Idiomas</label>
+                <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
+                    <input type="checkbox" class="form-check-input" [formControlName]="i" [id]="'idioma' + i" />
+                    <label class="form-check-label ms-2" [for]="'idioma' + i">{{ idioma }}</label>
                 </div>
-                <div class="d-flex gap-1 form-check-inline">
-                    <div *ngIf="exibirOnline" class="input-group mb-3 rounded-pill">
-                        <span class="input-group-text" id="valoronline">Valor da Aula</span>
-                        <input type="text" class="form-control" formControlName="valoronline" mask="separator.2"
-                            thousandSeparator="." decimalMarker="," prefix="R$ " />
+                <div *ngIf="form.get('idiomas')?.invalid && (form.get('idiomas')?.dirty || form.get('idiomas')?.touched)"
+                    class="text-danger">
+                    Selecione pelo menos um idioma.
+                </div>
+            </div>
 
-                    </div>
-                    <div *ngIf="exibirPresencial" class="input-group mb-3 rounded-pill">
-                        <span class="input-group-text" id="valor">Valor da Aula</span>
-                        <input type="text" class="form-control" formControlName="valor" mask="separator.2"
-                            thousandSeparator="." decimalMarker="," prefix="R$ " />
-                        <div class="col-sm-6">
-                            <label for="raio" class="form-label">Raio de Atendimento</label>
-                            <select type="text" style="color: #c9cbcd;" class="form-select" id="raio"
-                                formControlName="raio" required>
-                                <option value="" style="color: #c9cbcd;">Selecione</option>
-                                <option *ngFor="let r of raio" [value]="r.valor">{{ r.nome }}</option>
-                            </select>
-                            <!-- <div *ngIf="form.get('raio')?.invalid && (form.get('raio')?.dirty || form.get('raio')?.touched)"
-                                            class="text-danger">
-                                            <div *ngIf="form.get('raio')?.errors?.['required']">
-                                                Por favor, selecione o raio.
-                                            </div>
-                                        </div> -->
-                        </div>
-
-                    </div>
-                    <div *ngIf="exibirHibrido" class="input-group mb-3 rounded-pill">
-                        <span class="input-group-text" id="valor">Valor da Aula Presencial</span>
-                        <input type="text" class="form-control" formControlName="valor" mask="separator.2"
-                            thousandSeparator="." decimalMarker="," prefix="R$ " />
-
-                        <span class="input-group-text" id="valoronline">Valor da Aula Online</span>
-                        <input type="text" class="form-control" formControlName="valoronline" mask="separator.2"
-                            thousandSeparator="." decimalMarker="," prefix="R$ " />
-                        <div class="col-sm-3">
-                            <label for="raio" class="form-label">Raio de Atendimento</label>
-                            <select type="text" style="color: #c9cbcd;" class="form-select" id="raio"
-                                formControlName="raio" required>
-                                <option value="" style="color: #c9cbcd;">Selecione</option>
-                                <option *ngFor="let r of raio" [value]="r.valor">{{ r.nome }}</option>
-                            </select>
-                            <!-- <div *ngIf="form.get('raio')?.invalid && (form.get('raio')?.dirty || form.get('raio')?.touched)"
-                                            class="text-danger">
-                                            <div *ngIf="form.get('raio')?.errors?.['required']">
-                                                Por favor, selecione o raio.
-                                            </div>
-                                        </div> -->
-                        </div>
-                    </div>
-
+            <div class="row g-3 mt-1">
+                <div class="col-sm-2">
+                    <label for="periodo" class="form-label">Período</label>
+                    <select type="text"  class="form-select" id="periodo"
+                        formControlName="periodo" required>
+                        <option value="" >Selecione</option>
+                        <option *ngFor="let p of periodo" [value]="p">{{ p.nome }}</option>
+                    </select>
                 </div>
 
-            </div>
-        </div>
-
-
-        <div formArrayName="idiomas" class="mb-3 mt-2">
-            <label for="idioma" class="form-label d-block">Idiomas</label>
-            <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
-                <input type="checkbox" class="form-check-input" [formControlName]="i" [id]="'idioma' + i" />
-                <label class="form-check-label ms-2" [for]="'idioma' + i">{{ idioma }}</label>
-            </div>
-            <div *ngIf="form.get('idiomas')?.invalid && (form.get('idiomas')?.dirty || form.get('idiomas')?.touched)"
-                class="text-danger">
-                Selecione pelo menos um idioma.
-            </div>
-        </div>
-
-
-        <div class="row g-3 mt-1">
-
-            <div class="col-sm-2">
-                <label for="periodo" class="form-label">Período</label>
-                <select type="text" style="color: #c9cbcd;" class="form-select" id="periodo" formControlName="periodo"
-                    required>
-                    <option value="" style="color: #c9cbcd;">Selecione</option>
-                    <option *ngFor="let p of periodo" [value]="p">{{ p.nome }}</option>
-                </select>
-
-            </div>
-
-
-            <div class="col-sm-4">
-                <label for="disponibilidade" class="form-label">Preferência de dia</label>
-                <select type="text" style="color: #c9cbcd;" class="form-select" id="disponibilidade"
-                    formControlName="disponibilidade" required>
-                    <option value="" style="color: #c9cbcd;">Selecione o dia da semana</option>
-                    <option *ngFor="let d of disponibilidade" [value]="d">{{ d.nome }}</option>
-                </select>
-                <!-- <div *ngIf="form.get('disponibilidade')?.invalid && (form.get('disponibilidade')?.dirty || form.get('disponibilidade')?.touched)"
+                <div class="col-sm-4">
+                    <label for="disponibilidade" class="form-label">Preferência de dia</label>
+                    <select type="text"  class="form-select" id="disponibilidade"
+                        formControlName="disponibilidade" required>
+                        <option value="" >Selecione o dia da semana</option>
+                        <option *ngFor="let d of disponibilidade" [value]="d">{{ d.nome }}</option>
+                    </select>
+                    <!-- <div *ngIf="form.get('disponibilidade')?.invalid && (form.get('disponibilidade')?.dirty || form.get('disponibilidade')?.touched)"
                     class="text-danger">
                     <div *ngIf="form.get('disponibilidade')?.errors?.['required']">
                         Por favor, selecione o dia da semana.
                     </div>
                 </div> -->
-            </div>
+                </div>
 
-
-
-            <div class="row ">
-                <div class="col-sm-8 mt-4">
-                    <label for="especialidade" class="form-label d-block">Especialidade</label>
-                    <div class="form-check form-check-inline">
-
-                        <input class="form-check-input" type="checkbox" id="especialidade" value="especialidade"
-                            checked>
-                        <label class="form-check-label" for="idioma">Conversação</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="especialidade" value="especialidade"
-                            disabled>
-                        <label class="form-check-label" for="idioma">Gramática</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="especialidade" value="option2" disabled>
-                        <label class="form-check-label" for="idioma">Foco em negócios</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="especialidade" value="option2" disabled>
-                        <label class="form-check-label" for="idioma">Foco em viagens</label>
+                <div class="row ">
+                    <div class="col-sm-8 mt-4">
+                        <label for="especialidade" class="form-label d-block">Especialidade</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="especialidade" value="especialidade"
+                                checked>
+                            <label class="form-check-label" for="idioma">Conversação</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="especialidade" value="especialidade"
+                                disabled>
+                            <label class="form-check-label" for="idioma">Gramática</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="especialidade" value="option2" disabled>
+                            <label class="form-check-label" for="idioma">Foco em negócios</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="especialidade" value="option2" disabled>
+                            <label class="form-check-label" for="idioma">Foco em viagens</label>
+                        </div>
                     </div>
                 </div>
 
-
-
-            </div>
-
-
-            <div class="col-lg-12">
-                <div class="row g-3 mt-1">
-                    <div class="col-lg-12 d-flex flex-column  justify-content-end">
-                        <label for="bio" class="form-label">Bio</label>
-                        <input type="text" class="form-control input-alta" id="bio" formControlName="bio"
-                            placeholder="Escreva algo sobre você" required>
+                <div class="col-lg-12">
+                    <div class="row g-3">
+                        <div class="col-lg-12 d-flex flex-column  justify-content-end">
+                            <label for="bio" class="form-label">Bio</label>
+                            <input type="text" class="form-control input-alta" id="bio" formControlName="bio"
+                                placeholder="Escreva algo sobre você" required>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
+
 
 
 
         <div class="text-center mt-5">
-            <button type="submit" (click)="salvar()" class="btn btn-primary w-50 rounded-pill"> salvar
+            <button type="button" style="background-color: #219EBC; border-color: #219EBC;" (click)="salvar()" class="btn btn-primary w-50 rounded-pill"> salvar
             </button>
         </div>
     </form>

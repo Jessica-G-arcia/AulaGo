@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgxMaskDirective } from 'ngx-mask';
 import { Router } from '@angular/router';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-professor-continuar-cadastro',
-  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule, FormsModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbCollapseModule],
   templateUrl: './professor-continuar-cadastro.component.html',
   styleUrl: './professor-continuar-cadastro.component.css'
 })
@@ -17,12 +17,8 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
 
   idiomasList = ['Português', 'Inglês', 'Italiano', 'Francês', 'Espanhol'];
 
-
+imagemSelecionada: File | null = null;
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
-
-  exibirPresencial: boolean = false;
-  exibirOnline: boolean = false;
-  exibirHibrido: boolean = false;
 
   meses = [
     { valor: 1, nome: 'Janeiro' },
@@ -65,7 +61,7 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
     { valor: '35', nome: '35 km' },
     { valor: '40', nome: '40 km' },
     { valor: '45', nome: '45 km' },
-    { valor: '50', nome: '50 km' },
+    { valor: '50km', nome: '50 km' },
   ]
   
 
@@ -97,8 +93,6 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
   ngOnInit(): void {
 
     this.bankForm = this.fb.group({
-      nome: ['', Validators.required],
-      cpf: ['', Validators.required],
       banco: ['', Validators.required],
       agencia: ['', Validators.required],
       tipoConta: ['', Validators.required],
@@ -129,8 +123,14 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
       disponibilidade: new FormControl('', []),
       periodo: new FormControl ('', []),
       valor: new FormControl('', [Validators.required]),
-      valoronline: new FormControl('', [Validators.required]),
+      valorOnline: new FormControl('', [Validators.required]),
       raio: new FormControl('', [Validators.required]),
+      nomeBanco: new FormControl('', [Validators.required]),
+      cpf: new FormControl('', [Validators.required]),
+      banco: new FormControl('', [Validators.required]),
+      agencia: new FormControl('', [Validators.required]),
+      tipoConta: new FormControl('', [Validators.required]),
+      pix: new FormControl('', [Validators.required]),
     });
   }
   dadosAdicionados: boolean = false;
@@ -148,29 +148,20 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
   }
   
 
-
-  salvar(): void {
-    if (this.form.valid && this.dadosAdicionados) {
-      console.log('Formulário enviado:', this.form.value);
-      this.router.navigate(['/login']);
-    } else {
-      this.form.markAllAsTouched();
-    }
-
-
-    // if (this.email === 'admin@exemplo.com' && this.senha === '1234') {
-    //   this.router.navigate(['/perfil', this.email]);
-
-    //   localStorage.setItem('email', this.email);
-    //   this.router.navigate(['/login'])
-    //   alert('Email ou senha inválidos');
-    // }
+  salvar() {
+    console.log('Usuário Cadastrado', this.form.value);
+    this.router.navigate(['/login']);
   }
-  
   voltar() {
     // Lógica para voltar
     console.log('Voltar');
   }
+isCollapsed = true;
+isCollapsedOnline = true;
+isCollapsedHibrido = true;
+
+selectedModalidade: 'presencial' | 'online' | 'hibrido' | null = null;
+
 
   imagemPreview: string | ArrayBuffer | null = null;
 

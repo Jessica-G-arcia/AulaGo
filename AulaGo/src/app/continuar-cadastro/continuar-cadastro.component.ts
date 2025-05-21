@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
 @Component({
@@ -14,6 +14,8 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 export class ContinuarCadastroComponent implements OnInit {
 
   form!: FormGroup;
+
+  idiomasList = ['Português', 'Inglês', 'Italiano', 'Francês', 'Espanhol'];
 
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
 
@@ -68,27 +70,47 @@ export class ContinuarCadastroComponent implements OnInit {
     { valor: 'noite', nome: 'Noite' }
   ]
 
+  minSelectedCheckboxes(min = 1) {
+    return (formArray: AbstractControl) => {
+      const totalSelected = (formArray.value as boolean[]).filter(v => v).length;
+      return totalSelected >= min ? null : { required: true };
+    };
+  }
+
 
   ngOnInit(): void {
+
+
+    const idiomasControls = this.idiomasList.map(() => new FormControl(false));
+  
+    //Array de validacao
+    const formArray = new FormArray(idiomasControls, this.minSelectedCheckboxes(1));
+  
+    // desabilitando italiano, frances e espanhol
+    formArray.at(2).disable();
+    formArray.at(3).disable();
+    formArray.at(4).disable();
+
+
     this.form = new FormGroup({
       nome: new FormControl('', [Validators.required]),
       genero: new FormControl('', [Validators.required]),
       dia: new FormControl('', [Validators.required]),
       mes: new FormControl('', [Validators.required]),
       ano: new FormControl('', [Validators.required]),
-      idioma: new FormControl('', [Validators.required]),
+      idiomas: formArray,
       modalidade: new FormControl('', [Validators.required]),
       nivel: new FormControl('', [Validators.required]),
-      bio: new FormControl('', [Validators.required]),
-      disponibilidade: new FormControl('', [Validators.required]),
-      periodo: new FormControl('', [Validators.required]),
+      bio: new FormControl('', []),
+      disponibilidade: new FormControl('', []),
+      periodo: new FormControl('', []),
     })
   }
-
-  salvar() {
-    // Lógica para continuar o cadastro
-    console.log('Salvar');
-  }
+constructor(private router: Router) { }
+salvar() {
+  console.log('Usuário Cadastrado', this.form.value);
+  this.router.navigate(['/login']);
+}
 
   voltar() {
     // Lógica para voltar
