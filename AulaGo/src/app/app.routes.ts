@@ -17,6 +17,8 @@ import { NotificacoesAlunosComponent } from './notificacoes-alunos/notificacoes-
 import { MenuSuperiorAlunoComponent } from './menu-superior-aluno/menu-superior-aluno.component';
 import { MenuLateralAlunoComponent } from './menu-lateral-aluno/menu-lateral-aluno.component';
 import { PerfilAlunoVisaoProfessorComponent } from './perfil-aluno-visao-professor/perfil-aluno-visao-professor.component';
+import { TermosPoliticaComponent } from './termos-politica/termos-politica.component';
+import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -28,6 +30,7 @@ export const routes: Routes = [
     {path: 'cadastro', component: CadastroComponent},
     {path: 'chat', component: ChatComponent},
     {path: 'continuar-cadastro', component:ContinuarCadastroComponent},
+    { path: 'professor-continuar-cadastro', component: ProfessorContinuarCadastroComponent},
     {path: 'home-aluno', component: HomeAlunoComponent},
     {path: 'notificacoes', component: NotificacoesComponent},
     {path: 'notificacoes-alunos', component: NotificacoesAlunosComponent},
@@ -38,6 +41,7 @@ export const routes: Routes = [
     {path: 'home-professor', component: ProfessorHomeComponent},
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
+    { path: 'termos-politica', component: TermosPoliticaComponent}
     // {path: '**', component: }, 
 
 
