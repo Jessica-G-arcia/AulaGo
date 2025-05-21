@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgxMaskDirective } from 'ngx-mask';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-professor-continuar-cadastro',
-  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule, FormsModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   templateUrl: './professor-continuar-cadastro.component.html',
   styleUrl: './professor-continuar-cadastro.component.css'
 })

@@ -3,12 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { NgxMaskDirective } from 'ngx-mask';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
-  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective, RouterModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
