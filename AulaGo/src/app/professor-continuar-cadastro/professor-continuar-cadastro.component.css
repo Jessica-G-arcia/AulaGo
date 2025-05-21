@@ -1,22 +1,26 @@
-.input-group .text-danger {
-    display: block;
-    width: 100%;
-    margin-top: 0.25rem;
-  }
-  btn-custom-blue {
-    background-color: #ffffff;
-    border-color: #023047;
-    color: white;
-  }
+.btn:hover {
+  background-color: #219EBC !important;
+  color: white !important;
+  border: 2px solid #219EBC !important;
+}
 
-  btn-custom {
-    background-color: #219EBC;
-    border-color: #219EBC;
-    color: white;
-    
-  }
-  btn-outline-custom {
-    background-color: #219EBC;
-    border-color: #219EBC;
-    color: white;
-  }
+.custom-checkbox {
+  accent-color: #219EBC;
+}
+
+.custom-checkbox:checked {
+  background-color: #219EBC !important;
+  border-color: #219EBC !important;
+}
+
+.custom-checkbox:focus {
+  border-color: #219EBC !important;
+  box-shadow: 0 0 0 0.25rem rgba(33, 158, 188, 0.25) !important;
+}
+
+.custom-checkbox:hover:not(:checked) {
+  border-color: #219EBC !important;
+}
+.custom-checkbox:disabled {
+  opacity: 0.5;
+}

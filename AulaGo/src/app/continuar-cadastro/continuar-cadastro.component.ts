@@ -15,7 +15,9 @@ export class ContinuarCadastroComponent implements OnInit {
 
   form!: FormGroup;
 
-  idiomasList = ['Português', 'Inglês', 'Italiano', 'Francês', 'Espanhol'];
+  idiomasList = ['Inglês', 'Italiano', 'Francês', 'Espanhol'];
+  periodoList = ['Manhã', 'Tarde', 'Noite'];
+  disponibilidadeList = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira'];
 
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
 
@@ -55,20 +57,6 @@ export class ContinuarCadastroComponent implements OnInit {
     { valor: 'avancado', nome: 'Avançado' }
   ];
 
-  disponibilidade = [
-    { valor: 'segunda', nome: 'Segunda-feira' },
-    { valor: 'terca', nome: 'Terça-feira' },
-    { valor: 'quarta', nome: 'Quarta-feira' },
-    { valor: 'quinta', nome: 'Quinta-feira' },
-    { valor: 'sexta', nome: 'Sexta-feira' },
-    { valor: 'sabado', nome: 'Sábado' },
-  ]
-
-  periodo = [
-    { valor: 'manha', nome: 'Manhã' },
-    { valor: 'tarde', nome: 'Tarde' },
-    { valor: 'noite', nome: 'Noite' }
-  ]
 
   minSelectedCheckboxes(min = 1) {
     return (formArray: AbstractControl) => {
@@ -82,14 +70,18 @@ export class ContinuarCadastroComponent implements OnInit {
 
 
     const idiomasControls = this.idiomasList.map(() => new FormControl(false));
+    const periodoControls = this.periodoList.map(() => new FormControl(false));
+    const disponibilidadeControls = this.disponibilidadeList.map(() => new FormControl(false));
   
     //Array de validacao
     const formArray = new FormArray(idiomasControls, this.minSelectedCheckboxes(1));
+    const periodoFormArray = new FormArray(periodoControls);
+    const disponibilidadeFormArray = new FormArray(disponibilidadeControls);
   
     // desabilitando italiano, frances e espanhol
+    formArray.at(1).disable();
     formArray.at(2).disable();
     formArray.at(3).disable();
-    formArray.at(4).disable();
 
 
     this.form = new FormGroup({
@@ -102,8 +94,8 @@ export class ContinuarCadastroComponent implements OnInit {
       modalidade: new FormControl('', [Validators.required]),
       nivel: new FormControl('', [Validators.required]),
       bio: new FormControl('', []),
-      disponibilidade: new FormControl('', []),
-      periodo: new FormControl('', []),
+      disponibilidade: disponibilidadeFormArray,
+      periodo: periodoFormArray,
     })
   }
 constructor(private router: Router) { }

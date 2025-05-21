@@ -15,6 +15,7 @@ import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
 import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
 import { TermosPoliticaComponent } from './termos-politica/termos-politica.component';
 import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
+import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-prof.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -33,7 +34,10 @@ export const routes: Routes = [
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
-    { path: 'termos-politica', component: TermosPoliticaComponent}
+    { path: 'termos-politica', component: TermosPoliticaComponent},
+    { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
+    { path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
+
     // {path: '**', component: }, 
 
 
