@@ -1,1 +1,108 @@
-<p>chat works!</p>
+<div class>
+
+
+    <div class="d-flex flex-column vh-100">
+        <app-menu-superior-aluno></app-menu-superior-aluno>
+
+
+        <div class="d-flex flex-grow-1">
+            <app-menu-lateral-aluno></app-menu-lateral-aluno>
+
+
+            <div class="flex-grow-1 overflow-auto">
+                <div class="chat-container">
+                    <div class="sidebar">
+                        <div class="sidebar-header">
+                            <b>Recentes</b>
+                            <div></div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('Fernanda Dias')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="img-professora.png" alt="Fernanda Dias">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Fernanda Dias</div>
+                                    <div class="contact-email">fernanda_dias&#64;gmail.com</div>
+                                </div>
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="recent-date">Hoje</div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="prof_daniel.png" alt="Daniel Costa">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Daniel Costa</div>
+                                    <div class="contact-email">daniel_costa&#64;gmail.com</div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            <div class="recent-date">17/06/2025</div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="prof_lucas.png" alt="Lucas Santana">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Lucas Santana</div>
+                                    <div class="contact-email">lucas_santana&#64;gmail.com</div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            <div class="recent-date">10/06/2025</div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="prof_amanda.png" alt="Amanda Ribeiro">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Amanda Ribeiro</div>
+                                    <div class="contact-email">amanda_ribeiro&#64;gmail.com</div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            <div class="recent-date">10/06/2025</div>
+                        </div>
+
+                        <div class="recent-item" (click)="abrirConversa('')">
+                            <div class="recent-info">
+                                <div class="avatar">
+                                    <img src="prof_sarah.png" alt="Sarah Mendes">
+                                </div>
+                                <div class="contact-details">
+                                    <div class="contact-name">Sarah Mendes</div>
+                                    <div class="contact-email">sarah_Mendes&#64;gmail.com</div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            <div class="recent-date">02/06/2025</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-area">
+                        <div class="aulago-logo">
+                            <img src="Logo-AulaGo.png" alt="AulaGo Logo" />
+                        </div>
+                        <div class="start-conversation">Inicie uma conversa com seu Professor</div>
+
+                        <app-chat-aberto *ngIf="conversaSelecionada" [nome]="conversaSelecionada"
+                            (fechar)="fecharConversa()" class="chat-aberto"></app-chat-aberto>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

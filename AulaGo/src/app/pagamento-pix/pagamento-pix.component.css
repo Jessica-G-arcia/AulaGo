@@ -1,0 +1,186 @@
+.pix-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Left side - Instructions */
+.pix-instrucoes {
+  flex: 1;
+  min-width: 250px;
+}
+
+.como-pagar {
+  font-weight: bold;
+  color: #00b2a9;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.pix-logo-container {
+  margin-bottom: 15px;
+}
+
+.pix-logo {
+  max-width: 150px; /* Aumentado de 100px para 150px */
+  height: auto;
+  display: block;
+}
+.passos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.passos li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.passo-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00b2a9;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Right side - Payment */
+.pix-pagamento {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.valor-info {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.valor-pagar {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.escaneie {
+  font-size: 14px;
+  color: #333;
+}
+
+.qr-placeholder {
+  width: 180px;
+  height: 180px;
+  background-color: #f0f0f0;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+
+.validade {
+  font-size: 13px;
+  color: #777;
+  text-align: center;
+  margin: 5px 0 15px;
+}
+
+.codigo-copia {
+  width: 100%;
+}
+
+.copiar-texto {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.codigo-copia-box {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.codigo-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.copiar-btn {
+  padding: 8px 16px;
+  background-color: #219EBC;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.copiar-btn:hover {
+  background-color: #023247;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pix-container {
+    flex-direction: column;
+  }
+  
+  .pix-pagamento {
+    width: 100%;
+  }
+  
+  .codigo-copia-box {
+    flex-direction: column;
+  }
+  
+  .codigo-input, 
+  .copiar-btn {
+    width: 100%;
+  }
+  
+  .copiar-btn {
+    margin-top: 8px;
+  }
+}
+
+.codigo-copia-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mensagem-copiado {
+  display: none;
+  text-align: center;
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.qr-code-img {
+  width: 180px;  /* mesmo tamanho do placeholder original */
+  height: 180px;
+  object-fit: contain;
+  margin: 10px auto;
+  display: block;
+  border-radius: 4px; /* se quiser borda arredondada igual ao placeholder */
+}

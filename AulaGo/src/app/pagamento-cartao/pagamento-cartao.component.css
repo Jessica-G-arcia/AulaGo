@@ -1,0 +1,9 @@
+.minha-cor-botao {
+  background-color: #219EBC; /* azul desejado */
+  color: white; /* cor do texto */
+  border: none;
+}
+
+.minha-cor-botao:hover {
+  background-color: #023247; /* azul mais claro no hover */
+}

@@ -1,0 +1,24 @@
+<div class="chat-aberto-container">
+  <div class="chat-header">
+    <span class="nome-contato">{{ nome }}</span>
+    <button class="btn-fechar" (click)="fecharConversa()">X</button>
+  </div>
+
+  <div class="chat-mensagens">
+    <div *ngFor="let msg of mensagens" 
+         class="message" 
+         [ngClass]="{'left': msg.tipo === 'prof', 'right': msg.tipo === 'aluno'}">
+      <img *ngIf="msg.tipo === 'prof'" src="img-professora.png" alt="Fernanda" class="avatar" />
+      <div class="bubble">{{ msg.texto }}</div>
+      <img *ngIf="msg.tipo === 'aluno'" src="aluno3.png" alt="Matheus" class="avatar" />
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <span class="input-icon">😊</span>
+    <span class="input-icon">📎</span>
+    <span class="input-icon">+</span>
+    <input type="text" class="chat-input" placeholder="Digite uma mensagem..." [(ngModel)]="novaMensagem" (keyup.enter)="enviarMensagem()">
+    <button class="send-button" (click)="enviarMensagem()">➤</button>
+  </div>
+</div>

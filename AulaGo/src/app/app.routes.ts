@@ -19,6 +19,8 @@ import { MenuLateralAlunoComponent } from './menu-lateral-aluno/menu-lateral-alu
 import { PerfilAlunoVisaoProfessorComponent } from './perfil-aluno-visao-professor/perfil-aluno-visao-professor.component';
 import { TermosPoliticaComponent } from './termos-politica/termos-politica.component';
 import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
+import { ConfirmacaoDePagamentoComponent } from './confirmacao-de-pagamento/confirmacao-de-pagamento.component';
+import { ChatProfessorComponent } from './chat-professor/chat-professor.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -29,12 +31,14 @@ export const routes: Routes = [
     {path: 'explorar', component: ExplorarComponent},
     {path: 'cadastro', component: CadastroComponent},
     {path: 'chat', component: ChatComponent},
+    {path: 'chat-professor', component: ChatProfessorComponent},
     {path: 'continuar-cadastro', component:ContinuarCadastroComponent},
     { path: 'professor-continuar-cadastro', component: ProfessorContinuarCadastroComponent},
     {path: 'home-aluno', component: HomeAlunoComponent},
     {path: 'notificacoes', component: NotificacoesComponent},
     {path: 'notificacoes-alunos', component: NotificacoesAlunosComponent},
     {path: 'pagamento', component: PagamentoComponent},
+    {path: 'confirmacao-de-pagamento', component: ConfirmacaoDePagamentoComponent},
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-aluno-visao-professor', component: PerfilAlunoVisaoProfessorComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},

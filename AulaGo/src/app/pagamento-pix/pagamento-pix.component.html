@@ -1,0 +1,44 @@
+<div class="card pix-card shadow-sm p-4 position-relative">
+  <button type="button" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close" (click)="fechar()"></button>
+
+  <h4 class="mb-4">Pagamento via Pix</h4>
+
+  <div class="pix-container">
+    <!-- Left side - Instructions -->
+    <div class="pix-instrucoes">
+      <div class="como-pagar">COMO PAGAR COM PIX</div>
+      <!-- Imagem do PIX antes do passo a passo -->
+      <div class="pix-logo-container">
+        <img src="Logopix_semfundo.png" alt="Logo PIX" class="pix-logo">
+      </div>
+      <ul class="passos">
+        <li><span class="passo-numero">1</span>Acesse o app do seu banco</li>
+        <li><span class="passo-numero">2</span>Busque a opção de pagar com Pix</li>
+        <li><span class="passo-numero">3</span>Leia o QR code ou Código Pix</li>
+        <li><span class="passo-numero">4</span>Pronto! Você verá a confirmação do pagamento</li>
+      </ul>
+    </div>
+
+    <!-- Right side - Payment -->
+    <div class="pix-pagamento">
+      <div class="valor-info">
+        <div class="valor-pagar">Valor a pagar R$ 100,00</div>
+        <div class="escaneie">Escaneie o QR code</div>
+      </div>
+
+       <img src="QRCode.Pix.png" alt="QR Code para pagamento" class="qr-code-img">
+
+      <div class="validade">Código válido por 30 minutos</div>
+
+      <div class="codigo-copia">
+        <div class="copiar-texto">Copiar código:</div>
+        <div class="codigo-copia-box">
+          <input class="codigo-input" type="text" readonly
+            value="1234643434234344225345678432112313434324483748327483748237482374832794723847324">
+          <button class="copiar-btn" (click)="copiarCodigo()">Copiar Código</button>
+        </div>
+        <p id="mensagem-copiado" class="mensagem-copiado" style="display:none;">Código copiado!</p>
+      </div>
+    </div>
+  </div>
+</div>
