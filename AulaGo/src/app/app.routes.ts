@@ -17,6 +17,7 @@ import { TermosPoliticaComponent } from './termos-politica/termos-politica.compo
 import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
 import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-prof.component';
 import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-aluno.component';
+import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -38,6 +39,7 @@ export const routes: Routes = [
     { path: 'termos-politica', component: TermosPoliticaComponent},
     { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
     { path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
+    { path: 'buscar-prof', component: BuscarProfComponent},
 
     // {path: '**', component: }, 
 
