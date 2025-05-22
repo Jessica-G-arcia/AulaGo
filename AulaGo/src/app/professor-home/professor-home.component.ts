@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
+import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 
 // Interfaces (mantidas)
 interface Language {
@@ -27,7 +29,7 @@ interface Class {
   selector: 'app-professor-home',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule, MenuSuperiorComponent, MenuLateralComponent
   ],
   templateUrl: './professor-home.component.html',
   styleUrls: ['./professor-home.component.css'] // Mantém o CSS avançado anterior
@@ -35,10 +37,9 @@ interface Class {
 export class ProfessorHomeComponent implements OnInit {
 
   // Removi professorName pois a barra superior foi removida
-  welcomeName: string = 'Professor(a)'; // Nome genérico ou buscar de algum lugar
+  welcomeName: string = 'Fernanda'; // Nome genérico ou buscar de algum lugar
 
   languages: Language[] = [
-    // Caminhos ajustados para serem relativos à pasta 'public'
     { name: 'Inglês', flagUrl: 'flags/us.png' },
     { name: 'Espanhol', flagUrl: 'flags/es.png' },
     { name: 'Francês', flagUrl: 'flags/fr.png' },
@@ -48,14 +49,12 @@ export class ProfessorHomeComponent implements OnInit {
 
   topStudents: Student[] = [
     {
-      // Caminho ajustado para ser relativo à pasta 'public'
       name: 'Rafaela Gonçalves',
       imageUrl: 'students/rafaela.png',
       rating: 5,
       languages: 'Inglês',
       quote: '"Rafaela tem um aprendizado rápido, super educada. Aluna sensacional"'
     },
-    // ... outros alunos
   ];
 
   todaysClasses: Class[] = [

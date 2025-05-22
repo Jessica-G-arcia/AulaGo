@@ -1,58 +1,34 @@
-/* Importação de Fonte (Exemplo: Roboto do Google Fonts) */
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /* Estilos Globais e Reset Básico */
 :host {
-    display: block;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Container Principal e Conteúdo */
-  .professor-home-content {
-    padding: 0;
-  }
-  
-  .main-content {
-    width: 100%;
+    /* display: block; */
+    font-family: 'montserrat', sans-serif;
+    background-color: 'white';
+    color: black;
   }
   
   .content-body {
-    padding: 2rem 1.5rem;
-    /* Layout fluido - sem max-width ou margin:auto */
+    margin-top: -100px;
+    padding: 8rem 8rem;
     width: 100%;
   }
   
   /* Tipografia */
   h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #212529;
-    margin-bottom: 2.5rem;
+    font-size: 25px;
+    font-weight: normal;
+    color: black;
+    margin-bottom: 2rem;
     text-align: center;
   }
   
   h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #343a40;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #dee2e6;
-  }
-  
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #6c757d;
+    font-size: 22px;
+    font-weight: normal;
+    color: black;
+    padding-bottom: 0.1rem;
+    padding-left: 170px;
   }
   
   /* Estilos Gerais dos Carrosséis */
@@ -67,70 +43,58 @@
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 15px 5px;
+    padding: 10px 5px;
     flex-grow: 1;
     margin: 0 5px;
-    justify-content: center; /* <<< ADICIONADO: Tenta centralizar os itens */
-    /* ATENÇÃO: Isso só terá efeito visual se a largura total dos itens + gaps */
-    /* for MENOR que a largura do container .carousel-items. */
-    /* Se os itens excederem e a rolagem for necessária, eles começarão à esquerda. */
-  
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    justify-content: center; 
   }
   .carousel-items::-webkit-scrollbar {
     display: none;
   }
   
-  .carousel-arrow {
-    background-color: #ffffff;
-    border: 1px solid #d1d9e0;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #6c757d;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease-in-out;
-    flex-shrink: 0;
-    z-index: 1;
-  }
-  
-  .carousel-arrow:hover {
-    background-color: #e9ecef;
-    border-color: #adb5bd;
-    color: #343a40;
-    transform: scale(1.05);
-  }
+ .carousel-arrow {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: black;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: none;
+}
+
+.carousel-arrow:hover {
+  background-color: #f0f0f0;
+}
   
   .carousel-arrow.prev {
-    margin-right: 8px;
+    margin-right: 10px;
   }
   .carousel-arrow.next {
-    margin-left: 8px;
+    margin-left: 10px;
   }
   
   
   /* Seção Idiomas */
   .idiomas-section .carousel-items {
-    gap: 45px; /* Espaçamento entre itens */
+    gap: 50px; 
   }
   
   .language-item {
     text-align: center;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
   .language-item img {
-    width: 115px;
+    width: 130px;
     height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
@@ -143,59 +107,41 @@
   
   .language-item span {
     font-size: 1.05rem;
-    color: #555;
-    font-weight: 500;
+    color: black;
+    font-weight: normal;
   }
   
   /* Seção TOP 10 Alunos */
   .top-alunos-section .carousel-container {
-    background-color: #00a1e0;
+    background-color: #08A1C8;
     border-radius: 12px;
-    padding: 15px;
-    align-items: stretch;
-    /* Adicionando flex aqui também para o justify-content ter efeito se for um item só */
+    padding: 20px 70px;
     display: flex;
+    width: 850px;
+    height: 250px;
+    position: relative; 
+    margin-left: 170px;
+    overflow: hidden;
   }
-  
-  /* Se o container do carrossel de alunos só tiver o student-card (sem .carousel-items) */
-  /* então a centralização deve ser feita de outra forma ou no container */
-  .top-alunos-section .carousel-items { /* Se houver múltiplos alunos no futuro */
-      gap: 15px;
-      /* justify-content: center; já herdado ou pode ser específico aqui */
-  }
-  
-  
+
   .top-alunos-section .carousel-arrow {
-    background-color: rgba(255, 255, 255, 0.8);
     border: none;
-    color: #005b7f;
+    color: black;
     align-self: center;
-  }
-  .top-alunos-section .carousel-arrow:hover {
-    background-color: rgba(255, 255, 255, 1);
   }
   
   .student-card {
-    color: white;
-    padding: 20px 25px;
+    color: black;
+    padding: 5px 25px;
     display: flex;
     align-items: center;
-    gap: 30px;
-    flex-grow: 1; /* Ocupa espaço, pode conflitar com centralização se for item único */
-    border-radius: 8px;
-    max-width: 800px; /* Exemplo: limita a largura máxima do card do aluno */
-    margin-left: auto; /* Tenta centralizar o card se for item único no flex */
-    margin-right: auto; /* Tenta centralizar o card se for item único no flex */
+    max-width: 600px;
   }
   
   .student-card img {
-    width: 110px;
-    height: 110px;
-    border-radius: 8px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
-    border: 4px solid white;
-    flex-shrink: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
   .student-info h4 {
@@ -203,70 +149,53 @@
     margin-bottom: 8px;
     font-size: 1.4rem;
     font-weight: 700;
-    color: white;
+    color: black;
+    text-align: left;
   }
   
   .student-info p {
-    margin: 5px 0;
+    text-align: left;
     font-size: 0.95rem;
-    color: #e0f7ff;
+    color: black;
   }
   
   .student-info .rating {
-    color: #ffd700;
-    font-size: 1.2rem;
-    margin: 10px 0;
+    color: #FFB703;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    font-size: 1.3rem;
+    text-align: left;
   }
   .student-info .rating span {
       margin-right: 2px;
   }
   
   .student-info blockquote {
-    font-style: italic;
     margin: 15px 0;
-    border-left: 4px solid rgba(255, 255, 255, 0.6);
     padding-left: 15px;
     font-size: 1rem;
     line-height: 1.4;
-    color: #f0f8ff;
-  }
-  
-  .student-info .report-link {
-    color: #beeaff;
-    text-decoration: underline;
-    font-size: 0.85rem;
-    display: inline-block;
-    margin-top: 10px;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-    cursor: pointer;
-  }
-  .student-info .report-link:hover {
-    opacity: 1;
+    color: black;
   }
   
   /* Seção Aulas de Hoje */
   .aulas-hoje-section .section-subtitle {
       font-size: 0.95em;
-      color: #6c757d;
+      color: black;
       margin-bottom: 1rem;
-      font-style: italic;
   }
   
   .classes-carousel .carousel-items {
-      gap: 20px; /* Espaçamento entre cards de aula */
-      /* justify-content: center; já herdado da regra geral .carousel-items */
+      gap: 25px; /* espaço entre cards de aula */
   }
   
   .class-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+    background-color: #F5F7FA;
     border-radius: 10px;
     padding: 20px;
-    min-width: 300px;
+    width: 420px;
+    height: 120px;
     flex-shrink: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07);
-    font-size: 0.9rem;
+    font-size: 15px;
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -279,122 +208,36 @@
   
   .class-card p {
     margin: 5px 0;
-    color: #555;
+    color: black;
     line-height: 1.4;
+    text-align: left;
   }
   .class-card p:last-of-type {
       margin-bottom: 0;
   }
   
-  .class-card p strong {
+  .class-card p {
+    font-size: 15px;
     color: #333;
-    font-weight: 600;
+    font-weight: normal;
   }
   
   .class-card .class-date {
     text-align: right;
     font-size: 0.85rem;
-    color: #888;
+    color: black;
     margin-top: auto;
     padding-top: 15px;
-    font-weight: 500;
+    margin-top: -40px;
+    font-weight: normal;
   }
   
   /* Mensagens de "Nenhum item" */
   .top-alunos-section > div:last-child,
   .aulas-hoje-section > div:last-child {
-      color: #6c757d;
-      font-style: italic;
+      color: black;
       padding: 1rem 0;
       text-align: center; /* Centraliza texto de 'nenhum item' */
   }
   
-  /* Responsividade Mantida e Reforçada */
-  @media (max-width: 768px) {
-    .content-body {
-      padding: 1.5rem 1rem;
-    }
-  
-    h2 {
-      font-size: 1.6rem;
-    }
-  
-    h3 {
-      font-size: 1.2rem;
-    }
-  
-    .carousel-arrow {
-      width: 32px;
-      height: 32px;
-      font-size: 1rem;
-    }
-  
-    .language-item img {
-        width: 90px;
-    }
-    .language-item span {
-        font-size: 0.95rem;
-    }
-     .idiomas-section .carousel-items {
-        gap: 30px;
-        /* justify-content: center; continua aqui */
-     }
-  
-  
-    .student-card {
-      flex-direction: column;
-      text-align: center;
-      gap: 15px;
-      padding: 15px;
-      max-width: 90%; /* Ajusta max-width para telas menores */
-    }
-    .student-card img {
-      width: 90px;
-      height: 90px;
-    }
-    .student-info blockquote {
-       text-align: left;
-    }
-  
-    .class-card {
-      padding: 15px;
-      min-width: 80%; /* Ocupa mais espaço */
-    }
-    .classes-carousel .carousel-items {
-        /* justify-content: center; continua aqui */
-        /* Se só houver um card, ele tentará centralizar */
-    }
-  }
-  
-  /* Ajuste extra para telas bem pequenas */
-  @media (max-width: 480px) {
-      .content-body {
-          padding: 1rem 0.75rem;
-      }
-      h2 {
-          font-size: 1.4rem;
-      }
-      h3 {
-          font-size: 1.1rem;
-      }
-       .language-item img {
-        width: 75px;
-       }
-       .language-item span {
-           font-size: 0.85rem;
-       }
-        .idiomas-section .carousel-items {
-           gap: 20px;
-           /* justify-content: center; continua aqui */
-        }
-        .class-card {
-            min-width: 90%;
-        }
-        .carousel-items { /* Garante padding mínimo para scroll */
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-        .student-card {
-            max-width: 95%; /* Quase toda largura */
-        }
-  }
+ 
