@@ -39,9 +39,9 @@
                 </div>
                 <div class="col-sm-3">
                     <label for="modalidade" class="form-label">Modalidade</label>
-                    <select type="text" style="color: #c9cbcd;" class="form-select" id="modalidade"
+                    <select type="text"  class="form-select" id="modalidade"
                         formControlName="modalidade" required>
-                        <option value="" style="color: #c9cbcd;">Selecione</option>
+                        <option value="" >Selecione</option>
                         <option *ngFor="let m of modalidade" [value]="m">{{ m.nome }}</option>
                     </select>
                     <div *ngIf="form.get('modalidade')?.invalid && (form.get('modalidade')?.dirty || form.get('modalidade')?.touched)"
@@ -53,9 +53,9 @@
                 </div>
                 <div class="col-sm-3">
                     <label for="nivel" class="form-label">Nível</label>
-                    <select type="text" style="color: #c9cbcd;" class="form-select" id="nivel" formControlName="nivel"
+                    <select type="text"  class="form-select" id="nivel" formControlName="nivel"
                         required>
-                        <option value="" style="color: #c9cbcd;">Selecione</option>
+                        <option value="" >Selecione</option>
                         <option *ngFor="let n of niveis" [value]="n">{{ n.nome }}</option>
                     </select>
                     <div *ngIf="form.get('nivel')?.invalid && (form.get('nivel')?.dirty || form.get('nivel')?.touched)"

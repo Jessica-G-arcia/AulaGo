@@ -15,7 +15,7 @@ export class ProfessorContinuarCadastroComponent implements OnInit {
   form!: FormGroup;
   bankForm!: FormGroup;
 
-  idiomasList = ['Português', 'Inglês', 'Italiano', 'Francês', 'Espanhol'];
+  idiomasList = ['Inglês', 'Italiano', 'Francês', 'Espanhol'];
 
 imagemSelecionada: File | null = null;
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -105,14 +105,13 @@ imagemSelecionada: File | null = null;
     const disponibilidadeControls = this.disponibilidadeList.map(() => new FormControl(false));
     
     const especialidadesFormArray = new FormArray(especialidadesControls);
-    const idiomasFormArray = new FormArray(idiomasControls);
     const periodoFormArray = new FormArray(periodoControls);
     const disponibilidadeFormArray = new FormArray(disponibilidadeControls);
 
     // desabilitando italiano, frances e espanhol
+    formArray.at(1).disable();
     formArray.at(2).disable();
     formArray.at(3).disable();
-    formArray.at(4).disable();
   
     this.form = new FormGroup({
       nome: new FormControl('', [Validators.required]),
