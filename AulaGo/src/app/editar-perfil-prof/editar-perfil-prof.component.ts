@@ -1,29 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
+import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
 
 @Component({
-  selector: 'app-professor-continuar-cadastro',
-<<<<<<< HEAD
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-=======
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbCollapseModule],
->>>>>>> 91c042554d26e152348603f35e2dc65da526ffdc
-  templateUrl: './professor-continuar-cadastro.component.html',
-  styleUrl: './professor-continuar-cadastro.component.css'
+  selector: 'app-editar-perfil-prof',
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbCollapseModule, MenuLateralComponent, MenuSuperiorComponent],
+  templateUrl: './editar-perfil-prof.component.html',
+  styleUrl: './editar-perfil-prof.component.css'
 })
-export class ProfessorContinuarCadastroComponent implements OnInit {
+export class EditarPerfilProfComponent implements OnInit {
+
   form!: FormGroup;
   bankForm!: FormGroup;
+  idiomasList = ['Inglês', 'Italiano', 'Francês', 'Espanhol'];
 
-  idiomasList = ['Português', 'Inglês', 'Italiano', 'Francês', 'Espanhol'];
-
-imagemSelecionada: File | null = null;
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
+
+
 
   meses = [
     { valor: 1, nome: 'Janeiro' },
@@ -66,21 +63,15 @@ imagemSelecionada: File | null = null;
     { valor: '35', nome: '35 km' },
     { valor: '40', nome: '40 km' },
     { valor: '45', nome: '45 km' },
-    { valor: '50km', nome: '50 km' },
+    { valor: '50', nome: '50 km' },
   ]
-  
-
-
-
-  periodoList = ['Manhã', 'Tarde', 'Noite'];
-  disponibilidadeList = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira'];
-  especialidadesList = ['Conversação', 'Gramática', 'Foco em negócios', 'Foco em viagens'];
 
   ajustarAltura(event: Event): void {
     const textarea = event.target as HTMLTextAreaElement;
     textarea.style.height = 'auto'; // Reseta a altura
     textarea.style.height = textarea.scrollHeight + 'px'; // Define nova altura com base no conteúdo
   }
+  
 
   minSelectedCheckboxes(min = 1) {
     return (formArray: AbstractControl) => {
@@ -88,8 +79,11 @@ imagemSelecionada: File | null = null;
       return totalSelected >= min ? null : { required: true };
     };
   }
-  
-  constructor(private fb: FormBuilder, private router: Router) {}
+
+  periodoList = ['Manhã', 'Tarde', 'Noite'];
+  disponibilidadeList = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira'];
+  especialidadesList = ['Conversação', 'Gramática', 'Foco em negócios', 'Foco em viagens'];
+
 
   ngOnInit(): void {
 
@@ -101,40 +95,42 @@ imagemSelecionada: File | null = null;
     });
 
     //controles dos checkboxes
-    const idiomasControls = this.idiomasList.map(() => new FormControl(false));
+    const periodoControls = this.periodoList.map((item, index) => new FormControl(index === 0));
+    const diasSelecionados = [0, 3, 4]
+    const disponibilidadeControls = this.disponibilidadeList.map((item, index) =>
+      new FormControl(diasSelecionados.includes(index))); // Marca apenas "Segunda-feira" e "Terça-feira" como selecionados
+    const idiomasControls = this.idiomasList.map((item, index) =>
+      new FormControl(index === 0)); //deixa o inglês selecionado
+    const especialidadesControls = this.especialidadesList.map((item, index) =>
+      new FormControl(index === 0) // Marca apenas "Conversação" como selecionado
+    );
   
-    //Array de validacao
-    const formArray = new FormArray(idiomasControls, this.minSelectedCheckboxes(1));
-    const especialidadesControls = this.especialidadesList.map(() => new FormControl(false));
-    const periodoControls = this.periodoList.map(() => new FormControl(false));
-    const disponibilidadeControls = this.disponibilidadeList.map(() => new FormControl(false));
-    
     const especialidadesFormArray = new FormArray(especialidadesControls);
     const idiomasFormArray = new FormArray(idiomasControls);
     const periodoFormArray = new FormArray(periodoControls);
     const disponibilidadeFormArray = new FormArray(disponibilidadeControls);
+    const formArray = new FormArray(idiomasControls, this.minSelectedCheckboxes(1));
 
     // desabilitando italiano, frances e espanhol
-    formArray.at(2).disable();
-    formArray.at(3).disable();
-    formArray.at(4).disable();
-  
+    idiomasFormArray.at(1).disable();
+    idiomasFormArray.at(2).disable();
+    idiomasFormArray.at(3).disable();
+
     this.form = new FormGroup({
-      nome: new FormControl('', [Validators.required]),
-      genero: new FormControl('', [Validators.required]),
-      dia: new FormControl('', [Validators.required]),
-      mes: new FormControl('', [Validators.required]),
-      ano: new FormControl('', [Validators.required]),
+      nome: new FormControl('Fernanda Dias', [Validators.required]),
+      genero: new FormControl('feminino', [Validators.required]),
+      dia: new FormControl('5', [Validators.required]),
+      mes: new FormControl('5', [Validators.required]),
+      ano: new FormControl('1995', [Validators.required]),
       idiomas: formArray,
       modalidade: new FormControl('', [Validators.required]),
       especialidades: especialidadesFormArray,
-      bio: new FormControl('', []),
+      bio: new FormControl('Sou a Fernanda, tenho 30 anos, moro em Sorocaba e sou professora particular de inglês. Amo ensinar e busco sempre adaptar as aulas ao perfil de cada aluno, com uma abordagem dinâmica, personalizada e focada em resultados reais. Atendo diferentes objetivos, como conversação, reforço escolar, inglês para viagens ou entrevistas de emprego. Será um prazer te ajudar a evoluir no inglês com leveza e eficiência!', []),
       disponibilidade: disponibilidadeFormArray,
       periodo: periodoFormArray,
-      valor: new FormControl('', [Validators.required]),
-      valorOnline: new FormControl('', [Validators.required]),
-      raio: new FormControl('', [Validators.required]),
-      nomeBanco: new FormControl('', [Validators.required]),
+      valor: new FormControl('R$150', [Validators.required]),
+      valorOnline: new FormControl('R$100', [Validators.required]),
+      raio: new FormControl('20', []),
       cpf: new FormControl('', [Validators.required]),
       banco: new FormControl('', [Validators.required]),
       agencia: new FormControl('', [Validators.required]),
@@ -142,49 +138,51 @@ imagemSelecionada: File | null = null;
       pix: new FormControl('', [Validators.required]),
     });
   }
-  dadosAdicionados: boolean = false;
+
+  dadosAdicionados: boolean = true;
 
   adicionar(): void {
     if (this.bankForm.valid) {
       console.log('Dados bancários adicionados:', this.bankForm.value);
       this.isDropdownOpen = false;
       this.dadosAdicionados = true;
-      
+
       // Aqui você pode enviar os dados para o backend, salvar localmente etc.
     } else {
       this.bankForm.markAllAsTouched();
     }
   }
-  
 
-  salvar() {
-    console.log('Usuário Cadastrado', this.form.value);
-    this.router.navigate(['/login']);
-  }
-  voltar() {
-    // Lógica para voltar
-    console.log('Voltar');
-  }
-isCollapsed = true;
-isCollapsedOnline = true;
-isCollapsedHibrido = true;
+  isCollapsed = true;
+  isCollapsedOnline = true;
+  isCollapsedHibrido = true;
 
-selectedModalidade: 'presencial' | 'online' | 'hibrido' | null = null;
-
+  selectedModalidade: 'presencial' | 'online' | 'hibrido' | null = 'hibrido';
 
   imagemPreview: string | ArrayBuffer | null = null;
 
   onFileSelected(event: Event): void {
     const file = (event.target as HTMLInputElement).files?.[0];
-  
+
     if (file) {
       const reader = new FileReader();
-  
+
       reader.onload = () => {
         this.imagemPreview = reader.result;
       };
-  
+
       reader.readAsDataURL(file);
     }
   }
+
+  constructor(private fb: FormBuilder, private router: Router) { }
+
+  salvar() {
+    console.log('Usuário Cadastrado', this.form.value);
+    this.router.navigate(['/home-professor']);
+  }
+  voltar() {
+    this.router.navigate(['/perfil-professor']);
+  }
+
 }

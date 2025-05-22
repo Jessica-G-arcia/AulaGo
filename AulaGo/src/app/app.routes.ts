@@ -21,6 +21,7 @@ import { TermosPoliticaComponent } from './termos-politica/termos-politica.compo
 import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
 import { ConfirmacaoDePagamentoComponent } from './confirmacao-de-pagamento/confirmacao-de-pagamento.component';
 import { ChatProfessorComponent } from './chat-professor/chat-professor.component';
+import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-prof.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -46,6 +47,9 @@ export const routes: Routes = [
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
     { path: 'termos-politica', component: TermosPoliticaComponent}
+    { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
+    { path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
+
     // {path: '**', component: }, 
 
 
