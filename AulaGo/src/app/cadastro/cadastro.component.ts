@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { NgxMaskDirective } from 'ngx-mask';
 import { RouterModule, Router } from '@angular/router';
 
 @Component({
