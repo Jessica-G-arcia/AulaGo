@@ -1,1 +1,118 @@
-<p>continuar-cadastro works!</p>
+<div class="container p-5">
+    <h3 class="text-center">COMPLETAR CADASTRO</h3>
+    <form [formGroup]="form" class="row g-5 needs-validation mt-3" novalidate="">
+
+
+        <div class="col-lg-2 d-flex flex-column align-items-center justify-content-start">
+            <img [src]="imagemPreview || 'https://i.pinimg.com/736x/37/57/5a/37575a213755cad83bd408908623ba22.jpg'"
+                class="rounded-circle" width="140" height="140" alt="Foto do usuário">
+            <input type="file" #inputFile hidden (change)="onFileSelected($event)" accept="image/*">
+            <div class="mt-3">
+                <button type="button" class="btn btn-primary rounded-pill"
+                    style="background-color: #219EBC; border-color: #219EBC;" (click)="inputFile.click()">
+                    Alterar
+                </button>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-10">
+
+            <div class="row g-3 mt-1">
+
+
+
+                <div class="col-sm-5">
+                    <div formArrayName="idiomas" class="mb-3 mt-2">
+                        <label for="idioma" class="form-label d-block">Idiomas</label>
+                        <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
+                            <input type="checkbox" class="form-check-input custom-checkbox" [formControlName]="i"
+                                [id]="'idioma' + i" />
+                            <label class="form-check-label ms-2" [for]="'idioma' + i">{{ idioma }}</label>
+                        </div>
+                        <div *ngIf="form.get('idiomas')?.invalid && (form.get('idiomas')?.dirty || form.get('idiomas')?.touched)"
+                            class="text-danger">
+                            Selecione pelo menos um idioma.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <label for="modalidade" class="form-label">Modalidade</label>
+                    <select type="text"  class="form-select" id="modalidade"
+                        formControlName="modalidade" required>
+                        <option value="" >Selecione</option>
+                        <option *ngFor="let m of modalidade" [value]="m">{{ m.nome }}</option>
+                    </select>
+                    <div *ngIf="form.get('modalidade')?.invalid && (form.get('modalidade')?.dirty || form.get('modalidade')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="form.get('modalidade')?.errors?.['required']">
+                            Por favor, selecione a modalidade.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <label for="nivel" class="form-label">Nível</label>
+                    <select type="text"  class="form-select" id="nivel" formControlName="nivel"
+                        required>
+                        <option value="" >Selecione</option>
+                        <option *ngFor="let n of niveis" [value]="n">{{ n.nome }}</option>
+                    </select>
+                    <div *ngIf="form.get('nivel')?.invalid && (form.get('nivel')?.dirty || form.get('nivel')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="form.get('nivel')?.errors?.['required']">
+                            Por favor, selecione o nível.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 mt-1">
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-4 mt-4">
+                        <label for="periodo" class="form-label d-block">Período</label>
+                        <div formArrayName="periodo">
+                            <div *ngFor="let periodo of periodoList; let i = index"
+                                class="form-check form-check-inline">
+                                <input class="form-check-input custom-checkbox" type="checkbox" [formControlName]="i"
+                                    [id]="'periodo' + i">
+                                <label class="form-check-label" [for]="'periodo' + i">{{ periodo }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 mt-4">
+                        <label for="disponibilidade" class="form-label d-block">Dia da semana</label>
+                        <div formArrayName="disponibilidade">
+                            <div *ngFor="let disponibilidade of disponibilidadeList; let i = index"
+                                class="form-check form-check-inline">
+                                <input class="form-check-input custom-checkbox" type="checkbox" [formControlName]="i"
+                                    [id]="'disponibilidade' + i">
+                                <label class="form-check-label" [for]="'disponibilidade' + i">{{ disponibilidade
+                                    }}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="row g-3 mt-1">
+                        <div class="col-lg-12 d-flex flex-column  justify-content-end">
+                            <label for="bio" class="form-label">Bio</label>
+                            <input type="text" class="form-control input-alta" id="bio" formControlName="bio"
+                                placeholder="Escreva algo sobre você" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button type="button" style="background-color: #219EBC; border-color: #219EBC;" (click)="salvar()"
+                class="btn btn-primary w-50 rounded-pill"> salvar
+            </button>
+        </div>
+    </form>
+</div>

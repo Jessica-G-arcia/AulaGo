@@ -13,8 +13,16 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { ProfessorHomeComponent } from './professor-home/professor-home.component';
 import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
 import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
+<<<<<<< HEAD
 import { ConfirmacaoDePagamentoComponent } from './confirmacao-de-pagamento/confirmacao-de-pagamento.component';
 import { ChatProfessorComponent } from './chat-professor/chat-professor.component';
+=======
+import { TermosPoliticaComponent } from './termos-politica/termos-politica.component';
+import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
+import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-prof.component';
+import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-aluno.component';
+import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
+>>>>>>> 17db327de999548c406b0d2b0fa7d767120abc7c
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -27,6 +35,7 @@ export const routes: Routes = [
     {path: 'chat', component: ChatComponent},
     {path: 'chat-professor', component: ChatProfessorComponent},
     {path: 'continuar-cadastro', component:ContinuarCadastroComponent},
+    { path: 'professor-continuar-cadastro', component: ProfessorContinuarCadastroComponent},
     {path: 'home-aluno', component: HomeAlunoComponent},
     {path: 'notificacoes', component: NotificacoesComponent},
     {path: 'pagamento', component: PagamentoComponent},
@@ -34,6 +43,11 @@ export const routes: Routes = [
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
+    { path: 'termos-politica', component: TermosPoliticaComponent},
+    { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
+    { path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
+    { path: 'buscar-prof', component: BuscarProfComponent},
+
     // {path: '**', component: }, 
 
 

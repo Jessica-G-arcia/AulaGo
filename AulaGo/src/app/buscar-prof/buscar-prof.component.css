@@ -1,0 +1,36 @@
+.card-custom {
+    width: 400px;
+    height: 280px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+}
+
+.text-button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: white;
+}
+.negrito {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+
+
+.botao-menor {
+    height: 30px;
+    width: 150px;
+    line-height: 10px;
+    border-radius: 70px;
+}
+
+.bi-star {
+    color: #FFB703;
+}
