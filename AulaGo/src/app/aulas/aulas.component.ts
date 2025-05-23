@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
 import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
+import { MenuSuperiorAlunoComponent } from '../menu-superior-aluno/menu-superior-aluno.component';
+import { MenuLateralAlunoComponent } from '../menu-lateral-aluno/menu-lateral-aluno.component';
 
 @Component({
   selector: 'app-aulas',
   standalone: true,
-  imports: [CommonModule, MenuSuperiorComponent, MenuLateralComponent],
+  imports: [CommonModule, MenuSuperiorAlunoComponent, MenuLateralAlunoComponent],
   templateUrl: './aulas.component.html',
   styleUrl: './aulas.component.css'
 })

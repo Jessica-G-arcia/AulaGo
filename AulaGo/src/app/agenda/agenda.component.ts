@@ -1,13 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Aula } from '../models/Aula';
+import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
+import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-agenda',
   templateUrl: './agenda.component.html',
   styleUrls: ['./agenda.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MenuSuperiorComponent,MenuLateralComponent, RouterLink, RouterLinkActive],
 })
 export class AgendaComponent implements OnInit {
   mesAtual: number = new Date().getMonth();

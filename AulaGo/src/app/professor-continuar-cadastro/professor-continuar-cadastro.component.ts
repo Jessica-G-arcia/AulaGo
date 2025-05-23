@@ -5,9 +5,14 @@ import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-professor-continuar-cadastro',
+<<<<<<< HEAD
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+=======
   imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbCollapseModule],
+>>>>>>> 91c042554d26e152348603f35e2dc65da526ffdc
   templateUrl: './professor-continuar-cadastro.component.html',
   styleUrl: './professor-continuar-cadastro.component.css'
 })

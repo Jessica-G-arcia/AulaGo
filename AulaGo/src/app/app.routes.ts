@@ -13,6 +13,7 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { ProfessorHomeComponent } from './professor-home/professor-home.component';
 import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
 <<<<<<< HEAD
 import { ConfirmacaoDePagamentoComponent } from './confirmacao-de-pagamento/confirmacao-de-pagamento.component';
@@ -25,13 +26,23 @@ import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-
 import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
 >>>>>>> 17db327de999548c406b0d2b0fa7d767120abc7c
 =======
+=======
+>>>>>>> 711e1ffe6df4e52324f2c4d982e1ad30276c2ca5
 import { AluasProfessorComponent } from './aluas-professor/aulas-professor.component';
 import { NotificacoesAlunosComponent } from './notificacoes-alunos/notificacoes-alunos.component';
 import { MenuSuperiorAlunoComponent } from './menu-superior-aluno/menu-superior-aluno.component';
 import { MenuLateralAlunoComponent } from './menu-lateral-aluno/menu-lateral-aluno.component';
 import { PerfilAlunoVisaoProfessorComponent } from './perfil-aluno-visao-professor/perfil-aluno-visao-professor.component';
+<<<<<<< HEAD
 import { PerfilProfessorVisaoAlunoComponent } from './perfil-professor-visao-aluno/perfil-professor-visao-aluno.component';
 >>>>>>> 2335d62fa7c27cacc9c32dde894582e2fca0df87
+=======
+import { TermosPoliticaComponent } from './termos-politica/termos-politica.component';
+import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadastro/professor-continuar-cadastro.component';
+import { ConfirmacaoDePagamentoComponent } from './confirmacao-de-pagamento/confirmacao-de-pagamento.component';
+import { ChatProfessorComponent } from './chat-professor/chat-professor.component';
+import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-prof.component';
+>>>>>>> 711e1ffe6df4e52324f2c4d982e1ad30276c2ca5
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -56,15 +67,24 @@ export const routes: Routes = [
     {path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
 <<<<<<< HEAD
+<<<<<<< HEAD
     { path: 'termos-politica', component: TermosPoliticaComponent},
+=======
+    {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
+    {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
+    { path: 'termos-politica', component: TermosPoliticaComponent}
+>>>>>>> 711e1ffe6df4e52324f2c4d982e1ad30276c2ca5
     { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
     { path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
     { path: 'buscar-prof', component: BuscarProfComponent},
 
+<<<<<<< HEAD
 =======
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
 >>>>>>> 2335d62fa7c27cacc9c32dde894582e2fca0df87
+=======
+>>>>>>> 711e1ffe6df4e52324f2c4d982e1ad30276c2ca5
     // {path: '**', component: }, 
 
 

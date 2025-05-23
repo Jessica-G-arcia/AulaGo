@@ -1,150 +1,165 @@
-<div class="row">
-    <div class="col-md-3">
-        <h4 class="mb-4">Agenda - Fernanda Dias</h4>
+<div>
+    <!-- <div class="col-md-12"> -->
+        
+            <div class="d-flex flex-column vh-100">
+              <app-menu-superior></app-menu-superior>
+          
+          
+              <div class="d-flex flex-grow-1">
+                <app-menu-lateral></app-menu-lateral>
+          
+          
+                <div class="flex-grow-1 overflow-auto p-3">
+                    <h4 class="mb-4">Agenda</h4>
 
-        <div class="mt-4 mb-2">
-            <h5>Aulas de Hoje</h5>
-            <div *ngFor="let aula of getAulasHoje()" class="card mb-2"
-                 [ngClass]="{
-                    'aula-presencial': aula.modalidade === 'Presencial',
-                    'aula-online': aula.modalidade === 'Online'
-                 }">
-                <div class="card-body p-2">
-                    <h6 class="card-title">{{aula.idioma}} - {{aula.modalidade}}</h6>
-                    <p class="card-text mb-1">
-                        {{ formatarHora(aula.dataInicio) }} - {{ formatarHora(aula.dataFim) }} | {{aula.aluno}}
-                    </p>
+                    <div class="mt-4 mb-2">
+                        <h5>Aulas de Hoje</h5>
+                        <div *ngFor="let aula of getAulasHoje()" class="card mb-2"
+                             [ngClass]="{
+                                'aula-presencial': aula.modalidade === 'Presencial',
+                                'aula-online': aula.modalidade === 'Online'
+                             }">
+                            <div class="card-body p-2">
+                                <h6 class="card-title">{{aula.idioma}} - {{aula.modalidade}}</h6>
+                                <p class="card-text mb-1">
+                                    {{ formatarHora(aula.dataInicio) }} - {{ formatarHora(aula.dataFim) }} | {{aula.aluno}}
+                                </p>
+                            </div>
+                        </div>
+                        <div *ngIf="getAulasHoje().length === 0" class="text-muted">
+                            Nenhuma aula agendada para este dia
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div *ngIf="getAulasHoje().length === 0" class="text-muted">
-                Nenhuma aula agendada para este dia
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-9 mt-5">
-        <div class="calendario-esquerdo border p-3 rounded">
-
-            <!-- Seletor de visualização -->
-            <div class="d-flex justify-content-end mb-3">
-                <button class="btn btn-outline-primary btn-sm me-2" 
-                        (click)="mudarVisualizacao('mes')" 
-                        [class.active]="visualizacao === 'mes'">
-                    <i class="bi bi-calendar-month"></i> Mês
-                </button>
-                <button class="btn btn-outline-primary btn-sm" 
-                        (click)="mudarVisualizacao('semana')" 
-                        [class.active]="visualizacao === 'semana'">
-                    <i class="bi bi-calendar-week"></i> Semana
-                </button>
-            </div>
-
-            <!-- Visualização Mensal -->
-            <div *ngIf="visualizacao === 'mes'">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <button class="btn btn-light btn-sm" (click)="voltarMes()">
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-                    <h5 class="m-0 text-center">{{ mesAtualNome }} {{ anoAtual }}</h5>
-                    <button class="btn btn-light btn-sm" (click)="avancarMes()">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
-
-                <table class="table table-bordered text-center">
-                    <thead class="table-light">
-                        <tr>
-                            <th>DOM</th>
-                            <th>SEG</th>
-                            <th>TER</th>
-                            <th>QUA</th>
-                            <th>QUI</th>
-                            <th>SEX</th>
-                            <th>SAB</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let semana of calendario">
-                            <td *ngFor="let dia of semana" 
-                                [class.table-active]="dia === diaSelecionado"
-                                [class.dia-atual]="ehDiaAtual(dia)">
-                                <div *ngIf="dia !== null" (click)="selecionarDia(dia)" class="dia-calendario">
-                                    <div class="dia-numero">{{ dia }}</div>
-                                    <div class="eventos-dia">
-                                        <div *ngFor="let aula of getAulasDia(dia)" 
-                                             class="evento" 
-                                             [ngClass]="{
-                                                'aula-presencial': aula.modalidade === 'Presencial',
-                                                'aula-online': aula.modalidade === 'Online'
-                                             }"
-                                             [title]="aula.idioma + ' - ' + aula.modalidade + ' - ' + aula.aluno">
-                                            <small>{{ formatarHora(aula.dataInicio) }} - {{ formatarHora(aula.dataFim) }}</small> - {{ aula.idioma }}
-                                        </div>
-                                    </div>
+            
+                    <div class="col-md-9 p-3">
+                        <div class="calendario-esquerdo border p-3 rounded">
+                
+                            <!-- Seletor de visualização -->
+                            <div class="d-flex justify-content-end mb-3">
+                                <button class="btn btn-outline-primary btn-sm me-2" 
+                                        (click)="mudarVisualizacao('mes')" 
+                                        [class.active]="visualizacao === 'mes'">
+                                    <i class="bi bi-calendar-month"></i> Mês
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm" 
+                                        (click)="mudarVisualizacao('semana')" 
+                                        [class.active]="visualizacao === 'semana'">
+                                    <i class="bi bi-calendar-week"></i> Semana
+                                </button>
+                            </div>
+                
+                            <!-- Visualização Mensal -->
+                            <div *ngIf="visualizacao === 'mes'">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <button class="btn btn-light btn-sm" (click)="voltarMes()">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </button>
+                                    <h5 class="m-0 text-center">{{ mesAtualNome }} {{ anoAtual }}</h5>
+                                    <button class="btn btn-light btn-sm" (click)="avancarMes()">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </button>
                                 </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Visualização Semanal -->
-            <div *ngIf="visualizacao === 'semana'">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <button class="btn btn-light btn-sm" (click)="voltarSemana()">
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-                    <h5 class="m-0 text-center">
-                        Semana de {{ semanaAtual[0].dia }}/{{ semanaAtual[0].mes + 1 }} a 
-                        {{ semanaAtual[6].dia }}/{{ semanaAtual[6].mes + 1 }}
-                    </h5>
-                    <button class="btn btn-light btn-sm" (click)="avancarSemana()">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table table-bordered text-center">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="align-middle">Horário</th>
-                                <th *ngFor="let dia of semanaAtual" class="text-center">
-                                    <div>{{ ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'][dia.data.getDay()] }}</div>
-                                    <div class="fw-normal small">{{ dia.dia }}/{{ dia.mes + 1 }}</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let hora of horarios" [style.height]="'60px'">
-                                <td class="text-center align-middle">
-                                    <strong>{{ hora }}</strong>
-                                </td>
-                                <td *ngFor="let dia of semanaAtual" class="p-1" [style.position]="'relative'">
-                                    <ng-container *ngFor="let aulaItem of getAulasPorDataHora(dia.data, hora)">
-                                        <div class="evento-semana"
-                                             [ngClass]="{
-                                                'aula-presencial': aulaItem.aula.modalidade === 'Presencial',
-                                                'aula-online': aulaItem.aula.modalidade === 'Online',
-                                                'meia-hora-inicio': aulaItem.comecaMeiaHora,
-                                                'meia-hora-fim': aulaItem.terminaMeiaHora
-                                             }"
-                                             [style.height]="calcularAlturaAula(aulaItem, hora)"
-                                             [style.top]="aulaItem.comecaMeiaHora ? ((aulaItem.aula.dataInicio.getMinutes()/60)*60 + 'px') : '0'">
-                                            <div class="conteudo-aula">
-                                                <div class="fw-bold">{{ aulaItem.aula.aluno }}</div>
-                                                <div class="small">
-                                                    {{ formatarHora(aulaItem.aula.dataInicio) }} - {{ formatarHora(aulaItem.aula.dataFim) }}
+                
+                                <table class="table table-bordered text-center">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>DOM</th>
+                                            <th>SEG</th>
+                                            <th>TER</th>
+                                            <th>QUA</th>
+                                            <th>QUI</th>
+                                            <th>SEX</th>
+                                            <th>SAB</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let semana of calendario">
+                                            <td *ngFor="let dia of semana" 
+                                                [class.table-active]="dia === diaSelecionado"
+                                                [class.dia-atual]="ehDiaAtual(dia)">
+                                                <div *ngIf="dia !== null" (click)="selecionarDia(dia)" class="dia-calendario">
+                                                    <div class="dia-numero">{{ dia }}</div>
+                                                    <div class="eventos-dia">
+                                                        <div *ngFor="let aula of getAulasDia(dia)" 
+                                                            class="evento" 
+                                                            [ngClass]="{
+                                                                'aula-presencial': aula.modalidade === 'Presencial',
+                                                                'aula-online': aula.modalidade === 'Online'
+                                                            }"
+                                                            [title]="aula.idioma + ' - ' + aula.modalidade + ' - ' + aula.aluno">
+                                                            <small>{{ formatarHora(aula.dataInicio) }} - {{ formatarHora(aula.dataFim) }}</small> - {{ aula.idioma }}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="small">{{ aulaItem.aula.idioma }}</div>
-                                            </div>
-                                        </div>
-                                    </ng-container>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                
+                            <!-- Visualização Semanal -->
+                            <div *ngIf="visualizacao === 'semana'">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <button class="btn btn-light btn-sm" (click)="voltarSemana()">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </button>
+                                    <h5 class="m-0 text-center">
+                                        Semana de {{ semanaAtual[0].dia }}/{{ semanaAtual[0].mes + 1 }} a 
+                                        {{ semanaAtual[6].dia }}/{{ semanaAtual[6].mes + 1 }}
+                                    </h5>
+                                    <button class="btn btn-light btn-sm" (click)="avancarSemana()">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </button>
+                                </div>
+                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="align-middle">Horário</th>
+                                                <th *ngFor="let dia of semanaAtual" class="text-center">
+                                                    <div>{{ ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'][dia.data.getDay()] }}</div>
+                                                    <div class="fw-normal small">{{ dia.dia }}/{{ dia.mes + 1 }}</div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let hora of horarios" [style.height]="'60px'">
+                                                <td class="text-center align-middle">
+                                                    <strong>{{ hora }}</strong>
+                                                </td>
+                                                <td *ngFor="let dia of semanaAtual" class="p-1" [style.position]="'relative'">
+                                                    <ng-container *ngFor="let aulaItem of getAulasPorDataHora(dia.data, hora)">
+                                                        <div class="evento-semana"
+                                                            [ngClass]="{
+                                                                'aula-presencial': aulaItem.aula.modalidade === 'Presencial',
+                                                                'aula-online': aulaItem.aula.modalidade === 'Online',
+                                                                'meia-hora-inicio': aulaItem.comecaMeiaHora,
+                                                                'meia-hora-fim': aulaItem.terminaMeiaHora
+                                                            }"
+                                                            [style.height]="calcularAlturaAula(aulaItem, hora)"
+                                                            [style.top]="aulaItem.comecaMeiaHora ? ((aulaItem.aula.dataInicio.getMinutes()/60)*60 + 'px') : '0'">
+                                                            <div class="conteudo-aula">
+                                                                <div class="fw-bold">{{ aulaItem.aula.aluno }}</div>
+                                                                <div class="small">
+                                                                    {{ formatarHora(aulaItem.aula.dataInicio) }} - {{ formatarHora(aulaItem.aula.dataFim) }}
+                                                                </div>
+                                                                <div class="small">{{ aulaItem.aula.idioma }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+          
+              </div>
             </div>
-        </div>
-    </div>
+          
+    <!-- </div> -->
 </div>
