@@ -24,6 +24,7 @@
 
 
 
+
 .botao-menor {
     height: 30px;
     width: 150px;
@@ -34,3 +35,37 @@
 .bi-star {
     color: #FFB703;
 }
+.bi-star-fill {
+    color: #FFB703;
+}
+
+.custom-spinner {
+    color: #8ECAE6;
+}
+
+.btn-custom:hover {
+    background-color: #FFB703 !important;
+    color: white !important;
+    border: 2px solid #FFB703 !important;
+  }
+
+  .custom-checkbox {
+    accent-color: #219EBC;
+  }
+  
+  .custom-checkbox:checked {
+    background-color: #219EBC !important;
+    border-color: #219EBC !important;
+  }
+  
+  .custom-checkbox:focus {
+    border-color: #219EBC !important;
+    box-shadow: 0 0 0 0.25rem rgba(33, 158, 188, 0.25) !important;
+  }
+  
+  .custom-checkbox:hover:not(:checked) {
+    border-color: #219EBC !important;
+  }
+  .custom-checkbox:disabled {
+    opacity: 0.5;
+  }
