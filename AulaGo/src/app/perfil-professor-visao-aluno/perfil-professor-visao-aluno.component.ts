@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
 import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
-@Component({
-  selector: 'app-perfil-professor',
-  imports: [CommonModule, RouterLink,RouterLinkActive, MenuSuperiorComponent, MenuLateralComponent],
-  templateUrl: './perfil-professor.component.html',
-  styleUrl: './perfil-professor.component.css'
-})
-export class PerfilProfessorComponent {
 
+@Component({
+  selector: 'app-perfil-professor-visao-aluno',
+  imports: [CommonModule, RouterLink,RouterLinkActive, MenuSuperiorComponent, MenuLateralComponent],
+  templateUrl: './perfil-professor-visao-aluno.component.html',
+  styleUrl: './perfil-professor-visao-aluno.component.css'
+})
+export class PerfilProfessorVisaoAlunoComponent {
   professor = {
     nome: 'Fernanda Dias',
     titulo: 'Professora de Inglês',
@@ -26,7 +26,6 @@ export class PerfilProfessorComponent {
     metodologia3: 'Utilizo materiais variados, como textos, vídeos, músicas e exercícios práticos, sempre buscando trazer situações reais do dia a dia para dentro da aula.',
   };
 
-  // Adicionar dados de avaliações dos alunos
   avaliacoes = [
     {
       nome: 'Mariana Lopes',
@@ -48,7 +47,7 @@ export class PerfilProfessorComponent {
     }
   ];
 
-  // Método para gerar estrelas com base na pontuação
+  // método: gera estrelas com base na pontuação
   gerarEstrelas(quantidade: number): string {
     return '★'.repeat(quantidade);
   }

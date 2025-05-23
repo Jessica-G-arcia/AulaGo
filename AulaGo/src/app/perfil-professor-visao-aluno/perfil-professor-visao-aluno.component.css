@@ -13,6 +13,13 @@
     padding: 20px 0;
 }
 
+.profile-content {
+    max-width: 1400px;
+    margin-bottom: 50px;
+    margin-left: 70px;
+    position: relative; 
+}
+
 .back-button {
     width: 40px;
     height: 40px;
@@ -25,22 +32,15 @@
     cursor: pointer;
 }
 
-.edit-profile-button {
+.hire-button {
     background-color: #82c4db;
     color: black;
     border: none;
     border-radius: 30px;
-    padding: 10px 40px;
+    padding: 10px 30px;
     font-size: 14px;
     cursor: pointer;
-    margin-right: 90px;
-}
-
-.profile-content {
-    max-width: 1400px;
-    margin-bottom: 50px;
-    margin-left: 70px;
-    position: relative; 
+    margin-left: 920px;
 }
 
 .profile-header {
@@ -69,71 +69,92 @@
 }
 
 .profile-name {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: normal;
     margin: 0 0 5px 0;
     margin-left: 10px;
 }
 
-.profile-idioma {
-    font-size: 18px;
-    color: #555;
-    margin: 0 0 5px 0;
-    margin-left: 300px;
-    margin-top: -30px;
-}
-
-.flag-icon {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 2px;
-}
-
-.profile-nivel {
-    font-size: 18px;
-    color: #555;
-    margin: 0 0 5px 0;
-    margin-left: 470px;
-    margin-top: -30px;
-}
-
-.profile-modalidade {
-    font-size: 18px;
-    color: #555;
-    margin: 0 0 5px 0;
-    margin-left: 670px;
-    margin-top: -30px;
-}
-
 .profile-title {
-    font-size: 18px;
+    font-size: 14px;
     color: #555;
     margin: 0 0 5px 0;
     margin-left: 10px;
-    margin-top: 15px;
-}
-
-.profile-title2 {
-    font-size: 18px;
-    color: #555;
-    margin: 0 0 5px 0;
-    margin-left: 10px;
-    margin-top: -5px;
 }
 
 .profile-status {
-    font-size: 12px;
+    font-size: 14px;
     color: #555;
-    margin: 0 0 5px 0;
+    margin: 0;
     margin-left: 10px;
-    margin-top: -10px;
+}
+
+.profile-rating {
+    margin-top: -85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.stars {
+    color: gold;
+    font-size: 20px;
+    letter-spacing: -2px;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+  
+.rating-count {
+    font-size: 22px;
+    font-weight: normal;
 }
 
 .profile-content {
     display: flex;
-    margin-top: -60px;
+    margin-top: 30px;
+}
+
+.left-column {
+    max-width: 500px;
+    margin-right: 15px;
+}
+
+.right-column {
+    flex: 1;
+    padding-left: 0;
+    margin-left: -230px;
+}
+
+/* tipo de idioma e modalidade */
+.type-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    max-width: 270px;
+    max-height: 80px;
+    line-height: 1.2;
+}
+
+.type-item {
+    text-align: center;
+}
+
+/* preços */
+.pricing-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    max-width: 270px;
+    max-height: 110px;
+    text-align: center;
+}
+
+.pricing-info {
+    font-size: 15px;
 }
 
 /* bio */
@@ -142,38 +163,42 @@
     border-radius: 8px;
     padding: 10px 20px;
     border: 1px solid black;
-    max-width: 1050px;
+    max-width: 760px;
     max-height: 200px;
     margin-left: 0; 
-    margin-top: 80px;
+    margin-bottom: 20px; 
+}
+
+/* metodologia */
+.bio-card p,
+.methodology-card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.methodology-card {
+    background-color: #fff;
+    padding: 30px 10px;
+    border: 1px solid black;
+    margin-bottom: 20px;
 }
 
 /* avaliações */
 .reviews-card {
     background-color: #fff;
-    padding: 25px 25px 25px 25px;
+    padding: 20px;
     border: 1px solid black;
-    max-width: 1050px;
-    max-height: 500px;
-    margin-left: 0; 
-    margin-top: -40px;
+    max-width: 530px;
+    max-height: 365px;
+    margin-left: 230px;
+    margin-top: -10px;
     overflow-y: auto;
-    margin-left: 70px;
-    position: relative; 
-}
-
-.reviews-card h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-    font-weight: normal;
 }
 
 .review-item {
     border-bottom: 1px solid #eee;
     padding-bottom: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .review-item:last-child {
@@ -194,7 +219,7 @@
     border-radius: 50%;
     overflow: hidden;
     margin-right: 12px;
-    margin-top: -10px;
+    margin-top: -5px;
 }
 
 .review-user-image img {
@@ -231,7 +256,6 @@
 .review-content p {
     margin: 0;
 }
-
 
 /* Responsividade */
 @media (max-width: 768px) {

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AluasProfessorComponent } from './aluas-professor.component';
+import { AluasProfessorComponent } from './aulas-professor.component';
 
 describe('AluasProfessorComponent', () => {
   let component: AluasProfessorComponent;

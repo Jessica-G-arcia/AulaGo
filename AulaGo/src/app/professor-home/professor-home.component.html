@@ -1,70 +1,78 @@
-<div class="professor-home-content">
+<div class="d-flex flex-column vh-100">
+  <app-menu-superior></app-menu-superior>
 
-  <main class="main-content">
 
-    <section class="content-body">
-      <h2>Seja bem vindo, {{ welcomeName }}!</h2>
+  <div class="d-flex flex-grow-1">
+    <app-menu-lateral></app-menu-lateral>
 
-      <section class="idiomas-section">
-        <h3>Idiomas</h3>
-        <div class="carousel-container">
-           <button class="carousel-arrow prev" (click)="previousLanguage()">&#10094;</button>
-           <div class="carousel-items languages">
-             <div *ngFor="let lang of languages" class="language-item">
-               <img [src]="'/' + lang.flagUrl" [alt]="lang.name + ' flag'">
-               <span>{{ lang.name }}</span>
-             </div>
-           </div>
-           <button class="carousel-arrow next" (click)="nextLanguage()">&#10095;</button>
-        </div>
-      </section>
 
-      <section class="top-alunos-section">
-        <h3>TOP 10 - Alunos</h3>
-        <div *ngIf="topStudents.length > 0">
-            <div class="carousel-container student-carousel">
-                <button class="carousel-arrow prev" (click)="previousTopStudent()">&#10094;</button>
-                <div class="student-card">
-                    <img [src]="'/' + topStudents[0].imageUrl" [alt]="topStudents[0].name">
+    <div class="flex-grow-1 overflow-auto">
+
+      <div class="professor-home-content">
+
+        <main class="main-content">
+
+          <section class="content-body">
+            <h2>Seja bem vindo, {{ welcomeName }}!</h2>
+
+            <section class="idiomas-section">
+              <h3>Idiomas</h3>
+              <div class="carousel-container">
+                <button class="carousel-arrow prev" (click)="previousLanguage()">&#10094;</button>
+                <div class="carousel-items languages">
+                  <div *ngFor="let lang of languages" class="language-item">
+                    <img [src]="'/' + lang.flagUrl" alt="idiomas e bandeiras">
+                    <span>{{ lang.name }}</span>
+                  </div>
+                </div>
+                <button class="carousel-arrow next" (click)="nextLanguage()">&#10095;</button>
+              </div>
+            </section>
+
+            <section class="top-alunos-section">
+              <h3>TOP 10 - Alunos</h3>
+              <div *ngIf="topStudents.length > 0">
+                <div class="carousel-container student-carousel">
+                  <button class="carousel-arrow prev" (click)="previousTopStudent()">&#10094;</button>
+                  <div class="student-card">
+                    <img src="/melhorAluna1.png" alt="">
                     <div class="student-info">
-                        <h4>{{ topStudents[0].name }}</h4>
-                        <p>Idioma(s): {{ topStudents[0].languages }}</p>
-                        <div class="rating">
-                            <span *ngFor="let i of [1,2,3,4,5]">&#9733;</span>
-                        </div>
-                        <blockquote>{{ topStudents[0].quote }}</blockquote>
-                        <a href="#" class="report-link">Reportar Aluno</a>
+                      <div class="rating">
+                        <span *ngFor="let i of [1,2,3,4,5]">&#9733;</span>
+                      </div>
+                      <h4>{{ topStudents[0].name }}</h4>
+                      <p>Idioma(s): {{ topStudents[0].languages }}</p>
+                      <blockquote>{{ topStudents[0].quote }}</blockquote>
+                      <!-- <a href="#" class="report-link"></a> -->
                     </div>
+                  </div>
+                  <button class="carousel-arrow next" (click)="nextTopStudent()">&#10095;</button>
                 </div>
-                <button class="carousel-arrow next" (click)="nextTopStudent()">&#10095;</button>
-            </div>
-        </div>
-        <div *ngIf="topStudents.length === 0">
-            <p>Nenhum aluno no TOP 10 no momento.</p>
-        </div>
-      </section>
+              </div>
+            </section>
 
 
-      <section class="aulas-hoje-section">
-        <h3>Aulas de hoje</h3>
-        <div *ngIf="todaysClasses.length > 0">
-          <p class="section-subtitle">Agendadas para: {{ todaysClasses[0].date }}</p>
-          <div class="carousel-container classes-carousel">
-             <button class="carousel-arrow prev" (click)="previousClass()">&#10094;</button>
-             <div class="carousel-items classes">
-                <div *ngFor="let aula of todaysClasses" class="class-card">
-                   <p><strong>Aluno:</strong> {{ aula.studentName }}</p>
-                   <p>{{ aula.location }}</p>
-                   <p><strong>Horário:</strong> {{ aula.time }} - {{ aula.type }}</p>
-                   <p class="class-date">{{ aula.date }}</p>
+            <section class="aulas-hoje-section">
+              <h3>Aulas de hoje</h3>
+              <div *ngIf="todaysClasses.length > 0">
+                <!-- <p class="section-subtitle">Agendadas para: {{ todaysClasses[0].date }}</p> -->
+                <div class="carousel-container classes-carousel">
+                  <button class="carousel-arrow prev" (click)="previousClass()">&#10094;</button>
+                  <div class="carousel-items classes">
+                    <div *ngFor="let aula of todaysClasses" class="class-card">
+                      <p>Aluno: {{ aula.studentName }}</p>
+                      <p>{{ aula.location }}</p>
+                      <p>Horário: {{ aula.time }} - {{ aula.type }}</p>
+                      <p class="class-date">{{ aula.date }}</p>
+                    </div>
+                  </div>
+                  <button class="carousel-arrow next" (click)="nextClass()">&#10095;</button>
                 </div>
-             </div>
-             <button class="carousel-arrow next" (click)="nextClass()">&#10095;</button>
-          </div>
-        </div>
-         <div *ngIf="todaysClasses.length === 0">
-            <p>Nenhuma aula agendada para hoje.</p>
-         </div>
-      </section>
-
-    </section> </main> </div> ```
+              </div>
+            </section>
+          </section>
+        </main>
+      </div> 
+    </div>
+  </div>
+</div>

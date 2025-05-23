@@ -12,6 +12,7 @@ import { AulasComponent } from './aulas/aulas.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ProfessorHomeComponent } from './professor-home/professor-home.component';
 import { HomeAlunoComponent } from './home-aluno/home-aluno.component';
+<<<<<<< HEAD
 import { AluasProfessorComponent } from './aluas-professor/aluas-professor.component';
 <<<<<<< HEAD
 import { ConfirmacaoDePagamentoComponent } from './confirmacao-de-pagamento/confirmacao-de-pagamento.component';
@@ -23,6 +24,14 @@ import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-pr
 import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-aluno.component';
 import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
 >>>>>>> 17db327de999548c406b0d2b0fa7d767120abc7c
+=======
+import { AluasProfessorComponent } from './aluas-professor/aulas-professor.component';
+import { NotificacoesAlunosComponent } from './notificacoes-alunos/notificacoes-alunos.component';
+import { MenuSuperiorAlunoComponent } from './menu-superior-aluno/menu-superior-aluno.component';
+import { MenuLateralAlunoComponent } from './menu-lateral-aluno/menu-lateral-aluno.component';
+import { PerfilAlunoVisaoProfessorComponent } from './perfil-aluno-visao-professor/perfil-aluno-visao-professor.component';
+import { PerfilProfessorVisaoAlunoComponent } from './perfil-professor-visao-aluno/perfil-professor-visao-aluno.component';
+>>>>>>> 2335d62fa7c27cacc9c32dde894582e2fca0df87
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -38,23 +47,27 @@ export const routes: Routes = [
     { path: 'professor-continuar-cadastro', component: ProfessorContinuarCadastroComponent},
     {path: 'home-aluno', component: HomeAlunoComponent},
     {path: 'notificacoes', component: NotificacoesComponent},
+    {path: 'notificacoes-alunos', component: NotificacoesAlunosComponent},
     {path: 'pagamento', component: PagamentoComponent},
     {path: 'confirmacao-de-pagamento', component: ConfirmacaoDePagamentoComponent},
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
+    {path: 'perfil-aluno-visao-professor', component: PerfilAlunoVisaoProfessorComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
+    {path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
+<<<<<<< HEAD
     { path: 'termos-politica', component: TermosPoliticaComponent},
     { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
     { path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
     { path: 'buscar-prof', component: BuscarProfComponent},
 
+=======
+    {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
+    {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
+>>>>>>> 2335d62fa7c27cacc9c32dde894582e2fca0df87
     // {path: '**', component: }, 
 
 
 
 
-
-
-
-    
 ];

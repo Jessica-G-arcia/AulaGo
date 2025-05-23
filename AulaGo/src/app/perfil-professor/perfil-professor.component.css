@@ -40,7 +40,7 @@
     padding: 10px 40px;
     font-size: 14px;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 90px;
 }
 
 .profile-header {
@@ -101,6 +101,7 @@
     font-size: 20px;
     letter-spacing: -2px;
     margin-bottom: 5px;
+    font-weight: normal;
 }
   
 .rating-count {
@@ -218,7 +219,7 @@
     border-radius: 50%;
     overflow: hidden;
     margin-right: 12px;
-    margin-top: -10px;
+    margin-top: -5px;
 }
 
 .review-user-image img {
@@ -232,8 +233,8 @@
 }
 
 .review-user-name {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: normal;
     margin: 0 0 3px 0;
     color: #333;
 }
@@ -243,6 +244,7 @@
     font-size: 16px;
     letter-spacing: 1px;
     text-align: end;
+    margin-top: -25px;
 }
 
 .review-content {
@@ -253,22 +255,6 @@
 
 .review-content p {
     margin: 0;
-}
-
-.review-footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 100px;
-}
-.view-more {
-    color: #4d85bd;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.view-more:hover {
-    text-decoration: underline;
 }
 
 /* Responsividade */
