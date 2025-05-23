@@ -1,115 +1,15 @@
-<div class="explorar-container" [class.filters-visible]="isFilterVisible">
+<div class="d-flex flex-column vh-100">
+  <app-menu-superior-aluno></app-menu-superior-aluno>
 
-    <div class="filter-overlay" *ngIf="isFilterVisible" (click)="fecharFiltros()"></div>
-  
-    <aside class="filter-sidebar" *ngIf="isFilterVisible">
-      <div class="filter-sidebar-header">
-        <button class="close-filter-button" (click)="fecharFiltros()">&#10094;</button> <h3>Filtros</h3>
-        <i class="icon-filter"></i> </div>
-  
-      <div class="filter-sidebar-content">
-        <div class="filter-group">
-          <h4>Avaliação</h4>
-          <div class="rating-filter">
-              <span *ngFor="let i of [1, 2, 3, 4, 5]"
-                    class="star"
-                    [class.filled]="i <= tempFiltros.rating"
-                    (click)="setRatingFilter(i)">
-                &#9733;
-              </span>
-          </div>
-        </div>
-  
-        <div class="filter-group">
-          <h4>Idioma</h4>
-          <div class="filter-options">
-            <div class="filter-option" *ngFor="let idioma of availableIdiomas">
-              <input type="checkbox" [id]="'idioma-' + idioma" [(ngModel)]="tempFiltros.idiomas[idioma]">
-              <label [for]="'idioma-' + idioma">{{ idioma }}</label>
-            </div>
-          </div>
-        </div>
-  
-         <div class="filter-group">
-          <h4>Nível</h4>
-          <div class="filter-options">
-            <div class="filter-option" *ngFor="let nivel of availableNiveis">
-              <input type="checkbox" [id]="'nivel-' + nivel" [(ngModel)]="tempFiltros.niveis[nivel]">
-              <label [for]="'nivel-' + nivel">{{ nivel }}</label>
-            </div>
-          </div>
-        </div>
-  
-         <div class="filter-group">
-          <h4>Modalidade das aulas</h4>
-          <div class="filter-options">
-            <div class="filter-option" *ngFor="let mod of availableModalidades">
-              <input type="checkbox" [id]="'mod-' + mod" [(ngModel)]="tempFiltros.modalidades[mod]">
-              <label [for]="'mod-' + mod">{{ mod }}</label>
-            </div>
-          </div>
-        </div>
-  
-         <div class="filter-group">
-          <h4>Metodologia</h4>
-          <div class="filter-options">
-            <div class="filter-option" *ngFor="let met of availableMetodologias">
-              <input type="checkbox" [id]="'met-' + met" [(ngModel)]="tempFiltros.metodologias[met]">
-              <label [for]="'met-' + met">{{ met }}</label>
-            </div>
-          </div>
-        </div>
-  
-      </div>
-  
-      <div class="filter-sidebar-footer">
-        <button class="apply-filters-button" (click)="aplicarFiltros()">Aplicar</button>
-      </div>
-    </aside>
-  
-  
-    <div class="main-content-area" [class.content-shifted]="isFilterVisible"> <header class="search-header">
-        <div class="search-input-wrapper">
-          <i class="icon-search"></i>
-          <input type="text" placeholder="Buscar por nome, idioma...">
-        </div>
-        <button class="filter-button" (click)="toggleFiltros()">
-          <i class="icon-filter"></i>
-          Filtros
-        </button>
-      </header>
-  
-      <div class="search-title">
-        <h2>Você pesquisou por {{ searchTermDisplay }}...</h2>
-      </div>
-  
-      <section class="results-grid" *ngIf="searchResults.length > 0; else noResults">
-        <div class="student-card" *ngFor="let aluno of searchResults">
-          <div class="card-header">
-            <img class="profile-pic" [src]="'/' + aluno.imageUrl" [alt]="'Foto de ' + aluno.nome">
-            <div class="name-age">
-              <h3>{{ aluno.nome }}, {{ aluno.idade }} anos</h3>
-            </div>
-            <div class="rating">
-               <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
-                    <span class="star" [class.filled]="i <= aluno.rating">&#9733;</span>
-               </ng-container>
-              </div>
-          </div>
-          <div class="card-details">
-             <p *ngFor="let key of getDetalheKeys(aluno.detalhes)">
-                <strong>{{ key }}:</strong> {{ aluno.detalhes[key] }}
-             </p>
-          </div>
-          <div class="card-footer">
-            <button class="conferir-button" (click)="conferirAluno(aluno)">Conferir</button>
-          </div>
-        </div>
-      </section>
-  
-      <ng-template #noResults>
-        <div class="no-results">
-          <p>Nenhum aluno encontrado para "{{ searchTermDisplay }}". Tente ajustar sua busca ou filtros.</p>
-        </div>
-      </ng-template>
-    </div></div> ```
+
+  <div class="d-flex flex-grow-1">
+    <app-menu-lateral-aluno></app-menu-lateral-aluno>
+
+
+    <div class="flex-grow-1 overflow-auto">
+
+
+    </div>
+  </div>
+
+</div>
