@@ -34,7 +34,7 @@ export const routes: Routes = [
     {path: 'chat', component: ChatComponent},
     {path: 'chat-professor', component: ChatProfessorComponent},
     {path: 'continuar-cadastro', component:ContinuarCadastroComponent},
-    { path: 'professor-continuar-cadastro', component: ProfessorContinuarCadastroComponent},
+    {path: 'professor-continuar-cadastro', component: ProfessorContinuarCadastroComponent},
     {path: 'home-aluno', component: HomeAlunoComponent},
     {path: 'notificacoes', component: NotificacoesComponent},
     {path: 'notificacoes-alunos', component: NotificacoesAlunosComponent},
@@ -46,7 +46,7 @@ export const routes: Routes = [
     {path: 'home-professor', component: ProfessorHomeComponent},
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
-    { path: 'termos-politica', component: TermosPoliticaComponent}
+    { path: 'termos-politica', component: TermosPoliticaComponent},
     { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
     { path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
 
