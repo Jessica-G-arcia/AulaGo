@@ -2,57 +2,58 @@
 
 /* Estilos Globais e Reset Básico */
 :host {
-    /* display: block; */
-    font-family: 'montserrat', sans-serif;
-    background-color: 'white';
-    color: black;
-  }
-  
-  .content-body {
-    margin-top: -100px;
-    padding: 8rem 8rem;
-    width: 100%;
-  }
-  
-  /* Tipografia */
-  h2 {
-    font-size: 25px;
-    font-weight: normal;
-    color: black;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  h3 {
-    font-size: 22px;
-    font-weight: normal;
-    color: black;
-    padding-bottom: 0.1rem;
-    padding-left: 170px;
-  }
-  
-  /* Estilos Gerais dos Carrosséis */
-  .carousel-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: 1rem;
-  }
-  
-  .carousel-items {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 10px 5px;
-    flex-grow: 1;
-    margin: 0 5px;
-    justify-content: center; 
-  }
-  .carousel-items::-webkit-scrollbar {
-    display: none;
-  }
-  
- .carousel-arrow {
+  /* display: block; */
+  font-family: 'montserrat', sans-serif;
+  background-color: 'white';
+  color: black;
+}
+
+.content-body {
+  margin-top: -100px;
+  padding: 8rem 8rem;
+  width: 100%;
+}
+
+/* Tipografia */
+h2 {
+  font-size: 25px;
+  font-weight: normal;
+  color: black;
+  /* margin-bottom: 1rem; */
+  text-align: center;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: normal;
+  color: black;
+  margin-bottom: 1rem;
+  padding-left: 95px;
+}
+
+/* Estilos Gerais dos Carrosséis */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.carousel-items {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 5px;
+  flex-grow: 1;
+  margin: 0 5px;
+  justify-content: center;
+}
+
+.carousel-items::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-arrow {
   background-color: transparent;
   border: 2px solid black;
   border-radius: 50%;
@@ -68,176 +69,163 @@
   box-shadow: none;
 }
 
-.carousel-arrow:hover {
-  background-color: #f0f0f0;
+.carousel-arrow.prev {
+  margin-right: 10px;
 }
-  
-  .carousel-arrow.prev {
-    margin-right: 10px;
-  }
-  .carousel-arrow.next {
-    margin-left: 10px;
-  }
-  
-  
-  /* Seção Idiomas */
-  .idiomas-section .carousel-items {
-    gap: 50px; 
-  }
-  
-  .language-item {
-    text-align: center;
-    /* flex-shrink: 0; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .language-item img {
-    width: 130px;
-    height: auto;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  
-  .language-item span {
-    font-size: 1.05rem;
-    color: black;
-    font-weight: normal;
-  }
-  
-  /* Seção TOP 10 Alunos */
-  .top-alunos-section .carousel-container {
-    background-color: #08A1C8;
-    border-radius: 12px;
-    padding: 20px 70px;
-    display: flex;
-    width: 850px;
-    height: 250px;
-    position: relative; 
-    margin-left: 170px;
-    overflow: hidden;
-  }
 
-  .top-alunos-section .carousel-arrow {
-    border: none;
-    color: black;
-    align-self: center;
-  }
-  
-  .student-card {
-    color: black;
-    padding: 5px 25px;
-    display: flex;
-    align-items: center;
-    max-width: 600px;
-  }
-  
-  .student-card img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-  }
-  
-  .student-info h4 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: black;
-    text-align: left;
-  }
-  
-  .student-info p {
-    text-align: left;
-    font-size: 0.95rem;
-    color: black;
-  }
-  
-  .student-info .rating {
-    color: #FFB703;
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
-    font-size: 1.3rem;
-    text-align: left;
-  }
-  .student-info .rating span {
-      margin-right: 2px;
-  }
-  
-  .student-info blockquote {
-    margin: 15px 0;
-    padding-left: 15px;
-    font-size: 1rem;
-    line-height: 1.4;
-    color: black;
-  }
-  
-  /* Seção Aulas de Hoje */
-  .aulas-hoje-section .section-subtitle {
-      font-size: 0.95em;
-      color: black;
-      margin-bottom: 1rem;
-  }
-  
-  .classes-carousel .carousel-items {
-      gap: 25px; /* espaço entre cards de aula */
-  }
-  
-  .class-card {
-    background-color: #F5F7FA;
-    border-radius: 10px;
-    padding: 20px;
-    width: 420px;
-    height: 120px;
-    flex-shrink: 0;
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  
-  .class-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .class-card p {
-    margin: 5px 0;
-    color: black;
-    line-height: 1.4;
-    text-align: left;
-  }
-  .class-card p:last-of-type {
-      margin-bottom: 0;
-  }
-  
-  .class-card p {
-    font-size: 15px;
-    color: #333;
-    font-weight: normal;
-  }
-  
-  .class-card .class-date {
-    text-align: right;
-    font-size: 0.85rem;
-    color: black;
-    margin-top: auto;
-    padding-top: 15px;
-    margin-top: -40px;
-    font-weight: normal;
-  }
-  
-  /* Mensagens de "Nenhum item" */
-  .top-alunos-section > div:last-child,
-  .aulas-hoje-section > div:last-child {
-      color: black;
-      padding: 1rem 0;
-      text-align: center; /* Centraliza texto de 'nenhum item' */
-  }
-  
- 
+.carousel-arrow.next {
+  margin-left: 10px;
+}
+
+/* Seção Idiomas */
+.idiomas-section .carousel-items {
+  gap: 50px;
+}
+
+.language-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.language-item img {
+  width: 163px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.language-item span {
+  font-size: 1.05rem;
+  color: black;
+  font-weight: normal;
+}
+
+/* Seção TOP 10 Alunos */
+.top-alunos-section .carousel-container {
+  background-color: #08A1C8;
+  border-radius: 12px;
+  padding: 20px 70px;
+  display: flex;
+  width: 1010px;
+  height: 250px;
+  position: relative;
+  margin-left: 92px;
+  overflow: hidden;
+}
+
+.top-alunos-section .carousel-arrow {
+  border: none;
+  color: black;
+  align-self: center;
+}
+
+.student-card {
+  color: black;
+  padding: 5px 25px;
+  display: flex;
+  align-items: center;
+  max-width: 850px;
+}
+
+.student-card img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.student-info h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: black;
+  text-align: left;
+}
+
+.student-info p {
+  text-align: left;
+  font-size: 0.95rem;
+  color: black;
+}
+
+.student-info .rating {
+  color: #FFB703;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.student-info .rating span {
+  margin-right: 2px;
+}
+
+.student-info blockquote {
+  margin: 20px 0;
+  padding-left: 35px;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: black;
+}
+
+/* Seção Aulas de Hoje */
+.aulas-hoje-section .section-subtitle {
+  font-size: 0.95em;
+  color: black;
+  /* margin-bottom: 1rem; */
+}
+
+.classes-carousel .carousel-items {
+  gap: 25px;
+}
+
+.class-card {
+  background-color: #F5F7FA;
+  border-radius: 10px;
+  padding: 20px;
+  width: 490px;
+  height: 120px;
+  flex-shrink: 0;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.class-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.class-card p {
+  margin: 5px 0;
+  color: black;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.class-card p:last-of-type {
+  margin-bottom: 0;
+}
+
+.class-card p {
+  font-size: 15px;
+  color: #333;
+  font-weight: normal;
+}
+
+.class-card .class-date {
+  text-align: right;
+  font-size: 0.85rem;
+  color: black;
+  margin-top: auto;
+  padding-top: 15px;
+  margin-top: -40px;
+  font-weight: normal;
+}
