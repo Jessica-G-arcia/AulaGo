@@ -1,0 +1,274 @@
+/* Language Cards Section (Scrollable) */
+.language-section {
+  position: relative; 
+}
+
+.language-cards-container {
+  display: flex;
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; 
+  scroll-behavior: smooth; 
+  gap: 15px; 
+  padding-bottom: 10px; 
+  flex-grow: 1;
+  justify-content: flex-start; 
+  align-items: center;
+
+  /* Hide scrollbar for a cleaner look (optional, but common for custom scroll) */
+  &::-webkit-scrollbar {
+    height: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.language-card {
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  width: 150px; /* Fixed width for cards */
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  img {
+    width: 90px;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    opacity: 0.5;
+  }
+
+  p {
+    font-weight: 500;
+    margin-top: 10px;
+    color: #333;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &.active {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: lighten(#007bff, 45%);
+
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+.language-nav-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+  border-color: #6c757d;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: #f8f9fa;
+    color: #495057;
+  }
+}
+
+/* Teacher Carousel Section */
+.teacher-carousel-container {
+  max-width: 1200px; /* Control max width of the carousel */
+  margin: 0 auto 50px auto; /* Center the carousel and add bottom margin */
+  position: relative; 
+
+  .carousel-inner {
+    padding: 0 60px;
+  }
+
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px; 
+    height: 40px; 
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      width: 25px; 
+      height: 25px;
+      background-size: 100%, 100%;
+    }
+  }
+
+  .carousel-control-prev {
+    left: 0px; 
+  }
+
+  .carousel-control-next {
+    right: 0px;
+  }
+}
+
+
+.teacher-card {
+  background: #08A1C8; /* Blue to Green gradient as seen in the image */
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%; 
+  max-width: 1000px; 
+  min-height: 200px; 
+
+  .teacher-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .card-title {
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  .card-text.text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .quote {
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .quote-author {
+    font-size: 0.85rem;
+    font-weight: 300;
+  }
+
+  .stars .bi-star-fill, .stars .bi-star-half, .stars .bi-star {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* Club Cards Section */
+.club-card {
+  background: linear-gradient(to right, #ff7e00, #ffc107); /* Orange to Yellow gradient */
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .teacher-carousel-container {
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 40px;
+      height: 40px;
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .language-card {
+    width: 100px;
+    padding: 10px;
+    img {
+      width: 60px;
+    }
+  }
+
+  .teacher-card {
+    flex-direction: column;
+    text-align: center;
+    .teacher-photo {
+      margin-bottom: 15px;
+    }
+    .card-body {
+      text-align: center;
+    }
+  }
+
+  .club-card {
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .language-card {
+    width: 80px;
+    img {
+      width: 50px;
+    }
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+
+  .language-nav-btn {
+    display: none;
+  }
+
+  .teacher-carousel-container {
+    .carousel-inner {
+      padding: 0; 
+    }
+    .carousel-control-prev, .carousel-control-next {
+      display: none;
+    }
+  }
+
+  .teacher-card {
+    padding: 20px !important;
+  }
+}

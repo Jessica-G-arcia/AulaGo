@@ -1,24 +1,103 @@
 <div>
-    <!-- <div class="col-md-12"> -->
-        
-            <div class="d-flex flex-column vh-100">
-              <app-menu-superior-aluno></app-menu-superior-aluno>
-          
-          
-              <div class="d-flex flex-grow-1">
-                <app-menu-lateral-aluno></app-menu-lateral-aluno>
-          
-          
-                <div class="flex-grow-1 overflow-auto p-3">
-                    <h4 class="mb-4">Home Aluno</h4>
+  <!-- <div class="col-md-12"> -->
 
-                   
+  <div class="d-flex flex-column vh-100">
+    <app-menu-superior-aluno></app-menu-superior-aluno>
+
+
+    <div class="d-flex flex-grow-1">
+      <app-menu-lateral-aluno></app-menu-lateral-aluno>
+
+
+      <div class="flex-grow-1 overflow-auto p-3">
+
+        <h3 class="text-center mb-4">Seja bem vindo, {{ alunoNome }}!</h3>
+
+        <h4 class="mb-3" style="padding-left: 40px;">Idiomas</h4>
+        <div class="d-flex align-items-center mb-5 language-section">
+          <button class="btn btn-outline-secondary rounded-circle p-2 mx-2 language-nav-btn"
+            (click)="scrollLanguages('left')">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+
+          <div class="language-cards-container" #languageScrollContainer>
+            <div class="language-card" *ngFor="let lang of languages" [class.active]="lang.active">
+              <img [src]="lang.flag" [alt]="'Bandeira ' + lang.name" class="img-fluid mb-2">
+              <p class="text-center">{{ lang.name }}</p>
+            </div>
+          </div>
+
+          <button class="btn btn-outline-secondary rounded-circle p-2 mx-2 language-nav-btn"
+            (click)="scrollLanguages('right')">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+
+        <h4 class="mb-3" style="padding-left: 40px;">TOP 10 - Professores</h4>
+        <div id="teacherCarousel" class="carousel slide teacher-carousel-container" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let teacher of teachers; let i = index" [class.active]="i === 0">
+              <div class="card teacher-card p-4 mx-auto">
+                <div class="row g-0 align-items-center">
+                  <div class="col-md-4 text-center">
+                    <img [src]="teacher.photo" class="img-fluid rounded-circle teacher-photo"
+                      [alt]="'Foto do professor ' + teacher.name">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <div class="stars mb-2">
+                        <ng-container *ngFor="let star of teacher.stars; let j = index">
+                          <i class="bi bi-star-fill text-warning" *ngIf="star === 'full'"></i>
+                          <i class="bi bi-star-half text-warning" *ngIf="star === 'half'"></i>
+                          <i class="bi bi-star text-warning" *ngIf="star === 'empty'"></i>
+                        </ng-container>
+                      </div>
+                      <h5 class="card-title mb-1">{{ teacher.name }}</h5>
+                      <p class="card-text text-muted mb-2">Idioma(s): {{ teacher.languages.join(', ') }}</p>
+                      <p class="card-text quote mb-2">"{{ teacher.quote }}"</p>
+                      <p class="card-text text-end quote-author">{{ teacher.quoteAuthor }}</p>
+                    </div>
+                  </div>
                 </div>
-            
-                    
-          
               </div>
             </div>
-          
-    <!-- </div> -->
+          </div>
+
+          <button class="carousel-control-prev teacher-carousel-control" type="button" data-bs-target="#teacherCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next teacher-carousel-control" type="button" data-bs-target="#teacherCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+        <h4 class="mb-3" style="padding-left: 40px;">Clube</h4>
+        <div class="row justify-content-center gx-4">
+          <div class="col-md-5">
+            <div class="card club-card text-white text-center p-4 mb-3">
+              <p class="lead mb-0">Participe do nosso clube e ganhe descontos nas próximas aulas</p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="card club-card text-white text-center p-4 mb-3">
+              <p class="lead mb-0">Participe agora e ganhe nossas vantagens exclusivas</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <!-- </div> -->
 </div>
