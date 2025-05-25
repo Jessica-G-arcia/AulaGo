@@ -6,264 +6,55 @@
             <app-menu-lateral></app-menu-lateral>
 
             <div class="container">
-                <div class="input-group w-75 mt-4">
+                <div class="position-relative mt-4" style="max-width: 1200px;">
+                    <input type="search" class="form-control rounded-pill ps-5" placeholder="Buscar Alunos"
+                        [(ngModel)]="searchTerm" (input)="buscarAlunos()">
+                    <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
 
-                    <div class="input-group-text bg-transparent border-0"><input class="form-control rounded-pill"
-                            type="search" placeholder="Buscar Alunos" aria-label="Search">
-                        <button class="btn bg-transparent bi-search"></button>
-                    </div>
-                    <button class="btn bg-transparent bi-sliders"></button>
+                    <button class="btn bg-transparent position-absolute end-0 top-50 translate-middle-y me-2"
+                        type="button" data-bs-toggle="offcanvas" data-bs-target="#filtroOffcanvas"
+                        aria-controls="filtroOffcanvas">
+                        <i class="bi bi-sliders"></i>
+                    </button>
                 </div>
 
-
-
-                <div class="row mt-4">
-                    <div class="col-md">
-                        <div class="card card-custom">
+                <div class="row mt-3" *ngIf="alunosFiltrados.length > 0">
+                    <div class="col-md-4 mb-4" *ngFor="let aluno of alunosFiltrados; let i = index">
+                        <div class="card card-custom card-text h-100">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
+                                        <img [src]="aluno.foto || './assets/default-avatar.png'"
+                                            [alt]="'Foto de ' + aluno.nome" class="rounded-circle" width="80"
+                                            height="80">
                                     </div>
                                     <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
+                                        <h6 class="card-title negrito">{{ aluno.nome }}, {{ aluno.idade }} anos</h6>
                                     </div>
                                     <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
+                                        <i *ngFor="let star of getStarsArray(aluno.rating)" class="bi bi-star-fill"
+                                            style="color: #FFB703;"></i>
+                                        <i *ngFor="let star of getStarsArray(5 - aluno.rating)" class="bi bi-star"
+                                            style="color: #FFB703;"></i>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="row mt-1">
                                         <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
+                                            <strong>Idioma buscado:</strong> {{ aluno.idioma }} <br>
+                                            <strong>Modalidade:</strong> {{ aluno.modalidade }} <br>
+                                            <strong>Nível:</strong> {{ aluno.nivel }} <br>
+                                            <strong>Metodologia:</strong> {{ aluno.metodologia }} <br>
+                                            <strong>Distância de você:</strong> {{ aluno.distancia }}
                                         </p>
                                     </div>
                                     <div class="row d-flex align-items-center justify-content-center">
                                         <div class="col d-flex justify-content-end mt-3">
                                             <button type="button"
                                                 style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
+                                                class="btn btn-primary btn-custom botao-menor text-button"
+                                                (click)="conferirAluno(aluno)">
+                                                Conferir
                                             </button>
                                         </div>
                                     </div>
@@ -273,133 +64,104 @@
                     </div>
                 </div>
 
-                <div class="row mt-4">
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="row mt-3" *ngIf="alunosFiltrados.length === 0">
+                    <div class="col-12 text-center">
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            Nenhum aluno encontrado.
                         </div>
                     </div>
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="card card-custom">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3 mt-2">
-                                        <img src="./matheus.png" alt="Imagem de perfil" class="rounded-circle"
-                                            width="80" height="80">
-                                    </div>
-                                    <div class="col-sm-5 d-flex align-items-center mt-3 text-nowrap">
-                                        <h6 class="card-title negrito">Nome big do Aluno, idade anos</h6>
-                                    </div>
-                                    <div class="col text-end">
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star-fill" style="color: #FFB703;"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="row mt-1">
-                                        <p class="card-text">
-                                            <strong>Idioma buscado:</strong> Preencher <br>
-                                            <strong>Modalidade:</strong> Preencher <br>
-                                            <strong>Nível:</strong> Preencher <br>
-                                            <strong>Metodologia:</strong> Preencher <br>
-                                            <strong>Distância de você:</strong> Preencher
-                                        </p>
-                                    </div>
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <div class="col d-flex justify-content-end mt-3">
-                                            <button type="button"
-                                                style="background-color: #FB8501; border-color: #FB8501;"
-                                                class="btn btn-primary botao-menor text-button"> Conferir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div class="row mt-3" *ngIf="loading">
+                    <div class="col-12 text-center">
+                        <div class="spinner-border custom-spinner" role="status">
+                            <span class="visually-hidden">Carregando...</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="filtroOffcanvas" aria-labelledby="filtroOffcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="filtroOffcanvasLabel">Filtros</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form>
+                    <div class="row">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="me-2">Avaliação</span>
+                            <div class="d-flex justify-content-end w-100">
+                                <button *ngFor="let i of [1,2,3,4,5]" type="button"
+                                    class="btn btn-transparent border-0 shadow-none p-0" (click)="setStars(i)">
+                                    <i class="bi" [ngClass]="i <= currentRating ? 'bi-star-fill' : 'bi-star'"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 mt-1">
+                        <label class="form-label">Idiomas</label>
+                        <div class="form-check">
+                            <div *ngFor="let i of idiomas" class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox" [value]="i"
+                                    [checked]="filtrosTemporarios.idiomas.includes(i)" (change)="toggleLanguage(i)">
+                                <label class="form-check-label">{{ i }}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nível</label>
+                        <div class="form-check">
+                            <div *ngFor="let n of nivel" class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox" [value]="n"
+                                    [checked]="filtrosTemporarios.nivel.includes(n)" (change)="toggleLanguage(n)">
+                                <label class="form-check-label">{{ n }}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Modalidade</label>
+                        <div class="form-check">
+                            <div *ngFor="let m of modalidades" class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox" [value]="m"
+                                    [checked]="filtrosTemporarios.modalidades.includes(m)" (change)="toggleLanguage(m)">
+                                <label class="form-check-label">{{ m }}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Metodologia</label>
+                        <div class="form-check">
+                            <div *ngFor="let met of metodologias" class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox" [value]="met"
+                                    [checked]="filtrosTemporarios.metodologias.includes(met)"
+                                    (change)="toggleLanguage(met)">
+                                <label class="form-check-label">{{ met }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary w-100 mb-2"
+                                style="background-color: #FB8501; border-color: #FB8501; width: 150px;"
+                                class="btn btn-primary btn-custom rounded-pill text-button" (click)="aplicarFiltros()" data-bs-dismiss="offcanvas">
+                                Aplicar Filtros
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-danger rounded-pill" style="width: 100px;"
+                                (click)="limparFiltros()">
+                                Limpar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
