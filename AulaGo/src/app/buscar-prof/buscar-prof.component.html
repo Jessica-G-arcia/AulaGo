@@ -106,7 +106,7 @@
                         <div class="form-check">
                             <div *ngFor="let i of idiomas" class="form-check">
                                 <input class="form-check-input custom-checkbox" type="checkbox" [value]="i"
-                                    [checked]="filtrosTemporarios.idiomas.includes(i)" (change)="toggleLanguage(i)">
+                                    [checked]="filtrosTemporarios.idiomas.includes(i)" [disabled]="i !== 'Inglês'" (change)="toggleLanguage(i)">
                                 <label class="form-check-label">{{ i }}</label>
                             </div>
                         </div>
