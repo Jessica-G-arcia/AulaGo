@@ -1,4 +1,4 @@
-import { Component,OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MenuLateralAlunoComponent } from '../menu-lateral-aluno/menu-lateral-aluno.component';
 import { MenuSuperiorAlunoComponent } from '../menu-superior-aluno/menu-superior-aluno.component';
 import { CommonModule } from '@angular/common';
@@ -6,13 +6,16 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home-aluno',
   imports: [MenuLateralAlunoComponent, MenuSuperiorAlunoComponent, CommonModule],
+  standalone: true,
   templateUrl: './home-aluno.component.html',
   styleUrl: './home-aluno.component.css'
 })
 export class HomeAlunoComponent implements OnInit {
   @ViewChild('languageScrollContainer', { static: true }) languageScrollContainer!: ElementRef;
 
-  alunoNome: string = 'Aluno'; // Dynamic student name
+  alunoNome: string = 'Matheus'; // Dynamic student name
+
+  currentTeacherIndex: number = 0;
 
   languages: Language[] = [
     { name: 'Inglês', flag: '/flags/us.png', active: true, },
@@ -20,37 +23,93 @@ export class HomeAlunoComponent implements OnInit {
     { name: 'Francês', flag: '/flags/fr.png', active: false },
     { name: 'Alemão', flag: '/flags/de.png', active: false },
     { name: 'Mandarim', flag: '/flags/cn.png', active: false },
-    { name: 'Japonês', flag: '/flags/japan.png', active: false }, // Added for scroll demonstration
-    { name: 'Italiano', flag: 'assets/flags/italy.png', active: false },
-    { name: 'Português', flag: 'assets/flags/brazil.png', active: false }
+    { name: 'Japonês', flag: '/flags/jpn.png', active: false }, // Added for scroll demonstration
+    { name: 'Italiano', flag: '/flags/itl.png', active: false },
+    { name: 'Português', flag: '/flags/br.png', active: false }
   ];
 
-  teachers: Teacher[] = [
+  top: Teacher[] = [
     {
       name: 'Rogério Lima',
-      photo: 'assets/teachers/rogerio-lima.jpg',
-      languages: ['Espanhol'],
-      stars: ['full', 'full', 'full', 'full', 'half'],
+      imageUrl: '/profRo.png', // Placeholder, create this image
+      languages: ['Inglês'],
+      rating: 5,
       quote: 'Professor Rogério tem uma didática incrível, fica fácil de aprender qualquer coisa com ele',
-      quoteAuthor: 'William Lima'
+      authorQuote: 'William Lima'
     },
     {
       name: 'Ana Souza',
-      photo: 'assets/teachers/ana-souza.jpg', // Placeholder, create this image
-      languages: ['Inglês', 'Francês'],
-      stars: ['full', 'full', 'full', 'full', 'full'],
-      quote: 'As aulas da Ana são super dinâmicas e divertidas!',
-      quoteAuthor: 'Carla Dias'
+      imageUrl: '/profaRosa.png', // Placeholder, create this image
+      languages: ['Inglês', 'Português'],
+      rating: 4.5,
+      quote: 'As aulas da Ana são super dinâmicas e divertidas, as músicas nas aulas ajudam muito!',
+      authorQuote: 'Carla Dias'
+    },
+    {
+      name: 'Marilene Silva',
+      imageUrl: '/profaMari.png', // Placeholder, create this image
+      languages: ['Inglês'],
+      rating: 4.5,
+      quote: 'Profa. Mari é uma querida, além da sua ótima metodologia, é muito atenciosa.',
+      authorQuote: 'Pedro Almeida'
     },
     {
       name: 'Carlos Mendes',
-      photo: 'assets/teachers/carlos-mendes.jpg', // Placeholder, create this image
-      languages: ['Alemão'],
-      stars: ['full', 'full', 'full', 'empty', 'empty'], // Example with fewer stars
+      imageUrl: 'assets/teachers/carlos-mendes.jpg', // Placeholder, create this image
+      languages: ['Inglês'],
+      rating: 5, // Example with fewer stars
       quote: 'Muito atencioso e explica com clareza.',
-      quoteAuthor: 'Fernanda Oliveira'
+      authorQuote: 'Fernanda Oliveira'
+    },
+    {
+      name: 'Ana Ribeiro',
+      imageUrl: 'assets/teachers/ana-ribeiro.jpg',
+      languages: ['Inglês'],
+      rating: 4,
+      quote: 'Sempre muito paciente e dedicada.',
+      authorQuote: 'Lucas Santos'
+    },
+    {
+      name: 'Bruno Costa',
+      imageUrl: 'assets/teachers/bruno-costa.jpg',
+      languages: ['Inglês'],
+      rating: 4,
+      quote: 'Excelente professor, didática impecável.',
+      authorQuote: 'Mariana Lima'
+    },
+    {
+      name: 'Camila Freitas',
+      imageUrl: 'assets/teachers/camila-freitas.jpg',
+      languages: ['Inglês'],
+      rating: 5,
+      quote: 'Muito organizada e torna o aprendizado fácil.',
+      authorQuote: 'Rafael Souza'
+    },
+    {
+      name: 'Daniel Oliveira',
+      imageUrl: 'assets/teachers/daniel-oliveira.jpg',
+      languages: ['Inglês'],
+      rating: 5,
+      quote: 'Explica com clareza e muito carismático.',
+      authorQuote: 'Juliana Pereira'
+    },
+    {
+      name: 'Eduarda Martins',
+      imageUrl: 'assets/teachers/eduarda-martins.jpg',
+      languages: ['Inglês'],
+      rating: 5,
+      quote: 'Ótima professora, muito interativa.',
+      authorQuote: 'Carlos Mendes'
+    },
+    {
+      name: 'Fernando Rocha',
+      imageUrl: 'assets/teachers/fernando-rocha.jpg',
+      languages: ['Inglês'],
+      rating: 5,
+      quote: 'Sempre disposto a ajudar e tirar dúvidas.',
+      authorQuote: 'Beatriz Nogueira'
     }
-    // Add more teachers here to see the carousel in action
+    
   ];
 
   constructor() { }
@@ -63,6 +122,11 @@ export class HomeAlunoComponent implements OnInit {
         activeLanguageCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }, 0);
+
+  }
+
+  get currentTeacher(): Teacher {
+    return this.top[this.currentTeacherIndex];
   }
 
   selectLanguage(selectedLang: Language): void {
@@ -82,17 +146,40 @@ export class HomeAlunoComponent implements OnInit {
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   }
+
+  // navegação para top aluns
+  previousTopTeacher(): void {
+    if (this.currentTeacherIndex > 0) {
+      this.currentTeacherIndex--;
+    } else {
+      // volta para o último aluno 
+      this.currentTeacherIndex = this.top.length - 1;
+    }
+  }
+
+  nextTopTeacher(): void {
+    if (this.currentTeacherIndex < this.top.length - 1) {
+      this.currentTeacherIndex++;
+    } else {
+      // volta para o primeiro aluno 
+      this.currentTeacherIndex = 0;
+    }
+  }
+
+
 }
+
 interface Language {
   name: string;
   flag: string;
   active: boolean;
 }
+
 interface Teacher {
   name: string;
-  photo: string;
+  imageUrl: string;
   languages: string[];
-  stars: string[];
+  rating: number;
   quote: string;
-  quoteAuthor: string;
+  authorQuote: string;
 }

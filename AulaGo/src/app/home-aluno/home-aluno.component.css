@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+}
 /* Language Cards Section (Scrollable) */
 .language-section {
   position: relative; 
@@ -87,20 +93,126 @@
   }
 }
 
+.carousel-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.carousel-items {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 5px;
+  flex-grow: 1;
+  margin: 0 5px;
+  justify-content: center;
+}
+
+.carousel-items::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-arrow {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: black;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: none;
+}
+
+.carousel-arrow.prev {
+  margin-right: 10px;
+}
+
+.carousel-arrow.next {
+  margin-left: 10px;
+}
+
 /* Teacher Carousel Section */
-.teacher-carousel-container {
-  max-width: 1200px; /* Control max width of the carousel */
-  margin: 0 auto 50px auto; /* Center the carousel and add bottom margin */
-  position: relative; 
+.top-alunos-section .carousel-container {
+  background-color: #08A1C8;
+  border-radius: 12px;
+  padding: 20px 70px;
+  display: flex;
+  width: 1010px;
+  height: 250px;
+  position: relative;
+  margin-left: 92px;
+  overflow: hidden;
+}
 
-  .carousel-inner {
-    padding: 0 60px;
-  }
+.autor {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
 
-  .carousel-item {
-    display: flex;
-    justify-content: center;
-  }
+.top-alunos-section .carousel-arrow {
+  border: none;
+  color: black;
+  align-self: center;
+}
+
+.student-card {
+  color: black;
+  padding: 5px 25px;
+  display: flex;
+  align-items: center;
+  max-width: 850px;
+}
+
+.student-card img {
+  width: auto;
+  height: 250px;
+  object-fit: cover;
+}
+
+.student-info h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: black;
+  text-align: left;
+}
+
+.student-info p {
+  text-align: left;
+  font-size: 0.95rem;
+  color: black;
+}
+
+.student-info .rating {
+  color: #FFB703;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.student-info .rating span {
+  margin-right: 2px;
+}
+
+.student-info blockquote {
+   font-size: 1rem;
+  padding-left: 25px;
+  line-height: 1.4;
+  color: black;
+  text-align: center;
+  word-break: break-word;
+}
+
 
   .carousel-control-prev,
   .carousel-control-next {
@@ -132,7 +244,7 @@
   .carousel-control-next {
     right: 0px;
   }
-}
+
 
 
 .teacher-card {

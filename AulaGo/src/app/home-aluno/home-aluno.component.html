@@ -33,14 +33,41 @@
           </button>
         </div>
 
-        <h4 class="mb-3" style="padding-left: 40px;">TOP 10 - Professores</h4>
+        <section class="top-alunos-section">
+              <h4 style="padding-left: 40px;">TOP 10 - Professores</h4>
+              <div class="carousel-container student-carousel">
+                <button class="carousel-arrow prev" (click)="previousTopTeacher()">
+                  &#10094;
+                </button>
+                <div class="student-card">
+                  <div>
+                    <img [src]="currentTeacher.imageUrl" [alt]="'Foto de ' + currentTeacher.name">
+                  </div>
+                  <div class="student-info">
+                    <div class="rating">
+                      <span *ngFor="let i of [1,2,3,4,5]" [class.active]="i <= currentTeacher.rating">
+                        &#9733;
+                      </span>
+                    </div>
+                    <h4>{{ currentTeacher.name }}</h4>
+                    <p>Idioma(s): {{ currentTeacher.languages }}</p>
+                    <blockquote>{{ currentTeacher.quote }}</blockquote>
+                    <p class="autor"><strong>{{ currentTeacher.authorQuote }}</strong></p>
+                  </div>
+                </div>
+                <button class="carousel-arrow next" (click)="nextTopTeacher()">
+                  &#10095;
+                </button>
+              </div>
+            </section>
+        <!-- <h4 class="mb-3" style="padding-left: 40px;">TOP 10 - Professores</h4>
         <div id="teacherCarousel" class="carousel slide teacher-carousel-container" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let teacher of teachers; let i = index" [class.active]="i === 0">
               <div class="card teacher-card p-4 mx-auto">
                 <div class="row g-0 align-items-center">
                   <div class="col-md-4 text-center">
-                    <img [src]="teacher.photo" class="img-fluid rounded-circle teacher-photo"
+                    <img [src]="teacher.imageUrl" class="img-fluid rounded-circle teacher-photo"
                       [alt]="'Foto do professor ' + teacher.name">
                   </div>
                   <div class="col-md-8">
@@ -73,7 +100,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-        </div>
+        </div> -->
 
 
         <h4 class="mb-3" style="padding-left: 40px;">Clube</h4>
