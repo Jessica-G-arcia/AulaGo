@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
 import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
+import { MenuSuperiorAlunoComponent } from "../menu-superior-aluno/menu-superior-aluno.component";
+import { MenuLateralAlunoComponent } from "../menu-lateral-aluno/menu-lateral-aluno.component";
 
 @Component({
   selector: 'app-perfil-professor-visao-aluno',
-  imports: [CommonModule, RouterLink,RouterLinkActive, MenuSuperiorComponent, MenuLateralComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, MenuSuperiorComponent, MenuLateralComponent, MenuSuperiorAlunoComponent, MenuLateralAlunoComponent],
   templateUrl: './perfil-professor-visao-aluno.component.html',
   styleUrl: './perfil-professor-visao-aluno.component.css'
 })

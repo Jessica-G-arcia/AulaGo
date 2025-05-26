@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PagamentoCartaoComponent } from "../pagamento-cartao/pagamento-cartao.component";
 import { PagamentoPixComponent } from "../pagamento-pix/pagamento-pix.component";
@@ -12,7 +12,7 @@ import { MenuLateralAlunoComponent } from "../menu-lateral-aluno/menu-lateral-al
 
 @Component({
   selector: 'app-pagamento',
-  imports: [CommonModule, FormsModule, PagamentoCartaoComponent, PagamentoPixComponent, PagamentoBoletoComponent, MenuSuperiorAlunoComponent, MenuLateralAlunoComponent],
+  imports: [CommonModule, RouterLink, FormsModule, PagamentoCartaoComponent, PagamentoPixComponent, PagamentoBoletoComponent, MenuSuperiorAlunoComponent, MenuLateralAlunoComponent],
   templateUrl: './pagamento.component.html',
   styleUrl: './pagamento.component.css'
 })

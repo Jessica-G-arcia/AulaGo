@@ -23,6 +23,7 @@ import { ChatProfessorComponent } from './chat-professor/chat-professor.componen
 import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-prof.component';
 import { ExplorarAlunoComponent } from './explorar-aluno/explorar-aluno.component';
 import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
+import { PerfilProfessorVisaoAlunoComponent } from './perfil-professor-visao-aluno/perfil-professor-visao-aluno.component';
 
 
 export const routes: Routes = [
@@ -43,6 +44,7 @@ export const routes: Routes = [
     {path: 'confirmacao-de-pagamento', component: ConfirmacaoDePagamentoComponent},
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-aluno-visao-professor', component: PerfilAlunoVisaoProfessorComponent},
+    { path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
     {path: 'explorar-aluno', component: ExplorarAlunoComponent},

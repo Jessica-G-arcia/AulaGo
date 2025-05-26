@@ -316,7 +316,7 @@ export class BuscarProfComponent implements OnInit {
   conferirAluno(aluno: any): void {
     if (aluno.id == 1) {
       console.log('Conferindo aluno:', aluno);
-      this.router.navigate(['/perfil-aluno'])
+      this.router.navigate(['/perfil-aluno-visao-professor'])
     }
   }
 

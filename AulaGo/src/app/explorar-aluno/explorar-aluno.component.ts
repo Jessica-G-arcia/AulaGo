@@ -283,7 +283,7 @@ export class ExplorarAlunoComponent {
   conferirProfessor(professor: any): void {
     if (professor.id === 1) {
       console.log('Conferindo professor:', professor);
-      this.router.navigate(['/perfil-professor']);
+      this.router.navigate(['/perfil-professor-visao-aluno']);
     }
   }
 
