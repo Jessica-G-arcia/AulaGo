@@ -89,6 +89,22 @@ export class ProfessorHomeComponent implements OnInit {
       quote: '"Gabriela tem grande facilidade com idiomas e é muito participativa."',
       authorQuote: "Rogério Lima"
     },
+     {
+      name: 'João Pedro',
+      imageUrl: '/melhorAluno8.png',
+      rating: 5,
+      languages: 'Inglês',
+      quote: '"João tem grande facilidade com idiomas e é muito participativo."',
+      authorQuote: "Rogério Lima"
+    },
+    {
+      name: 'Rafael Henrique',
+      imageUrl: '/melhorAluno10.png',
+      rating: 5,
+      languages: 'Inglês',
+      quote: '"Rafael tem grande facilidade com idiomas e é muito participativo."',
+      authorQuote: "Rogério Lima"
+    },
     {
       name: 'Jéssica Oliveira',
       imageUrl: '/melhorAluno5.png',
@@ -113,14 +129,7 @@ export class ProfessorHomeComponent implements OnInit {
       quote: '"Caroline tem grande facilidade com idiomas e é muito participativa."',
       authorQuote: "Rogério Lima"
     },
-    {
-      name: 'João Pedro',
-      imageUrl: '/melhorAluno8.png',
-      rating: 5,
-      languages: 'Inglês',
-      quote: '"João tem grande facilidade com idiomas e é muito participativo."',
-      authorQuote: "Rogério Lima"
-    },
+   
 
     {
       name: 'Fernanda Costa',
@@ -128,14 +137,6 @@ export class ProfessorHomeComponent implements OnInit {
       rating: 5,
       languages: 'Inglês',
       quote: '"Fernanda tem grande facilidade com idiomas e é muito participativa."',
-      authorQuote: "Rogério Lima"
-    },
-    {
-      name: 'Rafael Henrique',
-      imageUrl: '/melhorAluno10.png',
-      rating: 5,
-      languages: 'Inglês',
-      quote: '"Rafael tem grande facilidade com idiomas e é muito participativo."',
       authorQuote: "Rogério Lima"
     }
 
