@@ -118,7 +118,7 @@ export class ProfessorHomeComponent implements OnInit {
       imageUrl: '/melhorAluno8.png',
       rating: 5,
       languages: 'Inglês',
-      quote: '"João tem grande facilidade com idiomas e é muito participativa."',
+      quote: '"João tem grande facilidade com idiomas e é muito participativo."',
       authorQuote: "Rogério Lima"
     },
 
@@ -135,7 +135,7 @@ export class ProfessorHomeComponent implements OnInit {
       imageUrl: '/melhorAluno10.png',
       rating: 5,
       languages: 'Inglês',
-      quote: '"Rafael tem grande facilidade com idiomas e é muito participativa."',
+      quote: '"Rafael tem grande facilidade com idiomas e é muito participativo."',
       authorQuote: "Rogério Lima"
     }
 
