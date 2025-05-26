@@ -19,16 +19,41 @@ h2 {
   font-size: 25px;
   font-weight: normal;
   color: black;
-  /* margin-bottom: 1rem; */
   text-align: center;
+  margin-top: 0.5rem;
 }
 
-h3 {
+.idiomas-section h3 {
+   font-size: 22px;
+  font-weight: normal;
+  color: black;
+  margin-bottom: 0rem;
+  padding-left: 92px;
+}
+
+.language-item.unavailable img {
+  opacity: 0.4;
+  filter: grayscale(10%);
+}
+
+.language-item.unavailable span {
+  opacity: 0.5;
+}
+
+.top-alunos-section h3 {
   font-size: 22px;
   font-weight: normal;
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
   padding-left: 95px;
+}
+
+.aulas-hoje-section h3 {
+  font-size: 22px;
+  font-weight: normal;
+  color: black;
+  margin-bottom: 0rem;
+  padding-left: 102px;
 }
 
 /* Estilos Gerais dos Carrosséis */
@@ -36,7 +61,7 @@ h3 {
   display: flex;
   align-items: center;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .carousel-items {
@@ -120,6 +145,13 @@ h3 {
   overflow: hidden;
 }
 
+.autor {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
 .top-alunos-section .carousel-arrow {
   border: none;
   color: black;
@@ -167,18 +199,18 @@ h3 {
 }
 
 .student-info blockquote {
-  margin: 20px 0;
-  padding-left: 35px;
-  font-size: 1rem;
+   font-size: 1rem;
+  padding-left: 25px;
   line-height: 1.4;
   color: black;
+  text-align: center;
+  word-break: break-word;
 }
 
 /* Seção Aulas de Hoje */
 .aulas-hoje-section .section-subtitle {
   font-size: 0.95em;
   color: black;
-  /* margin-bottom: 1rem; */
 }
 
 .classes-carousel .carousel-items {
@@ -191,7 +223,6 @@ h3 {
   padding: 20px;
   width: 490px;
   height: 120px;
-  flex-shrink: 0;
   font-size: 15px;
   display: flex;
   flex-direction: column;
