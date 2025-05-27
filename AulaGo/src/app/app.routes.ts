@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { ExplorarComponent } from './explorar/explorar.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ChatComponent } from './chat/chat.component';
 import { ContinuarCadastroComponent } from './continuar-cadastro/continuar-cadastro.component';
@@ -25,6 +24,8 @@ import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-pr
 import { PerfilProfessorVisaoAlunoComponent } from './perfil-professor-visao-aluno/perfil-professor-visao-aluno.component';
 import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-aluno.component';
 import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
+import { ExplorarAlunoComponent } from './explorar-aluno/explorar-aluno.component';
+
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -32,7 +33,6 @@ export const routes: Routes = [
     {path: 'aulas', component: AulasComponent},
     {path: 'aulas-professor', component: AluasProfessorComponent},
     {path: 'agenda', component: AgendaComponent},
-    {path: 'explorar', component: ExplorarComponent},
     {path: 'cadastro', component: CadastroComponent},
     {path: 'chat', component: ChatComponent},
     {path: 'chat-professor', component: ChatProfessorComponent},
@@ -45,15 +45,16 @@ export const routes: Routes = [
     {path: 'confirmacao-de-pagamento', component: ConfirmacaoDePagamentoComponent},
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-aluno-visao-professor', component: PerfilAlunoVisaoProfessorComponent},
-    {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
+    {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
+    {path: 'explorar-aluno', component: ExplorarAlunoComponent},
+    {path: 'buscar-prof', component: BuscarProfComponent}, 
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
-    { path: 'termos-politica', component: TermosPoliticaComponent},
-    { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
-    { path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
-    { path: 'buscar-prof', component: BuscarProfComponent},
+    {path: 'termos-politica', component: TermosPoliticaComponent},
+    {path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
+    {path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
 
     // {path: '**', component: }, 
 

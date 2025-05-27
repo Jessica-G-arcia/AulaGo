@@ -1,0 +1,71 @@
+.card-custom {
+    width: 400px;
+    height: 280px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+}
+
+.text-button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: white;
+}
+.negrito {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+
+
+
+.botao-menor {
+    height: 30px;
+    width: 150px;
+    line-height: 10px;
+    border-radius: 70px;
+}
+
+.bi-star {
+    color: #FFB703;
+}
+.bi-star-fill {
+    color: #FFB703;
+}
+
+.custom-spinner {
+    color: #8ECAE6;
+}
+
+.btn-custom:hover {
+    background-color: #FFB703 !important;
+    color: white !important;
+    border: 2px solid #FFB703 !important;
+  }
+
+  .custom-checkbox {
+    accent-color: #219EBC;
+  }
+  
+  .custom-checkbox:checked {
+    background-color: #219EBC !important;
+    border-color: #219EBC !important;
+  }
+  
+  .custom-checkbox:focus {
+    border-color: #219EBC !important;
+    box-shadow: 0 0 0 0.25rem rgba(33, 158, 188, 0.25) !important;
+  }
+  
+  .custom-checkbox:hover:not(:checked) {
+    border-color: #219EBC !important;
+  }
+  .custom-checkbox:disabled {
+    opacity: 0.5;
+  }
