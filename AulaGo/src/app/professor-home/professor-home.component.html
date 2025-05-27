@@ -1,78 +1,90 @@
 <div class="d-flex flex-column vh-100">
   <app-menu-superior></app-menu-superior>
 
-
   <div class="d-flex flex-grow-1">
     <app-menu-lateral></app-menu-lateral>
 
-
     <div class="flex-grow-1 overflow-auto">
-
       <div class="professor-home-content">
-
         <main class="main-content">
-
           <section class="content-body">
             <h2>Seja bem vindo, {{ welcomeName }}!</h2>
 
+            <!-- Seção de Idiomas -->
             <section class="idiomas-section">
               <h3>Idiomas</h3>
               <div class="carousel-container">
-                <button class="carousel-arrow prev" (click)="previousLanguage()">&#10094;</button>
+                <button class="carousel-arrow prev" (click)="previousLanguage()">
+                  &#10094;
+                </button>
                 <div class="carousel-items languages">
-                  <div *ngFor="let lang of languages" class="language-item">
-                    <img [src]="'/' + lang.flagUrl" alt="idiomas e bandeiras">
-                    <span>{{ lang.name }}</span>
-                  </div>
-                </div>
-                <button class="carousel-arrow next" (click)="nextLanguage()">&#10095;</button>
-              </div>
-            </section>
-
-            <section class="top-alunos-section">
-              <h3>TOP 10 - Alunos</h3>
-              <div *ngIf="topStudents.length > 0">
-                <div class="carousel-container student-carousel">
-                  <button class="carousel-arrow prev" (click)="previousTopStudent()">&#10094;</button>
-                  <div class="student-card">
-                    <img src="/melhorAluna1.png" alt="">
-                    <div class="student-info">
-                      <div class="rating">
-                        <span *ngFor="let i of [1,2,3,4,5]">&#9733;</span>
-                      </div>
-                      <h4>{{ topStudents[0].name }}</h4>
-                      <p>Idioma(s): {{ topStudents[0].languages }}</p>
-                      <blockquote>{{ topStudents[0].quote }}</blockquote>
-                      <!-- <a href="#" class="report-link"></a> -->
+                  <div *ngFor="let lang of visibleLanguages" class="language-card">
+                    <div class="language-item" [ngClass]="{'unavailable': !lang.available}">
+                      <img [src]="'/' + lang.flagUrl" [alt]="'Bandeira ' + lang.name">
+                      <span>{{ lang.name }}</span>
                     </div>
                   </div>
-                  <button class="carousel-arrow next" (click)="nextTopStudent()">&#10095;</button>
                 </div>
+                <button class="carousel-arrow next" (click)="nextLanguage()">
+                  &#10095;
+                </button>
               </div>
             </section>
 
+            <!-- Seção Top Alunos -->
+            <section class="top-alunos-section">
+              <h3>TOP 10 - Alunos</h3>
+              <div class="carousel-container student-carousel">
+                <button class="carousel-arrow prev" (click)="previousTopStudent()">
+                  &#10094;
+                </button>
+                <div class="student-card">
+                  <div>
+                    <img [src]="currentStudent.imageUrl" [alt]="'Foto de ' + currentStudent.name">
+                  </div>
+                  <div class="student-info">
+                    <div class="rating">
+                      <span *ngFor="let i of [1,2,3,4,5]" [class.active]="i <= currentStudent.rating">
+                        &#9733;
+                      </span>
+                    </div>
+                    <h4>{{ currentStudent.name }}</h4>
+                    <p>Idioma(s): {{ currentStudent.languages }}</p>
+                    <blockquote>{{ currentStudent.quote }}</blockquote>
+                    <p class="autor"><strong>{{ currentStudent.authorQuote }}</strong></p>
+                  </div>
+                </div>
+                <button class="carousel-arrow next" (click)="nextTopStudent()">
+                  &#10095;
+                </button>
+              </div>
+            </section>
 
+            <!-- Seção Aulas de Hoje -->
             <section class="aulas-hoje-section">
               <h3>Aulas de hoje</h3>
               <div *ngIf="todaysClasses.length > 0">
-                <!-- <p class="section-subtitle">Agendadas para: {{ todaysClasses[0].date }}</p> -->
                 <div class="carousel-container classes-carousel">
-                  <button class="carousel-arrow prev" (click)="previousClass()">&#10094;</button>
+                  <button class="carousel-arrow prev" (click)="previousClass()">
+                    &#10094;
+                  </button>
                   <div class="carousel-items classes">
-                    <div *ngFor="let aula of todaysClasses" class="class-card">
+                    <div *ngFor="let aula of visibleClasses" class="class-card">
                       <p>Aluno: {{ aula.studentName }}</p>
-                      <p>{{ aula.location }}</p>
+                      <p>Local: {{ aula.location }}</p>
                       <p>Horário: {{ aula.time }} - {{ aula.type }}</p>
                       <p class="class-date">{{ aula.date }}</p>
                     </div>
                   </div>
-                  <button class="carousel-arrow next" (click)="nextClass()">&#10095;</button>
+                  <button class="carousel-arrow next" (click)="nextClass()">
+                    &#10095;
+                  </button>
                 </div>
               </div>
             </section>
           </section>
         </main>
-      </div> 
+      </div>
     </div>
   </div>
 </div>
