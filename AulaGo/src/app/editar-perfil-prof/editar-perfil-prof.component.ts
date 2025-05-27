@@ -20,8 +20,6 @@ export class EditarPerfilProfComponent implements OnInit {
 
   dias = Array.from({ length: 31 }, (_, i) => i + 1);
 
-
-
   meses = [
     { valor: 1, nome: 'Janeiro' },
     { valor: 2, nome: 'Fevereiro' },
@@ -36,8 +34,6 @@ export class EditarPerfilProfComponent implements OnInit {
     { valor: 11, nome: 'Novembro' },
     { valor: 12, nome: 'Dezembro' }
   ];
-
-  isDropdownOpen = false;
 
   anos = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i);
 
@@ -71,7 +67,6 @@ export class EditarPerfilProfComponent implements OnInit {
     textarea.style.height = 'auto'; // Reseta a altura
     textarea.style.height = textarea.scrollHeight + 'px'; // Define nova altura com base no conteúdo
   }
-  
 
   minSelectedCheckboxes(min = 1) {
     return (formArray: AbstractControl) => {
@@ -80,6 +75,8 @@ export class EditarPerfilProfComponent implements OnInit {
     };
   }
 
+  dadosAdicionados: boolean = true;
+  isDropdownOpen = false;
   periodoList = ['Manhã', 'Tarde', 'Noite'];
   disponibilidadeList = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira'];
   especialidadesList = ['Conversação', 'Gramática', 'Foco em negócios', 'Foco em viagens'];
@@ -88,10 +85,10 @@ export class EditarPerfilProfComponent implements OnInit {
   ngOnInit(): void {
 
     this.bankForm = this.fb.group({
-      banco: ['', Validators.required],
-      agencia: ['', Validators.required],
-      tipoConta: ['', Validators.required],
-      pix: ['', Validators.required]
+      banco: [ 'Banco do Brasil' ],
+      agencia: [ '0561-2' ],
+      tipoConta: [ 'corrente' ],
+      pix: [ 'fernandadias@gmail.com' ]
     });
 
     //controles dos checkboxes
@@ -104,7 +101,7 @@ export class EditarPerfilProfComponent implements OnInit {
     const especialidadesControls = this.especialidadesList.map((item, index) =>
       new FormControl(index === 0) // Marca apenas "Conversação" como selecionado
     );
-  
+
     const especialidadesFormArray = new FormArray(especialidadesControls);
     const idiomasFormArray = new FormArray(idiomasControls);
     const periodoFormArray = new FormArray(periodoControls);
@@ -138,8 +135,6 @@ export class EditarPerfilProfComponent implements OnInit {
       pix: new FormControl('', [Validators.required]),
     });
   }
-
-  dadosAdicionados: boolean = true;
 
   adicionar(): void {
     if (this.bankForm.valid) {
@@ -179,7 +174,7 @@ export class EditarPerfilProfComponent implements OnInit {
 
   salvar() {
     console.log('Usuário Cadastrado', this.form.value);
-    this.router.navigate(['/home-professor']);
+    this.router.navigate(['/perfil-professor']);
   }
   voltar() {
     this.router.navigate(['/perfil-professor']);

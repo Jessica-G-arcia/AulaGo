@@ -150,16 +150,18 @@
 
             </div>
 
-            <div formArrayName="idiomas" class="mb-3 mt-2">
-                <label for="idioma" class="form-label d-block">Idiomas</label>
-                <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
-                    <input type="checkbox" class="form-check-input custom-checkbox" [formControlName]="i"
-                        [id]="'idioma' + i" />
-                    <label class="form-check-label ms-2" [for]="'idioma' + i">{{ idioma }}</label>
-                </div>
-                <div *ngIf="form.get('idiomas')?.invalid && (form.get('idiomas')?.dirty || form.get('idiomas')?.touched)"
-                    class="text-danger">
-                    Selecione pelo menos um idioma.
+            <div class="col-sm-6">
+                <div formArrayName="idiomas" class="mb-3 mt-2">
+                    <label for="idioma" class="form-label d-block">Idiomas</label>
+                    <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
+                        <input type="checkbox" class="form-check-input custom-checkbox" [formControlName]="i"
+                            [id]="'idioma' + i" />
+                        <label class="form-check-label ms-2" [for]="'idioma' + i">{{ idioma }}</label>
+                    </div>
+                    <div *ngIf="form.get('idiomas')?.invalid && (form.get('idiomas')?.dirty || form.get('idiomas')?.touched)"
+                        class="text-danger">
+                        Selecione pelo menos um idioma.
+                    </div>
                 </div>
             </div>
 

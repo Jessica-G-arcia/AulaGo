@@ -162,6 +162,7 @@
                             </form>
                         </div>
                     </div>
+                    
                     <div class="row mt-3">
                         <label for="">Escolha a modalidade</label>
                         <div class="d-flex p-2 gap-2 mb-2">
@@ -228,7 +229,6 @@
                         </div>
                     </div>
 
-
                     <div formArrayName="idiomas" class="mb-3 mt-2">
                         <label for="idioma" class="form-label d-block">Idiomas</label>
                         <div *ngFor="let idioma of idiomasList; let i = index" class="form-check-inline">
@@ -254,6 +254,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-8 mt-4">
                             <label for="disponibilidade" class="form-label d-block">Dia da semana</label>
                             <div formArrayName="disponibilidade">
@@ -296,10 +297,6 @@
                     </div>
                 </div>
 
-
-
-
-
                 <div class="text-center mt-0">
                     <button type="button" style="background-color: #219EBC; border-color: #219EBC;" (click)="salvar()"
                         class="btn btn-primary w-50 rounded-pill"> salvar
@@ -307,3 +304,5 @@
                 </div>
             </form>
         </div>
+    </div>
+</div>
