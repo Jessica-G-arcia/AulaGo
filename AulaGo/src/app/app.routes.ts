@@ -21,9 +21,10 @@ import { ProfessorContinuarCadastroComponent } from './professor-continuar-cadas
 import { ConfirmacaoDePagamentoComponent } from './confirmacao-de-pagamento/confirmacao-de-pagamento.component';
 import { ChatProfessorComponent } from './chat-professor/chat-professor.component';
 import { EditarPerfilProfComponent } from './editar-perfil-prof/editar-perfil-prof.component';
-import { ExplorarAlunoComponent } from './explorar-aluno/explorar-aluno.component';
-import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
 import { PerfilProfessorVisaoAlunoComponent } from './perfil-professor-visao-aluno/perfil-professor-visao-aluno.component';
+import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-aluno.component';
+import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
+import { ExplorarAlunoComponent } from './explorar-aluno/explorar-aluno.component';
 
 
 export const routes: Routes = [
@@ -44,16 +45,16 @@ export const routes: Routes = [
     {path: 'confirmacao-de-pagamento', component: ConfirmacaoDePagamentoComponent},
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-aluno-visao-professor', component: PerfilAlunoVisaoProfessorComponent},
-    { path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
+    {path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
     {path: 'explorar-aluno', component: ExplorarAlunoComponent},
     {path: 'buscar-prof', component: BuscarProfComponent}, 
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
-    { path: 'termos-politica', component: TermosPoliticaComponent},
-    { path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
-    { path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
+    {path: 'termos-politica', component: TermosPoliticaComponent},
+    {path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
+    {path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
 
     // {path: '**', component: }, 
 
