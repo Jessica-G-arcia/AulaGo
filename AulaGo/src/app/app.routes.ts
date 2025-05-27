@@ -6,7 +6,6 @@ import { ContinuarCadastroComponent } from './continuar-cadastro/continuar-cadas
 import { NotificacoesComponent } from './notificacoes/notificacoes.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
 import { PerfilAlunoComponent } from './perfil-aluno/perfil-aluno.component';
-import { PerfilProfessorComponent } from './perfil-professor/perfil-professor.component';
 import { AulasComponent } from './aulas/aulas.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ProfessorHomeComponent } from './professor-home/professor-home.component';
@@ -25,6 +24,7 @@ import { PerfilProfessorVisaoAlunoComponent } from './perfil-professor-visao-alu
 import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-aluno.component';
 import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
 import { ExplorarAlunoComponent } from './explorar-aluno/explorar-aluno.component';
+import { PerfilProfessorComponent } from './perfil-professor/perfil-professor.component';
 
 
 export const routes: Routes = [
@@ -46,7 +46,6 @@ export const routes: Routes = [
     {path: 'perfil-aluno', component: PerfilAlunoComponent},
     {path: 'perfil-aluno-visao-professor', component: PerfilAlunoVisaoProfessorComponent},
     {path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
-    {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
     {path: 'explorar-aluno', component: ExplorarAlunoComponent},
     {path: 'buscar-prof', component: BuscarProfComponent}, 
@@ -54,7 +53,8 @@ export const routes: Routes = [
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
     {path: 'termos-politica', component: TermosPoliticaComponent},
     {path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
-    {path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
+    {path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
+    {path: 'perfil-professor', component: PerfilProfessorComponent},
 
     // {path: '**', component: }, 
 
