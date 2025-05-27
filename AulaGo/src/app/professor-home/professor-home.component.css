@@ -24,16 +24,35 @@ h2 {
 }
 
 .idiomas-section h3 {
-   font-size: 22px;
+  font-size: 22px;
   font-weight: normal;
   color: black;
   margin-bottom: 0rem;
   padding-left: 92px;
 }
 
+.language-card {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 190px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.language-card:hover {
+  transform: translateY(-5px);
+}
+
+.language-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .language-item.unavailable img {
   opacity: 0.4;
-  filter: grayscale(10%);
+  filter: grayscale(20%);
 }
 
 .language-item.unavailable span {
@@ -104,7 +123,7 @@ h2 {
 
 /* Seção Idiomas */
 .idiomas-section .carousel-items {
-  gap: 50px;
+  gap: 20px;
 }
 
 .language-item {
@@ -115,7 +134,7 @@ h2 {
 }
 
 .language-item img {
-  width: 163px;
+  width: 90px;
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;

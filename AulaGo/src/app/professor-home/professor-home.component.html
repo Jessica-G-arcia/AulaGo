@@ -18,10 +18,11 @@
                   &#10094;
                 </button>
                 <div class="carousel-items languages">
-                  <div *ngFor="let lang of visibleLanguages" class="language-item"
-                    [ngClass]="{'unavailable': !lang.available}">
-                    <img [src]="'/' + lang.flagUrl" [alt]="'Bandeira ' + lang.name">
-                    <span>{{ lang.name }}</span>
+                  <div *ngFor="let lang of visibleLanguages" class="language-card">
+                    <div class="language-item" [ngClass]="{'unavailable': !lang.available}">
+                      <img [src]="'/' + lang.flagUrl" [alt]="'Bandeira ' + lang.name">
+                      <span>{{ lang.name }}</span>
+                    </div>
                   </div>
                 </div>
                 <button class="carousel-arrow next" (click)="nextLanguage()">
