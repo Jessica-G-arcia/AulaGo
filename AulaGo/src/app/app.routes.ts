@@ -41,7 +41,7 @@ export const routes: Routes = [
     {path: 'perfil-professor', component: PerfilProfessorComponent},
     {path: 'perfil-professor-visao-aluno', component: PerfilProfessorVisaoAlunoComponent},
     {path: 'home-professor', component: ProfessorHomeComponent},
-    { path: 'termos-politica', component: TermosPoliticaComponent}
+    { path: 'termos-politica', component: TermosPoliticaComponent},
     {path: 'menu-superior-aluno', component: MenuSuperiorAlunoComponent},
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
     // {path: '**', component: }, 
