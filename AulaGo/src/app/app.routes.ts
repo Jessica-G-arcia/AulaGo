@@ -54,7 +54,7 @@ export const routes: Routes = [
     {path: 'menu-lateral-aluno', component: MenuLateralAlunoComponent},
     {path: 'termos-politica', component: TermosPoliticaComponent},
     {path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
-    {path: 'editar-perfil-aluno', component: EditarPerfilProfComponent},
+    {path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
 
     // {path: '**', component: }, 
 

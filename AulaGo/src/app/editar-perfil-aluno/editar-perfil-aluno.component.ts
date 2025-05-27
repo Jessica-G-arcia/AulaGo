@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { MenuLateralAlunoComponent } from '../menu-lateral-aluno/menu-lateral-aluno.component';
+import { MenuSuperiorAlunoComponent } from '../menu-superior-aluno/menu-superior-aluno.component';
 
 
 @Component({
   selector: 'app-editar-perfil-aluno',
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbCollapseModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbCollapseModule, MenuLateralAlunoComponent, MenuSuperiorAlunoComponent],
   templateUrl: './editar-perfil-aluno.component.html',
   styleUrl: './editar-perfil-aluno.component.css'
 })
