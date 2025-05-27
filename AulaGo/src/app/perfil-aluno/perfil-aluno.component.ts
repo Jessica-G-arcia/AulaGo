@@ -2,12 +2,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
-import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
+import { MenuSuperiorAlunoComponent } from "../menu-superior-aluno/menu-superior-aluno.component";
+import { MenuLateralAlunoComponent } from "../menu-lateral-aluno/menu-lateral-aluno.component";
 
 @Component({
   selector: 'app-perfil-aluno',
-  imports: [CommonModule, RouterLink,RouterLinkActive, MenuSuperiorComponent, MenuLateralComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, MenuSuperiorAlunoComponent, MenuLateralAlunoComponent, MenuSuperiorAlunoComponent, MenuLateralAlunoComponent],
   templateUrl: './perfil-aluno.component.html',
   styleUrl: './perfil-aluno.component.css'
 })
