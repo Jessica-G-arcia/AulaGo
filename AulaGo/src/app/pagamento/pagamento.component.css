@@ -7,14 +7,14 @@
 }
 
 .header {
-  position: relative; /* Importante para posicionamento absoluto funcionar */
-  height: 100px; /* ou qualquer altura necessária */
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center; /* Alinha verticalmente ao centro */
+  padding-left: 70px;  /* Espaço da esquerda */
 }
 
 .back-button {
-  position: absolute; 
-  top: 50px;       /* Distância do topo */
-  left: 70px;      /* Distância da esquerda */
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -24,6 +24,12 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  /* position: absolute; removido */
+}
+
+.email-pequeno {
+  max-width: 1000px; /* largura menor para o campo */
+  width: 100%;      /* para manter responsividade até o limite */
 }
 
 

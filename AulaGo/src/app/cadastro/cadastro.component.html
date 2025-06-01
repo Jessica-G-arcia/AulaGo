@@ -1,7 +1,12 @@
 <div class="container p-5">
     <h3 class="text-center">CADASTRO</h3>
     <p class="text-center">Preencha os campos abaixo para realizar o cadastro.</p>
-    
+
+    <button class="btn btn-sm position-absolute top-0 start-0 m-3" id="btnVoltarCadastro"
+        style="border: 1px solid black; border-radius: 50%; background-color: white;" routerLink="/login">
+        <i class="bi bi-arrow-left" style="color: black;"></i>
+    </button>
+
     <form [formGroup]="form" class="row g-3 needs-validation" novalidate="">
         <div class="row g-2 mx-lg-5 ">
 
@@ -21,8 +26,7 @@
             <div class="col-md-6 needs-validation">
                 <label for="cpf" class="form-label">CPF</label>
                 <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="000.000.000-00"
-                    
-                     required>
+                    required>
                 <div *ngIf="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched)"
                     class="text-danger">
 
@@ -36,7 +40,7 @@
             <div class="col-md-4 needs-validation">
                 <label for="telefone" class="form-label">Telefone</label>
                 <input type="text" class="form-control" id="telefone" formControlName="telefone" placeholder="(  )"
-                     required>
+                    required>
                 <div *ngIf="form.get('telefone')?.invalid && (form.get('telefone')?.dirty || form.get('telefone')?.touched)"
                     class="text-danger">
                     <div *ngIf="form.get('telefone')?.errors?.['required']">
@@ -49,8 +53,8 @@
                 <label class="form-label">Data de Nascimento</label>
                 <div class="row g-2">
                     <div class="col-sm-3">
-                        <select type="text"  class="form-select" id="dia" formControlName="dia" required>
-                            <option value="" >Dia</option>
+                        <select type="text" class="form-select" id="dia" formControlName="dia" required>
+                            <option value="">Dia</option>
                             <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
                         </select>
                         <div *ngIf="form.get('dia')?.invalid && (form.get('dia')?.dirty || form.get('dia')?.touched)"
@@ -62,8 +66,8 @@
                     </div>
 
                     <div class="col-sm-5">
-                        <select type="text"  class="form-select" id="mes" formControlName="mes" required>
-                            <option value="" >Mês</option>
+                        <select type="text" class="form-select" id="mes" formControlName="mes" required>
+                            <option value="">Mês</option>
                             <option *ngFor="let m of meses" [value]="m.valor">{{ m.nome }}</option>
                         </select>
                         <div *ngIf="form.get('mes')?.invalid && (form.get('mes')?.dirty || form.get('mes')?.touched)"
@@ -75,8 +79,8 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <select type="text"  class="form-select" id="ano" formControlName="ano" required>
-                            <option value="" >Ano</option>
+                        <select type="text" class="form-select" id="ano" formControlName="ano" required>
+                            <option value="">Ano</option>
                             <option *ngFor="let a of anos" [value]="a">{{ a }}</option>
                         </select>
                         <div *ngIf="form.get('ano')?.invalid && (form.get('ano')?.dirty || form.get('ano')?.touched)"
@@ -89,12 +93,12 @@
                 </div>
             </div>
 
-            
+
 
             <div class="col-sm-3">
                 <label for="genero" class="form-label">Gênero</label>
                 <select type="text" class="form-select" id="genero" formControlName="genero" required>
-                    <option value="" >Selecione</option>
+                    <option value="">Selecione</option>
                     <option *ngFor="let g of generos" [value]="g">{{ g.nome }}</option>
                 </select>
                 <div *ngIf="form.get('genero')?.invalid && (form.get('genero')?.dirty || form.get('genero')?.touched)"
@@ -108,8 +112,7 @@
             <div class="row"></div>
             <div class="col-sm-2 needs-validation">
                 <label for="cep" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="cep" formControlName="cep" placeholder="00000-00"
-                     required>
+                <input type="text" class="form-control" id="cep" formControlName="cep" placeholder="00000-00" required>
                 <div *ngIf="form.get('cep')?.invalid && (form.get('cep')?.dirty || form.get('cep')?.touched)"
                     class="text-danger">
                     <div *ngIf="form.get('cep')?.errors?.['required']">
@@ -132,7 +135,7 @@
             <div class="col-sm-2">
                 <label for="estado" class="form-label">Estado</label>
                 <select type="text" class="form-select" id="estado" formControlName="estado" required>
-                    <option value="" >Selecione</option>
+                    <option value="">Selecione</option>
                     <option *ngFor="let e of estados" [value]="e.valor">{{ e.nome }}</option>
                 </select>
                 <div *ngIf="form.get('estado')?.invalid && (form.get('estado')?.dirty || form.get('estado')?.touched)"
@@ -240,28 +243,29 @@
                 As senhas não coincidem.
             </div>
         </div>
-<div class="row">
-        <div class="form-check mb-3 mt-4">
-            <input class="form-check-input" type="checkbox" id="termosPolitica" formControlName="aceitouTermos"
-                required>
-            <label class="form-check-label" for="termosPolitica">
-                Li e concordo com os <a [routerLink]="'/termos-politica'" data-bs-toggle="modal"
-                    data-bs-target="#termosModal">Termos de Uso e
-                    Política de Privacidade</a>
-            </label>
-            <div *ngIf="form.get('aceitouTermos')?.invalid && (form.get('aceitouTermos')?.dirty || form.get('aceitouTermos')?.touched)"
-                class="text-danger">
-                <div *ngIf="form.get('aceitouTermos')?.errors?.['required']">
-                    Você precisa aceitar os termos para prosseguir.
+        <div class="row">
+            <div class="form-check mb-3 mt-4">
+                <input class="form-check-input" type="checkbox" id="termosPolitica" formControlName="aceitouTermos"
+                    required>
+                <label class="form-check-label" for="termosPolitica">
+                    Li e concordo com os <a [routerLink]="'/termos-politica'" data-bs-toggle="modal"
+                        data-bs-target="#termosModal">Termos de Uso e
+                        Política de Privacidade</a>
+                </label>
+                <div *ngIf="form.get('aceitouTermos')?.invalid && (form.get('aceitouTermos')?.dirty || form.get('aceitouTermos')?.touched)"
+                    class="text-danger">
+                    <div *ngIf="form.get('aceitouTermos')?.errors?.['required']">
+                        Você precisa aceitar os termos para prosseguir.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 
-        <div class="text-center">
-            <button type="submit" style="background-color: #219EBC; color: white;" (click)="cadastrar()" class="btn btn-custom-cadastro w-50 rounded-pill" [disabled]="!form.valid"> Cadastrar
-            </button>
-        </div>
-    
+    <div class="text-center">
+        <button type="submit" style="background-color: #219EBC; color: white;" (click)="cadastrar()"
+            class="btn btn-custom-cadastro w-50 rounded-pill" [disabled]="!form.valid"> Cadastrar
+        </button>
+    </div>
+
 </div>

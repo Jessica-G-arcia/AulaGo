@@ -1,3 +1,16 @@
 input::placeholder {
     color: #c9cbcd; 
 }
+
+.btn-voltar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.btn-voltar:hover {
+  background-color: #f8f9fa !important;
+}
