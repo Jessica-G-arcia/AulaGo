@@ -26,5 +26,11 @@ a {
   color: black;
 }
 
+.dropdown-item:active, 
+.dropdown-item:focus {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
 
 

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -13,11 +13,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     RouterLink
   ],
+  standalone: true
 })
 export class LoginComponent {
   @ViewChild('errorModal') errorModal!: TemplateRef<any>;
+  @ViewChild('selectUserTypeModal') selectUserTypeModal!: TemplateRef<any>;
   loginForm: FormGroup;
   modalMessage: string = '';
+  private tipoUsuario: 'professor' | 'aluno' | null = null;
   validCredentials = [
     { email: 'fernandadias@gmail.com', password: 'senha123' },
     { email: 'matheusoliveira@gmail.com', password: 'senha456' }
@@ -52,35 +55,62 @@ export class LoginComponent {
     );
   }
 
+  // Handler para tecla Enter
+  onEnterPressed() {
+    if (this.loginForm.valid) {
+      this.salvar();
+    }
+  }
+
   // Método principal de login
-  salvar() {
+  salvar(event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
+
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
-    if (this.validarCredenciais()) {
-      console.log('Login válido', this.loginForm.value);
-      // Aqui você pode redirecionar ou fazer outras ações
-    } else {
+    if (!this.validarCredenciais()) {
       this.mostrarErro('E-mail ou senha incorretos');
+      return;
+    }
+
+    // Se o tipo de usuário já foi definido (clicou em um botão específico)
+    if (this.tipoUsuario) {
+      this.redirecionarPorTipoUsuario();
+    } else {
+      // Se veio pelo Enter, mostra a modal de seleção
+      this.modalService.open(this.selectUserTypeModal, {
+        centered: true,
+        backdrop: 'static'
+      });
     }
   }
 
   // Métodos para login específico
   entrarComoProfessor() {
-    if (this.loginForm.valid && this.validarCredenciais()) {
-      this.router.navigate(['/home-professor']);
-    } else {
-      this.mostrarErro('Senha inválida');
-    }
+    this.tipoUsuario = 'professor';
+    this.salvar();
   }
 
   entrarComoAluno() {
-    if (this.loginForm.valid && this.validarCredenciais()) {
+    this.tipoUsuario = 'aluno';
+    this.salvar();
+  }
+
+  confirmarTipoUsuario(tipo: 'professor' | 'aluno') {
+    this.tipoUsuario = tipo;
+    this.redirecionarPorTipoUsuario();
+  }
+
+  private redirecionarPorTipoUsuario() {
+    if (this.tipoUsuario === 'professor') {
+      this.router.navigate(['/home-professor']);
+    } else if (this.tipoUsuario === 'aluno') {
       this.router.navigate(['/home-aluno']);
-    } else {
-      this.mostrarErro('Senha inválida');
     }
   }
 
@@ -93,24 +123,20 @@ export class LoginComponent {
     });
   }
 
-  // Métodos para login social (implementação básica)
+  // Métodos para login social
   loginWithGoogle() {
     console.log('Login com Google');
-    // Implementação real vai aqui
   }
 
   loginWithFacebook() {
     console.log('Login com Facebook');
-    // Implementação real vai aqui
   }
 
   loginWithLinkedIn() {
     console.log('Login com LinkedIn');
-    // Implementação real vai aqui
   }
 
   loginWithApple() {
     console.log('Login com Apple');
-    // Implementação real vai aqui
   }
 }
