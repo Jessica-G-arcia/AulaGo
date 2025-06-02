@@ -52,8 +52,8 @@ export class ProfessorHomeComponent implements OnInit {
   { name: 'Francês', flagUrl: 'flags/fr.png', available: false },
   { name: 'Alemão', flagUrl: 'flags/de.png', available: false },
   { name: 'Mandarim', flagUrl: 'flags/cn.png', available: false },
-  { name: 'Italiano', flagUrl: 'flags/it.png', available: false },
-  { name: 'Japonês', flagUrl: 'flags/jp.png', available: false }
+  { name: 'Italiano', flagUrl: 'flags/itl.png', available: false },
+  { name: 'Japonês', flagUrl: 'flags/jpn.png', available: false }
 ];
 
   top: Student[] = [

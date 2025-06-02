@@ -2,7 +2,7 @@
 
 a {
     text-align: center;
-    margin-top: 34px;
+    margin-top: 10px;
     color: black;
     font-family: 'montserrat', sans-serif;
 }
@@ -24,6 +24,12 @@ a {
 .nav-pills .show > .nav-link {
   background-color: transparent !important;
   color: black;
+}
+
+.dropdown-item:active, 
+.dropdown-item:focus {
+    background-color: transparent !important;
+    color: inherit !important;
 }
 
 
