@@ -132,7 +132,7 @@ export class ProfessorHomeComponent implements OnInit {
    
 
     {
-      name: 'Fernanda Costa',
+      name: 'Fabiana Costa',
       imageUrl: '/melhorAluno9.png',
       rating: 5,
       languages: 'Inglês',
