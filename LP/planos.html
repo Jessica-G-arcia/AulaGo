@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AulaGo - Planos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .montserrat {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 20;
+            font-style: normal;
+        }
+
+        /* Estilo para o menu colapsado */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: white !important;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: #212529 !important;
+                /* Texto preto */
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .navbar-dark .navbar-nav .nav-link:last-child {
+                border-bottom: none;
+            }
+
+            .navbar-toggler {
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+        }
+
+        /* Mantém o texto branco em telas grandes */
+        @media (min-width: 992px) {
+            .navbar-dark .navbar-nav .nav-link {
+                color: white !important;
+            }
+        }
+
+        .hero-section {
+            background-image: url('../LP/images/fundo_hero.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .professor-btn {
+            --bs-shadow: 0 10px 0 #D87300;
+            box-shadow: var(--bs-shadow), var(--bs-box-shadow);
+        }
+
+        .professor-btn:active {
+            --bs-shadow: 0 2px 0 #D87300;
+            transform: translateY(2px);
+        }
+
+        .aluno-btn {
+            --bs-shadow: 0 10px 0 #1A7B95;
+            box-shadow: var(--bs-shadow), var(--bs-box-shadow);
+        }
+
+        .aluno-btn:active {
+            --bs-shadow: 0 2px 0 #1A7B95;
+            transform: translateY(2px);
+        }
+
+        .feature-section {
+            background-image: url(../LP/images/fundo\ aulago.png);
+        }
+
+        .feature-card {
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .steps-section {
+            background-image: url(../LP/images/fundo\ jornada.png);
+        }
+
+        .benefits-section {
+            background-image: url(../LP/images/fundo\ aulago.png);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #FB8501;
+            font-weight: 500;
+        }
+
+        /* Estilos específicos para a página de planos */
+        .plans-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .plan-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+            /* Garante que o card ocupe toda a altura */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-header {
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        .professor-plan .plan-header {
+            background-color: #FB8501;
+        }
+
+        .aluno-plan .plan-header {
+            background-color: #219EBC;
+        }
+
+        .plan-body {
+            padding: 30px;
+            background-color: white;
+            flex-grow: 1;
+            /* Faz o corpo do card crescer para ocupar o espaço disponível */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            /* Espaço antes do botão */
+            flex-grow: 1;
+            /* Faz a lista de features ocupar o espaço disponível */
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-button {
+            margin-top: auto;
+            /* Empurra o botão para baixo */
+            width: 100%;
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        .benefits-table th,
+        .benefits-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .benefits-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .check-icon {
+            color: #28a745;
+            font-size: 1.5rem;
+        }
+
+        .user-type-selector {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .user-type-btn {
+            margin: 0 10px;
+            padding: 12px 30px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+        }
+
+        .active-professor {
+            background-color: #FB8501;
+            color: white;
+        }
+
+        .active-aluno {
+            background-color: #219EBC;
+            color: white;
+        }
+
+        .inactive {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        /* Garante que as linhas tenham a mesma altura */
+        .row-equal-height {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .row-equal-height>[class*='col-'] {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body class="montserrat">
+    <!-- Header -->
+    <header class="position-absolute w-100 py-3" style="z-index: 100;">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../LP/images/Logo-AulaGo.png" alt="AulaGo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#features">A AulaGo</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#steps">Como Funciona</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#benefits">Benefícios</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#who">Quem somos</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white text-lg-dark" href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Plans Section -->
+    <section class="plans-section" style="padding-top: 100px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h1 class="fw-bold mb-3">Escolha o plano perfeito para você</h1>
+                    <p class="lead">Maximize sua experiência na AulaGo com nossos planos exclusivos</p>
+                </div>
+            </div>
+
+            <!-- User Type Selector -->
+            <div class="user-type-selector">
+                <button id="professorBtn" class="user-type-btn active-professor">Sou Professor</button>
+                <button id="alunoBtn" class="user-type-btn inactive">Sou Aluno</button>
+            </div>
+
+            <!-- Professor Plans -->
+            <div id="professorPlans">
+                <div class="row row-equal-height">
+                    <div class="col-md-4 d-flex">
+                        <div class="plan-card professor-plan w-100">
+                            <div class="plan-header">
+                                <h3>Básico</h3>
+                                <p>Ideal para quem está começando</p>
+                            </div>
+                            <div class="plan-body">
+                                <div class="plan-price">Grátis</div>
+                                <ul class="plan-features">
+                                    <li>Perfil na plataforma</li>
+                                    <li>Até 30 aulas por mês</li>
+                                    <li>Taxa de 5% por aula</li>
+                                    <li>Suporte por e-mail das 8h às 17h</li>
+                                </ul>
+                                <button class="btn btn-outline-primary plan-button">Cadastre-se agora</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-flex">
+                        <div class="plan-card professor-plan w-100">
+                            <div class="plan-header">
+                                <h3>Intermediário</h3>
+                                <p>Para professores em crescimento</p>
+                            </div>
+                            <div class="plan-body">
+                                <div class="plan-price">R$49,90<span class="text-muted">/mês</span></div>
+                                <ul class="plan-features">
+                                    <li>Todos os benefícios do Básico</li>
+                                    <li>Até 60 aulas por mês</li>
+                                    <li>Prioridade no ranking</li>
+                                    <li>Suporte por e-mail e WhatsApp das 8h às 17h</li>
+                                </ul>
+                                <button class="btn btn-primary plan-button"
+                                    style="background-color: #FB8501; border-color: #FB8501;">Selecionar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-flex">
+                        <div class="plan-card professor-plan w-100">
+                            <div class="plan-header">
+                                <h3>Premium</h3>
+                                <p>Para professores dedicados</p>
+                            </div>
+                            <div class="plan-body">
+                                <div class="plan-price">R$89,90<span class="text-muted">/mês</span></div>
+                                <ul class="plan-features">
+                                    <li>Todos os benefícios do Intermediário</li>
+                                    <li>Aulas ilimitadas</li>
+                                    <li>Taxa reduzida (4%)</li>
+                                    <li>Destaque no ranking</li>
+                                    <li>Destaque na Home</li>
+                                    <li>Suporte 24/7</li>
+                                </ul>
+                                <button class="btn btn-primary plan-button"
+                                    style="background-color: #FB8501; border-color: #FB8501;">Selecionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Table for Professors -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h3 class="text-center mb-4">Comparativo de Benefícios para Professores</h3>
+                        <table class="benefits-table">
+                            <thead>
+                                <tr>
+                                    <th>Benefício</th>
+                                    <th>Básico</th>
+                                    <th>Intermediário</th>
+                                    <th>Premium</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Perfil na plataforma</td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Aulas/mês</td>
+                                    <td>30</td>
+                                    <td>60</td>
+                                    <td>Ilimitadas</td>
+                                </tr>
+                                <tr>
+                                    <td>Taxa por aula</td>
+                                    <td>5%</td>
+                                    <td>5%</td>
+                                    <td>4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Prioridade no ranking</td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Destaque no ranking</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Suporte por e-mail</td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Suporte prioritário</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Suporte 24/7</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Destaque na Home</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aluno Plans (hidden by default) -->
+            <div id="alunoPlans" style="display: none;">
+                <div class="row row-equal-height">
+                    <div class="col-md-4 d-flex">
+                        <div class="plan-card aluno-plan w-100">
+                            <div class="plan-header">
+                                <h3>Básico</h3>
+                                <p>Para quem está começando</p>
+                            </div>
+                            <div class="plan-body">
+                                <div class="plan-price">Grátis</div>
+                                <ul class="plan-features">
+                                    <li>Acesso básico à plataforma</li>
+                                    <li>Até 5 aulas por mês</li>
+                                    <li>Suporte por e-mail das 8h às 17h</li>
+                                </ul>
+                                <button class="btn btn-outline-primary plan-button">Cadastre-se agora</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-flex">
+                        <div class="plan-card aluno-plan w-100">
+                            <div class="plan-header">
+                                <h3>Intermediário</h3>
+                                <p>Para alunos comprometidos</p>
+                            </div>
+                            <div class="plan-body">
+                                <div class="plan-price">R$29,90<span class="text-muted">/mês</span></div>
+                                <ul class="plan-features">
+                                    <li>Todos os benefícios do Iniciante</li>
+                                    <li>Até 10 aulas por mês</li>
+                                    <li>Prioridade no agendamento</li>
+                                    <li>Suporte por WhatsApp</li>
+                                </ul>
+                                <button class="btn btn-primary plan-button"
+                                    style="background-color: #219EBC; border-color: #219EBC;">Selecionar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-flex">
+                        <div class="plan-card aluno-plan w-100">
+                            <div class="plan-header">
+                                <h3>Premium</h3>
+                                <p>Para máximo aprendizado</p>
+                            </div>
+                            <div class="plan-body">
+                                <div class="plan-price">R$59,90<span class="text-muted">/mês</span></div>
+                                <ul class="plan-features">
+                                    <li>Todos os benefícios do Intermediário</li>
+                                    <li>Aulas ilimitadas</li>
+                                    <li>Agendamento recorrente</li>
+                                    <li>Suporte 24/7</li>
+                                    <li>Destaque na Home</li>
+                                </ul>
+                                <button class="btn btn-primary plan-button"
+                                    style="background-color: #219EBC; border-color: #219EBC;">Selecionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Table for Alunos -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h3 class="text-center mb-4">Comparativo de Benefícios para Alunos</h3>
+                        <table class="benefits-table">
+                            <thead>
+                                <tr>
+                                    <th>Benefício</th>
+                                    <th>Iniciante</th>
+                                    <th>Intermediário</th>
+                                    <th>Premium</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Acesso à plataforma</td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Aulas/mês</td>
+                                    <td>5</td>
+                                    <td>10</td>
+                                    <td>Ilimitadas</td>
+                                </tr>
+                                <tr>
+                                    <td>Agendamento prioritário</td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Agendamento recorrente</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Suporte por e-mail</td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Suporte por WhatsApp</td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Suporte 24/7</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Destaque na Home</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="check-icon">✓</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="lead">Dúvidas sobre os planos? <a href="mailto:comercialaulago@gmail.com"
+                            target="_blank">Entre em contato conosco.</a></p>
+                    <a href="http://localhost:4200" target="_blank" class="btn btn-lg px-5 py-3 fw-bold mt-3"
+                        style="background-color: #FB8501; color: white;">Cadastre-se Agora</a>
+                    <div class="mt-5">
+                        <a href="index.html" class="text-decoration-none">↑ Voltar a Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 AulaGo - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Toggle between professor and aluno plans
+        document.getElementById('professorBtn').addEventListener('click', function () {
+            document.getElementById('professorPlans').style.display = 'block';
+            document.getElementById('alunoPlans').style.display = 'none';
+            document.getElementById('professorBtn').className = 'user-type-btn active-professor';
+            document.getElementById('alunoBtn').className = 'user-type-btn inactive';
+        });
+
+        document.getElementById('alunoBtn').addEventListener('click', function () {
+            document.getElementById('professorPlans').style.display = 'none';
+            document.getElementById('alunoPlans').style.display = 'block';
+            document.getElementById('professorBtn').className = 'user-type-btn inactive';
+            document.getElementById('alunoBtn').className = 'user-type-btn active-aluno';
+        });
+    </script>
+</body>
+
+</html>
