@@ -8,13 +8,14 @@
       <div class="professor-home-content">
         <main class="main-content">
           <section class="content-body">
-            <h2>Seja bem vinda, {{ welcomeName }}!</h2>
+            <h2>Seja bem-vindo(a), {{ welcomeName }}!</h2>
 
             <!-- Seção de Idiomas -->
             <section class="idiomas-section">
               <h3>Idiomas</h3>
               <div class="carousel-container">
                 <button class="carousel-arrow prev" (click)="previousLanguage()">&#10094;</button>
+                <a href="/buscar-prof" style="text-decoration: none;">
                 <div class="carousel-items languages">
                   <div *ngFor="let lang of visibleLanguages" class="language-card">
                     <div class="language-item" [ngClass]="{'unavailable': !lang.available}">
@@ -23,6 +24,7 @@
                     </div>
                   </div>
                 </div>
+                </a>
                 <button class="carousel-arrow next" (click)="nextLanguage()">&#10095;</button>
               </div>
             </section>

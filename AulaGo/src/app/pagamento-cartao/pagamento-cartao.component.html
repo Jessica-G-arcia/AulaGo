@@ -1,36 +1,65 @@
 <div class="card shadow-sm p-4 w-100 position-relative">
-
   <!-- Botão de Fechar -->
   <button type="button" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"
     (click)="fechar()"></button>
 
   <h4 class="mb-4">Pagamento com Cartão</h4>
 
-  <form>
+  <form #form="ngForm" name="formularioCartao" novalidate (ngSubmit)="concluirPagamento(form)">
+    <!-- Número do Cartão -->
     <div class="mb-3">
       <label for="numeroCartao" class="form-label">Número do Cartão</label>
-      <input type="text" class="form-control" id="numeroCartao" placeholder="0000 0000 0000 0000">
+      <input type="text" class="form-control" id="numeroCartao" name="numeroCartao" [(ngModel)]="numeroCartao"
+        (input)="formatarNumeroCartao()" #numeroCartaoRef="ngModel" placeholder="0000 0000 0000 0000" maxlength="19"
+        inputmode="numeric" required pattern="^(\d{4} ){3}\d{4}$" />
+      <div *ngIf="numeroCartaoRef.invalid && (numeroCartaoRef.touched || formSubmitAttempt)" class="text-danger mt-1">
+        <div *ngIf="numeroCartaoRef.errors?.['required']">O número do cartão é obrigatório.</div>
+        <div *ngIf="numeroCartaoRef.errors?.['pattern']">O número do cartão deve conter 16 dígitos no formato correto.
+        </div>
+      </div>
     </div>
 
+    <!-- Validade e CVV -->
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="validade" class="form-label">Validade</label>
-        <input type="text" class="form-control" id="validade" placeholder="MM/AA">
+        <input type="text" class="form-control" id="validade" name="validade" [(ngModel)]="validade"
+          (input)="formatarValidade()" placeholder="MM/AA" maxlength="5" required pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+          #validadeRef="ngModel" />
+        <div *ngIf="validadeRef.invalid && (validadeRef.touched || formSubmitAttempt)" class="text-danger mt-1">
+          <div *ngIf="validadeRef.errors?.['required']">A validade do cartão é obrigatória.</div>
+          <div *ngIf="validadeRef.errors?.['pattern']">A validade deve estar no formato MM/AA.</div>
+        </div>
       </div>
       <div class="col-md-6 mb-3">
         <label for="cvv" class="form-label">CVV</label>
-        <input type="text" class="form-control" id="cvv" placeholder="123">
+        <input type="text" class="form-control" id="cvv" name="cvv" [(ngModel)]="cvv" (input)="formatarCVV()"
+          placeholder="1234" maxlength="4" required pattern="^\d{3,4}$" #cvvRef="ngModel" />
+        <div *ngIf="cvvRef.invalid && (cvvRef.touched || formSubmitAttempt)" class="text-danger mt-1">
+          <div *ngIf="cvvRef.errors?.['required']">O código CVV é obrigatório.</div>
+          <div *ngIf="cvvRef.errors?.['pattern']">O código CVV deve conter 3 ou 4 dígitos.</div>
+        </div>
       </div>
     </div>
 
+    <!-- Nome do Titular -->
     <div class="mb-3">
       <label for="nomeTitular" class="form-label">Nome do Titular</label>
-      <input type="text" class="form-control" id="nomeTitular"
-        placeholder="Insira o nome do titular igual ao do cartão">
+      <input type="text" class="form-control" id="nomeTitular" name="nomeTitular" [(ngModel)]="nomeTitular"
+        placeholder="Insira o nome do titular igual ao do cartão" required maxlength="40"
+        pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" #nomeTitularRef="ngModel" />
+      <div *ngIf="nomeTitularRef.invalid && (nomeTitularRef.touched || formSubmitAttempt)" class="text-danger mt-1">
+        <div *ngIf="nomeTitularRef.errors?.['required']">O nome do titular é obrigatório.</div>
+        <div *ngIf="nomeTitularRef.errors?.['pattern']">O nome deve conter apenas letras e espaços, sem números ou
+          símbolos.</div>
+      </div>
     </div>
 
+    <!-- Botão -->
     <div class="d-flex justify-content-end mt-3">
-    <button (click)="concluirPagamento()" class="btn minha-cor-botao" >Concluir Pagamento</button>
-  </div>
+      <button type="submit" class="btn minha-cor-botao" [disabled]="form.invalid">
+        Concluir Pagamento
+      </button>
+    </div>
   </form>
 </div>
