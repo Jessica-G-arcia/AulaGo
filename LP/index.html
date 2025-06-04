@@ -550,19 +550,7 @@
                         Suporte.</p>
                 </div>
 
-                <h4 class="text-center mt-3">Nosso Compromisso</h4>
-                <p class="text-center" style="font-weight: 300; font-size: 16px;">
-                <ul class="text-start mb-3" style="font-weight: 300; font-size: 16px; margin-left: 5em; list-style: none;">
-                    <li>✨ Inovação com impacto: Usamos notificações em tempo real e design responsivo para criar uma
-                        experiência fluida.</li>
-                    <li>🌍 Impacto social: Facilitamos o acesso à educação e valorizamos o trabalho dos professores.
-                    </li>
-                    <li>🚀 Aprendizado contínuo: Assim como você, evoluímos a cada feedback, aplicando teoria na
-                        prática.</li>
-                </ul>
-                </p>
-                <p class="text-start mb-3" style="font-weight: 300; font-size: 16px; margin-left: 5em;">Junte-se a nós nessa missão!
-                </p>
+                
             </div>
         </div>
     </section>
@@ -690,6 +678,72 @@
             <p class="mb-0">© 2025 AulaGo - Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Modal de Oferta -->
+<div class="modal fade" id="premiumOfferModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <h3 class="fw-bold mb-3" style="color: #FB8501;">Não vá embora ainda!</h3>
+                <p class="lead">Ganhe 3 meses de Plano Premium grátis para experimentar todos os benefícios da AulaGo.</p>
+                
+                <form id="popupOfferForm" class="mt-4">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Seu nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Seu e-mail" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" style="background-color: #219EBC; border: none;">
+                            QUERO MEU PLANO GRÁTIS
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-4">
+                    <img src="../LP/images/Logo-AulaGo.png" alt="AulaGo" height="40">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var modal = new bootstrap.Modal(document.getElementById('premiumOfferModal'));
+        var modalShown = false;
+        
+        // Configuração para restaurar o scroll quando o modal fechar
+        document.getElementById('premiumOfferModal').addEventListener('hidden.bs.modal', function () {
+            document.body.style.overflow = 'auto';
+            document.body.style.paddingRight = '0';
+        });
+        
+        // Detecta a intenção de sair
+        document.addEventListener('mouseout', function(e) {
+            // Verifica se o mouse está saindo para o topo da janela
+            if (!e.toElement && !e.relatedTarget && e.clientY < 10 && !modalShown) {
+                modal.show();
+                modalShown = true;
+                
+                // Remove o event listener após mostrar o modal uma vez
+                document.removeEventListener('mouseout', arguments.callee);
+            }
+        });
+        
+        // Opcional: Mostrar após 30 segundos se não tiver mostrado ainda
+        setTimeout(function() {
+            if (!modalShown) {
+                modal.show();
+                modalShown = true;
+            }
+        }, 30000);
+    });
+</script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
