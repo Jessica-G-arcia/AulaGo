@@ -11,12 +11,11 @@
         <div class="row g-2 mx-lg-5 ">
 
             <div class="col-md-6 needs-validation">
-                <label for="cpf" class="form-label">Nome Completo</label>
+                <label for="nome" class="form-label">Nome Completo</label>
                 <input type="text" class="form-control" id="nome" formControlName="nome"
                     placeholder="Digite seu nome completo" required>
                 <div *ngIf="form.get('nome')?.invalid && (form.get('nome')?.dirty || form.get('nome')?.touched)"
                     class="text-danger">
-
                     <div *ngIf="form.get('nome')?.errors?.['required']">
                         Por favor, digite um nome válido.
                     </div>
@@ -25,26 +24,32 @@
 
             <div class="col-md-6 needs-validation">
                 <label for="cpf" class="form-label">CPF</label>
-                <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="000.000.000-00"
-                    required>
+                <input type="text" class="form-control" id="cpf" formControlName="cpf" 
+                    placeholder="000.000.000-00" maxlength="14"
+                    (input)="formatarCPF($event)" required>
                 <div *ngIf="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched)"
                     class="text-danger">
-
                     <div *ngIf="form.get('cpf')?.errors?.['required']">
                         Por favor, digite o CPF.
                     </div>
-
+                    <div *ngIf="form.get('cpf')?.errors?.['cpfInvalido']">
+                        CPF inválido.
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-4 needs-validation">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" class="form-control" id="telefone" formControlName="telefone" placeholder="(  )"
-                    required>
+                <input type="text" class="form-control" id="telefone" formControlName="telefone" 
+                    placeholder="(11) 91234-5678" maxlength="15"
+                    (input)="formatarTelefone($event)" required>
                 <div *ngIf="form.get('telefone')?.invalid && (form.get('telefone')?.dirty || form.get('telefone')?.touched)"
                     class="text-danger">
                     <div *ngIf="form.get('telefone')?.errors?.['required']">
                         Por favor, digite um número de telefone válido.
+                    </div>
+                    <div *ngIf="form.get('telefone')?.errors?.['telefoneInvalido']">
+                        Telefone deve ter 10 ou 11 dígitos.
                     </div>
                 </div>
             </div>
@@ -93,13 +98,11 @@
                 </div>
             </div>
 
-
-
             <div class="col-sm-3">
                 <label for="genero" class="form-label">Gênero</label>
                 <select type="text" class="form-select" id="genero" formControlName="genero" required>
                     <option value="">Selecione</option>
-                    <option *ngFor="let g of generos" [value]="g">{{ g.nome }}</option>
+                    <option *ngFor="let g of generos" [value]="g.valor">{{ g.nome }}</option>
                 </select>
                 <div *ngIf="form.get('genero')?.invalid && (form.get('genero')?.dirty || form.get('genero')?.touched)"
                     class="text-danger">
@@ -112,14 +115,20 @@
             <div class="row"></div>
             <div class="col-sm-2 needs-validation">
                 <label for="cep" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="cep" formControlName="cep" placeholder="00000-00" required>
+                <input type="text" class="form-control" id="cep" formControlName="cep" 
+                    placeholder="00000-000" maxlength="9"
+                    (input)="formatarCEP($event)" required>
                 <div *ngIf="form.get('cep')?.invalid && (form.get('cep')?.dirty || form.get('cep')?.touched)"
                     class="text-danger">
                     <div *ngIf="form.get('cep')?.errors?.['required']">
                         Por favor, digite o CEP.
                     </div>
+                    <div *ngIf="form.get('cep')?.errors?.['cepInvalido']">
+                        CEP deve ter 8 dígitos.
+                    </div>
                 </div>
             </div>
+            
             <div class="col-sm-2 needs-validation">
                 <label for="cidade" class="form-label">Cidade</label>
                 <input type="text" class="form-control" id="cidade" formControlName="cidade"
@@ -127,7 +136,7 @@
                 <div *ngIf="form.get('cidade')?.invalid && (form.get('cidade')?.dirty || form.get('cidade')?.touched)"
                     class="text-danger">
                     <div *ngIf="form.get('cidade')?.errors?.['required']">
-                        Por favor, digite o CEP.
+                        Por favor, digite a cidade.
                     </div>
                 </div>
             </div>
@@ -204,8 +213,6 @@
                 </div>
             </div>
 
-
-
             <div class="row"></div>
             <div class="col-sm-6 needs-validation">
                 <div class="mb-3">
@@ -233,7 +240,6 @@
                         <div *ngIf="form.get('confirmarSenha')?.errors?.['required']">
                             Por favor, confirme a senha.
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -267,5 +273,4 @@
             class="btn btn-custom-cadastro w-50 rounded-pill" [disabled]="!form.valid"> Cadastrar
         </button>
     </div>
-
 </div>
