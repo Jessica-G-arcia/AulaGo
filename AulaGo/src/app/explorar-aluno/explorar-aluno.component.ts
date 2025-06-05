@@ -58,7 +58,7 @@ export class ExplorarAlunoComponent {
           rating: 5,
           idioma: 'Inglês',
           modalidade: 'Hibrido',
-          valorHora: 'R$ 50,00',
+          valorHora: 'R$ 90,00',
           metodologia: 'Conversação',
           distancia: '1.2km',
           foto: 'fernanda.png'
@@ -82,7 +82,7 @@ export class ExplorarAlunoComponent {
           rating: 4,
           idioma: 'Inglês',
           modalidade: 'Presencial',
-          valorHora: 'R$ 60,00',
+          valorHora: 'R$ 90,00',
           metodologia: 'Gramática e conversação',
           distancia: '5km',
           foto: 'prof_lucas.png'
@@ -94,7 +94,7 @@ export class ExplorarAlunoComponent {
           rating: 4,
           idioma: 'Inglês',
           modalidade: 'Hibrido',
-          valorHora: 'R$ 50,00',
+          valorHora: 'R$ 100,00',
           metodologia: 'Conversação do dia a dia',
           distancia: '4,5km',
           foto: 'prof_rafael.png'
@@ -106,7 +106,7 @@ export class ExplorarAlunoComponent {
           rating: 3,
           idioma: 'Inglês',
           modalidade: 'Hibrido',
-          valorHora: 'R$ 55,00',
+          valorHora: 'R$150,00',
           metodologia: 'Inglês para negócios',
           distancia: '6km',
           foto: 'prof_amanda.png'
@@ -130,7 +130,7 @@ export class ExplorarAlunoComponent {
           rating: 4,
           idioma: 'Inglês',
           modalidade: 'Presencial',
-          valorHora: 'R$ 65,00',
+          valorHora: 'R$ 165,00',
           metodologia: 'Gramatica e leitura avançada',
           distancia: '2.9km',
           foto: 'prof_Helena.png'
@@ -142,7 +142,7 @@ export class ExplorarAlunoComponent {
           rating: 4,
           idioma: 'Inglês',
           modalidade: 'Presencial',
-          valorHora: 'R$ 70,00',
+          valorHora: 'R$ 170,00',
           metodologia: 'Gramática',
           distancia: '3.7km',
           foto: 'professor_leo.png'

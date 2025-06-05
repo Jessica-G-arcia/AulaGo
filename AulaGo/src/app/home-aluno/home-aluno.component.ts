@@ -54,43 +54,43 @@ export class HomeAlunoComponent implements OnInit {
       authorQuote: 'Pedro Almeida'
     },
     {
-      name: 'Carlos Mendes',
-      imageUrl: 'assets/teachers/carlos-mendes.jpg', // Placeholder, create this image
-      languages: ['Inglês'],
-      rating: 5, // Example with fewer stars
-      quote: 'Muito atencioso e explica com clareza.',
-      authorQuote: 'Fernanda Oliveira'
-    },
-    {
       name: 'Ana Ribeiro',
-      imageUrl: 'assets/teachers/ana-ribeiro.jpg',
+      imageUrl: '/profaAnaRibeiro.png',
       languages: ['Inglês'],
       rating: 4,
-      quote: 'Sempre muito paciente e dedicada.',
+      quote: 'A Profa. Ana é incrível, sempre tive dificuldade em aprender inglês e com ela fica tudo mais fácil.',
       authorQuote: 'Lucas Santos'
     },
     {
+      name: 'Carlos Mendes',
+      imageUrl: '/profCarlosMendes.png', // Placeholder, create this image
+      languages: ['Inglês'],
+      rating: 5, // Example with fewer stars
+      quote: 'Prof. Carlos é Muito atencioso, tem uma ótima ditática e explica com clareza.',
+      authorQuote: 'Fernanda Oliveira'
+    },
+    {
       name: 'Bruno Costa',
-      imageUrl: 'assets/teachers/bruno-costa.jpg',
+      imageUrl: 'profBrunoCosta.png',
       languages: ['Inglês'],
       rating: 4,
-      quote: 'Excelente professor, didática impecável.',
+      quote: 'Prof. Bruno é um excelente professor, sua vivência no exterior torna a aula cada dia mais interessante.',
       authorQuote: 'Mariana Lima'
     },
     {
       name: 'Camila Freitas',
-      imageUrl: 'assets/teachers/camila-freitas.jpg',
+      imageUrl: '/profaCamilaFreitas.png',
       languages: ['Inglês'],
       rating: 5,
-      quote: 'Muito organizada e torna o aprendizado fácil.',
+      quote: 'Profa. Cami é muito organizada, tem muito domínio da vivência corporativa, é exatamente o que eu busco!.',
       authorQuote: 'Rafael Souza'
     },
     {
       name: 'Daniel Oliveira',
-      imageUrl: 'assets/teachers/daniel-oliveira.jpg',
+      imageUrl: '/profDaniel.png',
       languages: ['Inglês'],
       rating: 5,
-      quote: 'Explica com clareza e muito carismático.',
+      quote: 'Prof. Daniel explica com clareza, é muito carismático e tem uma didática impecável!',
       authorQuote: 'Juliana Pereira'
     },
     {

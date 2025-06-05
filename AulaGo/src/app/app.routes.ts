@@ -25,6 +25,7 @@ import { EditarPerfilAlunoComponent } from './editar-perfil-aluno/editar-perfil-
 import { BuscarProfComponent } from './buscar-prof/buscar-prof.component';
 import { ExplorarAlunoComponent } from './explorar-aluno/explorar-aluno.component';
 import { PerfilProfessorComponent } from './perfil-professor/perfil-professor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 export const routes: Routes = [
@@ -55,6 +56,7 @@ export const routes: Routes = [
     {path: 'editar-perfil-prof', component: EditarPerfilProfComponent},
     {path: 'editar-perfil-aluno', component: EditarPerfilAlunoComponent},
     {path: 'perfil-professor', component: PerfilProfessorComponent},
+    {path: 'dashboard', component: DashboardComponent},
 
     // {path: '**', component: }, 
 

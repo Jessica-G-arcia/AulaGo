@@ -21,6 +21,7 @@ h2 {
   color: black;
   text-align: center;
   margin-top: 0.5rem;
+  margin-bottom: 3rem;
 }
 
 .idiomas-section h3 {
@@ -28,35 +29,7 @@ h2 {
   font-weight: normal;
   color: black;
   margin-bottom: 0rem;
-  padding-left: 92px;
-}
-
-.language-card {
-  background-color: white;
-  border-radius: 5px;
-  padding: 15px;
-  min-width: 190px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease-in-out;
-}
-
-.language-card:hover {
-  transform: translateY(-5px);
-}
-
-.language-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.language-item.unavailable img {
-  opacity: 0.4;
-  filter: grayscale(20%);
-}
-
-.language-item.unavailable span {
-  opacity: 0.5;
+  padding-left: 70px;
 }
 
 .top-alunos-section h3 {
@@ -64,7 +37,7 @@ h2 {
   font-weight: normal;
   color: black;
   margin-bottom: 0.7rem;
-  padding-left: 95px;
+  padding-left: 70px;
 }
 
 .aulas-hoje-section h3 {
@@ -72,7 +45,7 @@ h2 {
   font-weight: normal;
   color: black;
   margin-bottom: 0rem;
-  padding-left: 102px;
+  padding-left: 70px;
 }
 
 /* Estilos Gerais dos Carrosséis */
@@ -122,8 +95,30 @@ h2 {
 }
 
 /* Seção Idiomas */
+.language-item.unavailable img {
+  opacity: 0.4;
+  filter: grayscale(20%);
+}
+
+.language-item.unavailable span {
+  opacity: 0.5;
+}
+
 .idiomas-section .carousel-items {
   gap: 20px;
+}
+
+.language-card {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 165px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.language-card:hover {
+  transform: translateY(-5px);
 }
 
 .language-item {
@@ -157,10 +152,10 @@ h2 {
   border-radius: 12px;
   padding: 20px 70px;
   display: flex;
-  width: 1010px;
+  width: 910px;
   height: 250px;
   position: relative;
-  margin-left: 92px;
+  margin-left: 62px;
   overflow: hidden;
 }
 
@@ -218,7 +213,7 @@ h2 {
 }
 
 .student-info blockquote {
-   font-size: 1rem;
+  font-size: 1rem;
   padding-left: 25px;
   line-height: 1.4;
   color: black;
