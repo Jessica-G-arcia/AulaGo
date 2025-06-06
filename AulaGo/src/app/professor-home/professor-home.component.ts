@@ -144,32 +144,32 @@ export class ProfessorHomeComponent implements OnInit {
 
   todaysClasses: Class[] = [
     {
-      studentName: 'Lucas Marques',
+      studentName: 'Carlos Silva',
       location: 'Sorocaba - SP',
-      time: '8:00 às 9:00',
+      time: '14:00 às 15:00',
       type: 'Presencial',
-      date: '28/04/2025'
+      date: '06/06/2025'
     },
     {
-      studentName: 'Ana Clara',
+      studentName: 'Ana Paula',
       location: 'Sorocaba - SP',
-      time: '9:30 às 10:30',
+      time: '15:30 às 16:30',
       type: 'Online',
-      date: '28/04/2025'
+      date: '06/06/2025'
     },
     {
       studentName: 'Pedro Santos',
       location: 'São Paulo - SP',
-      time: '14:00 às 15:00',
+      time: '16:30 às 17:30',
       type: 'Online',
-      date: '28/04/2025'
+      date: '06/06/2025'
     },
     {
       studentName: 'Juliana Silva',
       location: 'Sorocaba - SP',
-      time: '16:30 às 17:30',
+      time: '19:00 às 20:30',
       type: 'Presencial',
-      date: '28/04/2025'
+      date: '06/06/2025'
     }
   ];
 

@@ -46,6 +46,22 @@ export class AgendaComponent implements OnInit {
       aluno: 'Ana Paula',
       modalidade: 'Online',
       idioma: 'Inglês'
+    },
+    {
+      id: 4,
+      dataInicio: this.criarData(0, 16, 30),
+      dataFim: this.criarData(0, 17, 30),
+      aluno: 'Pedro Santos',
+      modalidade: 'Online',
+      idioma: 'Inglês'
+    },
+    {
+      id: 5,
+      dataInicio: this.criarData(0, 19, 0),
+      dataFim: this.criarData(0, 20, 30),
+      aluno: 'Juliana Silva',
+      modalidade: 'Presencial',
+      idioma: 'Inglês'
     }
   ];
 
